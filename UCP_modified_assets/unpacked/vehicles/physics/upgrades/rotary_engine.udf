@@ -1,0 +1,37 @@
+// Rotary Engine upgrade file. T1 Works cars or low HP T1 cars
+
+//New Individual Moray Upgrades. Total power increase at level 4 additive is 75%
+
+ID=Intake  // Intake upgrade. 7.5% max increase
+RPMTorque000=(1.0,1.075,0,4) // 
+RPMTorque025=(1.0,1.075,0,4)
+RPMTorque050=(1.0,1.075,0,4)
+RPMTorque075=(1.0,1.075,0,4)
+RPMTorque100=(1.0,1.075,0,4)
+
+ID=Exhaust  // Exhaust upgrade. 10.5% max increase
+RPMTorque000=(1.0,1.105,0,4) // 
+RPMTorque025=(1.0,1.105,0,4)
+RPMTorque050=(1.0,1.105,0,4)
+RPMTorque075=(1.0,1.105,0,4)
+RPMTorque100=(1.0,1.105,0,4)
+
+ID=FuelDelivery  // Pumps/Inj/Software Modern / Manifolds and Carbs Classic. Gui Text difference only. 10.5% max increase
+RPMTorque000=(1.0,1.105,0,4) // 
+RPMTorque025=(1.0,1.105,0,4)
+RPMTorque050=(1.0,1.105,0,4)
+RPMTorque075=(1.0,1.105,0,4)
+RPMTorque100=(1.0,1.105,0,4)
+
+ID=Block  // Rotor housing porting. 24% max increase
+RPMTorque000=(1.0,1.20,0,4) // 
+RPMTorque025=(1.0,1.20,0,4)
+RPMTorque050=(1.0,1.20,0,4)
+RPMTorque075=(1.0,1.22,0,4)
+RPMTorque100=(1.0,1.24,0,4)
+RevLimitRangeX=(1.0,1.05,2,4) // 10% Rev limit increase over the last 3 upgrades. Aprox 700rpm total for a 7000 rpm stock engine
+LifetimeEngineRPMX=(1.0,1.15,2,4)
+
+ID=Flywheel  // Flywheel inertial upgrade. 40% max decrease
+EngineInertia=(1.0,.95,0,4) // reduce engine inertia 15% over 4 upgrades
+

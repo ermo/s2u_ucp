@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Each detachable component currently supports 2 levels of damage. -->
+<!-- (damage mapping: no impact = 0.0, straight head-to-wall 50m/s (180km/h, 110mph) impact = 1.0) -->
+<!--   - 'damaged' amount of damage component can sustain before it starts flapping -->
+<!--   - 'removed' amount of damage component can sustain before it completely breaks off of vehicle body -->
+
+<!-- entry(ies) vs. components are matched using case insensitive substring matching (keep them unique!). -->
+<!-- You can find component names in Vehicles/Physics/Collision/<carname>.xml as ShapeDesc objects Name entry -->
+<!-- For unmatched components, default entry values (entry without substring) are used. -->
+
+<!-- Default entry has to have all levels specified. -->
+<!-- Entries containing substring can override only levels they wish (default entry values will be used for others) -->
+
+<rules>
+  <!-- Substring matching entries: -->
+  <entry substring="BONNET" damaged="0.975" removed="1.30" />
+  <entry substring="BOOT" damaged="0.975" removed="1.95" />
+
+  <entry substring="BUMPER_F" damaged="0.87" removed="1.95" />
+  <entry substring="BUMPER_R" damaged="0.65" removed="1.625" />
+
+
+  <!-- Mirrors don't have joints, so they are never flapping.                    -->
+  <!-- Limits for damage and removal can be therefore equal.                     -->
+  <!--                                                                           -->
+  <!-- NOTE: Limits should remain like this to allow post-detach kick to mirror. -->
+  <!-- Otherwise it might remain hanging in the air (at the place of detach).    -->
+  <entry substring="MIRROR" damaged="0.2" removed="0.2" />
+  <entry substring="POPUP" damaged="0.25" removed="0.25" /> 
+  <entry substring="WING" damaged="0.2" removed="0.2" />
+
+  <!-- Default entry: -->
+  <entry damaged="0.5" removed="1.0" />
+</rules>  

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LODCONTROL entries="37">
+	<ENTRY substring="Gen_CornerCone" LODA="500.0" LODB="1000.0" />
+	<ENTRY substring="TREE" LODA="750.0" LODB="2000.0" />
+        <ENTRY substring="BUSH" LODA="400.0" LODB="2000.0" />
+	<ENTRY substring="PLANT" LODA="300.0" LODB="700.0" />
+        <ENTRY substring="BHO" LODA="150.0" />
+	<ENTRY substring="gen_car" LODA="50.0" LODB="900.0" />
+	<ENTRY substring="gen_tent" LODA="900.0" />
+        <ENTRY substring="Gen_Tyre" LODA="250.0" LODB="400.0" LODC="650" />
+	<ENTRY substring="Gen_Vendor" LODA="65.0" LODB="600.0" />
+	<ENTRY substring="EVENT_flag" LODA="150.0" LODB="400.0" />
+	<ENTRY substring="DynAd_" LODA="800.0" LODB="1000.0" />
+	<ENTRY substring="EVENT_billboard01" LODA="100.0" LODB="750.0" LODC="1000.0" />
+	<ENTRY substring="EVENT_billboard02" LODA="250.0" LODB="750.0" LODC="1000.0" />
+	<ENTRY substring="EVENT_billboard" LODA="800.0" LODB="900.0" LODC="1000.0" />
+	<ENTRY substring="EVENT_minibillboard" LODA="550.0" />
+	<ENTRY substring="event_tentbanner" LODA="550.0" LODB="750" />
+	<ENTRY substring="EVENT_tent" LODA="150.0" LODB="750" />
+	<ENTRY substring="EVENT_tentroof" LODA="550.0" />
+	<ENTRY substring="EVENT_video" LODA="550.0" LODB="750" LODC="1000.0" />
+	<ENTRY substring="EVENT_start" LODA="550.0" />
+	<ENTRY substring="EVENT_chequered" LODA="550.0" />
+	<ENTRY substring="event_adverttraverse" LODA="80.0" LODB="750.0" />
+	<ENTRY substring="EVENT_advert" LODA="550.0" />
+	<ENTRY substring="EVENT_stage" LODA="700.0" />
+	<ENTRY substring="EVENT_truck" LODA="150.0" LODB="750.0" LODC="1000.0" />
+	<ENTRY substring="EVENT_scaffoldtower" LODA="200.0" LODB="700" />
+	<ENTRY substring="event_helter_skelter_tower" LODA="550" LODB="800" />
+	<ENTRY substring="EVENT_merchandise" LODA="120.0" LODB="700" />
+	<ENTRY substring="EVENT_banner" LODA="120.0" LODB="650" />
+	<ENTRY substring="EVENT_car" LODA="400.0" />
+	<ENTRY substring="EVENT_LCD" LODA="400.0" LODB="750.0" LODC="1000.0" />
+	<ENTRY substring="EVENT_vertical_billboard" LODA="550.0" />
+	<ENTRY substring="event_vertical_banner" LODA="550.0" LODB="750.0" LODC="1000.0" />
+	<ENTRY substring="event_finish" LODA="550.0" LODB="750.0" LODC="1000.0" />
+	<ENTRY substring="Dyn_E_Brakemarker" LODA="400.0" LODB="800.0" LODC="1000.0" />
+	<ENTRY substring="UK_TrafficCone1" LODA="500.0" LODB="800.0" LODC="1000.0" />
+	<ENTRY LODA="100.0" LODB="750.0" LODC="1000.0" />
+</LODCONTROL>
+  

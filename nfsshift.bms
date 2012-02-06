@@ -1,0 +1,176 @@
+# Slightly Mad Studios BFF archives (script 0.1.4a)
+#   Need for Speed: Shift
+#   Need for Speed: Shift 2
+#   Project Cars
+# script for QuickBMS http://quickbms.aluigi.org
+
+endian big
+idstring "PAK " # automatic endian
+goto 0
+getdstring PAK_SIGN 4
+get VERSION long
+math VERSION &= 0xff
+get FILES long
+
+goto 0x118
+get X118 long
+goto 0x120
+get X120 long
+math X120 -= 0x308
+goto 0x12d
+get X12d byte
+
+if X12d == 1
+    print "X12d equal to %X12d% has not been tested, contact me"
+    cleanexit
+endif
+
+set PCARS_NUM long 0
+if VERSION == 4
+    # lame scanner for Project Cars, sorry...
+    if PAK_SIGN == "PAK "
+        math TMP_OFF = 0x8
+    else
+        math TMP_OFF = 0xc
+    endif
+    for PCARS_NUM = 0 < 0x16
+        callfunction X12dset 1
+        log MEMORY_FILE 0x130 0x10
+        getvarchr ZERO MEMORY_FILE TMP_OFF long
+        if ZERO == 0
+            break
+        endif
+    next PCARS_NUM
+endif
+
+callfunction X12dset 1
+log MEMORY_FILE 0x130 X118
+
+if VERSION == 4 # Project Cars
+    # names are not supported because they use a boring
+    # and chaotic obfuscation method (no rc4), if one
+    # day I will have time and desire maybe I will look
+    # at them
+    set X120OFFSET long 0
+else
+    callfunction X12dset 1
+    set X120OFFSET long 0x438
+    math X120OFFSET += X118
+    log MEMORY_FILE2 X120OFFSET X120
+endif
+
+goto 0 MEMORY_FILE
+for i = 0 < FILES
+    encryption "" ""    # reset here instead to do it after each *log
+
+    get DUMMY   long MEMORY_FILE
+    get DUMMY   long MEMORY_FILE
+    get OFFSET  longlong MEMORY_FILE
+    get ZSIZE   long MEMORY_FILE
+    get SIZE    long MEMORY_FILE
+    get DUMMY   long MEMORY_FILE
+    get DUMMY   long MEMORY_FILE
+    get TYPE    byte MEMORY_FILE
+    get DUMMY   byte MEMORY_FILE
+    get CRC     long MEMORY_FILE
+    get FILEEXT long MEMORY_FILE
+
+    if X120OFFSET != 0
+        get NAMEOFF longlong MEMORY_FILE2
+        get DUMMY   long MEMORY_FILE2
+        get DUMMY   long MEMORY_FILE2
+        savepos TMP MEMORY_FILE2
+        math NAMEOFF -= X120OFFSET
+        goto NAMEOFF MEMORY_FILE2
+        get NAMESZ  byte MEMORY_FILE2
+        getdstring  NAME NAMESZ MEMORY_FILE2
+        goto TMP MEMORY_FILE2
+    else
+        set EXT string ""
+        putvarchr EXT 0 FILEEXT byte
+        math FILEEXT >>= 8
+        putvarchr EXT 1 FILEEXT byte
+        math FILEEXT >>= 8
+        putvarchr EXT 2 FILEEXT byte
+        math FILEEXT >>= 8
+        putvarchr EXT 3 FILEEXT byte
+        string NAME p= "%08x.%s" OFFSET EXT
+    endif
+
+    callfunction X12dset 1
+    if TYPE == 0
+        log NAME OFFSET SIZE
+    elif TYPE == 1
+        comtype zlib
+        clog NAME OFFSET ZSIZE SIZE
+    elif TYPE == 2
+        comtype XMemDecompress
+        clog NAME OFFSET ZSIZE SIZE
+    else
+        print "TYPE equal to %TYPE% has not been tested, contact me"
+        cleanexit
+    endif
+next i
+
+startfunction X12dset
+    if X12d == 1    # ignored at the moment
+        math TMPSZ += 0xf
+        math TMPSZ &= 0xfffffff0
+    endif
+    if X12d == 2
+        encryption rc4 "@lLy0urRaC3ar3bE"
+    endif
+    if VERSION == 4 # Project Cars
+        callfunction PROJECTCARS_KEY 1
+    endif
+endfunction
+
+startfunction PROJECTCARS_KEY
+    math PCARS_OFF = PCARS_NUM
+    math PCARS_OFF *= 0x1b
+    set MEMORY_FILE3 binary "\xfe\xb5\xaa\xe7\x8b\xe2\xcc\xb1\xd8\x9e\xa3\xe0\xde\xbf\xbf\x87\x00\x57\x4f\x66\x59\x34\x71\x53\x30\x4b\x00\x99\xaf\xda\x8f\x92\xcd\xf1\xa2\xdc\x94\x9b\xaa\x94\xf2\xce\xca\xed\xf2\xe4\x00\x65\x39\x45\x51\x2b\x3f\x00\xf6\x9a\xd1\x9f\xad\xe0\x87\xe3\xbd\xd1\x86\xfc\xed\x84\xf9\xdf\xb4\xba\xe1\xa8\xe5\xd8\xf2\xff\x00\x70\x00\x9d\x8f\xca\x9e\x85\xea\xdc\xf6\xaa\xe2\x9c\xc6\xce\x97\xae\x91\x96\xf5\xda\xf2\xa4\x84\x00\x65\x32\x72\x00\xc0\x93\xd8\xd7\xf0\xa2\xc5\xec\xa3\xc2\xe4\xb2\xce\xec\xdf\xc1\x8a\x00\x51\x41\x2b\x65\x70\x65\x74\x3f\x00\xe5\x89\xe7\xfd\x86\xdc\xc3\xa2\xc9\xe8\xb2\xd1\xeb\xbb\xb9\x84\x89\xa5\xd8\x00\x35\x73\x50\x41\x2a\x75\x00\xd8\x9d\xa7\xcb\x81\xaa\x84\xe0\xfd\x9c\xb5\xcf\x84\xaa\xe0\x99\x85\x00\x72\x65\x4a\x65\x73\x35\x45\x53\x00\xde\xef\xce\xef\x82\xa6\x94\xf3\xdc\x94\xe4\xe4\xd1\xbf\xd1\x93\x00\x68\x75\x57\x52\x75\x6b\x45\x64\x72\x00\xef\x8d\xe3\xf6\xf4\xc9\xeb\x9c\xbe\xf3\xb2\xa0\xda\x88\xf3\xde\x95\xbc\xe6\x9f\x00\x75\x21\x65\x52\x65\x00\xd2\x91\xeb\xe3\x96\xc0\xd6\xb1\xe9\xfe\xa8\xe3\xe1\xaa\xab\xf0\x97\xd1\xda\xa9\xd0\xe3\xe9\xbc\xec\x00\x00\x9b\xb5\xe8\xd8\xf7\xf1\xc3\x8c\xd3\x98\xb5\xc0\xd4\xb7\xe6\xf5\x8a\xf4\x92\xf4\xe9\xc3\xaa\x00\x2a\x33\x00\xd4\x80\xb2\x86\xe0\xbe\xe3\xf5\xe8\xcc\xbf\xc7\xdf\xf8\xf5\xfd\x96\xbd\x8b\x83\xf3\x00\x74\x68\x65\x3f\x00\x89\x82\xc4\xdb\xab\xb2\xc1\xf0\xcf\x92\xfd\xa2\xed\x93\xc9\xeb\xfe\xf1\xe8\xef\xa2\x00\x55\x70\x2b\x73\x00\x92\x89\xfa\xcd\x91\xd4\xd1\xb7\xec\x87\xbf\xec\xcf\x9e\xcd\xfc\xf4\x00\x42\x72\x45\x5a\x65\x6a\x61\x77\x00\xdf\xaf\xfe\xfb\x8f\xa5\x9d\xec\xf6\xe9\xa1\xc6\xc6\x8d\xeb\xd5\x00\x53\x57\x65\x70\x52\x65\x64\x72\x65\x00\xd6\xb4\xbf\xf1\x85\xe3\xf9\xa9\xaf\xcc\xe9\xa0\xe3\x95\xd8\x85\xbb\xaa\xe7\xee\x00\x23\x55\x70\x23\x53\x00\xd7\xa8\xd5\xea\xeb\xa6\xe6\x8f\xae\xf2\x91\xac\xdd\xf4\xa0\x82\xb9\xb5\x87\x8d\xab\x9d\xea\xd8\x9b\x00\x00\x88\xb1\xc8\xfa\xfe\xf3\xcf\xbd\xc0\xe0\xa3\xda\xd7\xec\xe9\xd0\xb3\xd0\xe5\xa0\xfb\xe1\xf1\xfd\x99\x00\x00"
+
+    goto PCARS_OFF MEMORY_FILE3
+    getdstring PCARS_KEY 0x1b MEMORY_FILE3
+    strlen PCARS_KEYSZ PCARS_KEY
+
+    # xor 0x1b and 3 are multiples so no need of byte per byte xor
+    encryption xor "\xac\xc7\x91"
+    get TMP asize MEMORY_FILE3
+    log MEMORY_FILE3 0 TMP MEMORY_FILE3
+
+    # reverse short
+    math j = PCARS_OFF
+    for x = PCARS_KEYSZ > 1
+        getvarchr TMP MEMORY_FILE3 j short
+        reverseshort TMP
+        putvarchr MEMORY_FILE3 j TMP short
+        math j += 2
+        math x -= 2
+    next
+
+    # get key
+    goto PCARS_OFF MEMORY_FILE3
+    getdstring PCARS_KEY PCARS_KEYSZ MEMORY_FILE3
+
+    # encryption key
+    encryption rc4 PCARS_KEY "" 0 PCARS_KEYSZ
+
+    #other pre-built keys used somewhere else:
+    #encryption rc4 "QgT~(x/x}yON{0Db02,M?_1g_W+FuI}kGE[sZ"
+    #encryption rc4 "4!spu3eyEpED?+ud6E4etHe=7?!fa"
+    #encryption rc4 "9TEXU+u#U*h+D=efUcRudach$&"
+    #encryption rc4 "jetracR--acr_t-tr*7*dadrab"
+    #encryption rc4 "j@yutranemuwece9Azatra?wa*"
+    #encryption rc4 "pUphe-apru=UWraBRu7@SW-xa#"
+    #encryption rc4 "d+!ugapH=stephacUchucresUC"
+    #encryption rc4 "we$r8truSpaT7aT7Edasw7sPap"
+    #encryption rc4 "+h5@u7!a7h9w8aCaqeya&rutac"
+    #encryption rc4 "PrEthAk$ke5RaxudrEKunAVabE"
+    #encryption rc4 "quwa?7@tew8era!EcRE@uf+FRu"
+    #encryption rc4 "j*qabaqu#7ufr7y=trUb!P@afe"
+    #encryption rc4 "B5u3AS6eQUwruY&?!u-rA4*te6"
+    #encryption rc4 "sPE32u2aS!ezEyakawuKE7uhes"
+    #encryption rc4 "fr2BaPujuwekasa$e5ap*te2ax"
+    #encryption rc4 "tuth6&r=swexe6uCedabr#vefa"
+endfunction
