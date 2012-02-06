@@ -1,0 +1,14 @@
+U:Dodge_Challenger_SH
+L:dodge_viper_twinsturbo
+U:Lexus_LFA_SH
+U:Mazda_RX7_FC_SH
+U:mclaren_mp4-12c_sh
+U:Mercedes_190E_SH
+U:Mercedes_SLS_SH
+U:Mitsubishi_EvoIX_SH
+U:Nissan_240ZG_SH
+U:Nissan_Skyline_R32_SH
+U:Nissan_Skyline2000GTR_SH
+U:Pagani_C9_Rival
+L:Scion_tC_Drag
+U:TOYOTA_SUPRA_SH

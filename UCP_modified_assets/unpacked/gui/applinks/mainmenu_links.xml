@@ -1,0 +1,3258 @@
+<?xml version="1.0" ?>
+<GUIAppLinks>
+
+
+	<Function
+		name="Save Changes"
+		description="Save the changes made on this screen"
+		category="Universal"
+	>
+	</Function>
+	<Function
+		name="Cancel Changes"
+		description="Cancel the changes made on this screen"
+		category="Universal"
+	>
+	</Function>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link
+		name="Version"
+		default="_VERSION_"
+		description="Shows the version of the current build"
+		category="General"
+	>
+	</Link>
+
+    <Link
+		name="Language To Change To"
+		default="_ENGLISH_"
+		description="Shows the selected Language that we haven't yet set to be used"
+		category="General"
+	>
+		<AppEnum>
+			<Entry value="0" Text="English"/>
+			<Entry value="1" Text="Francais"/>
+			<Entry value="2" Text="Deutsch"/>
+			<Entry value="3" Text="Italiano"/>
+			<Entry value="4" Text="Espanol"/>
+		</AppEnum>
+	</Link>
+	
+    <Link
+		name="Audio Language To Change To" 
+		default="_ENGLISH_"
+		description="Shows the selected Language that we haven't yet set to be used"
+		category="General"
+	>
+		<AppEnum>
+			<Entry value="0" Text="English"/>
+			<Entry value="1" Text="Francais"/>
+			<Entry value="2" Text="Deutsch"/>
+			<Entry value="3" Text="Italiano"/>
+			<Entry value="4" Text="Espanol"/>
+			<Entry value="5" Text="Russian"/>
+			<Entry value="6" Text="Japanese"/>
+		</AppEnum>
+	</Link>	
+
+    <Link 
+		name="Units of Measure" 
+		default="_IMPERIAL_"
+		description="Shows the selected units of measure"
+		category="General"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Imperial"/>
+			<Entry value="1" TextID="MainMenu_Metric"/>
+		</AppEnum>
+	</Link>	
+	
+    <Link 
+		name="Units of Measure Acceleration" 
+		default="_0-60_"
+		description="Shows the selected units of measure for acceleration"
+		category="General"
+	>
+	</Link>	
+
+    <Link
+		name="Units of Measure Braking" 
+		default="_60-0_"
+		description="Shows the selected units of measure for braking"
+		category="General"
+	>
+	</Link>	
+
+    <Link
+		name="Career Prize Money"
+		default="0"
+		description="Gives the current cash balance of the player"
+		category="General"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link
+		name="Selected SP Vehicle Name"
+		default="_VEHICLE NAME_"
+		description="Shows the name of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+	<Link
+		name="Selected SP Vehicle NickName"
+		default="_VEHICLE NICKNAME_"
+		description="Shows the nick name of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+
+	<Link
+		name="Selected SP Vehicle Manufacturer"
+		default="_VEHICLE MANUFACTURER_"
+		description="Shows the manufacturer of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+	<Link
+		name="Selected SP Vehicle Model"
+		default="_VEHICLE MODEL_"
+		description="Shows the model of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+	<Link
+		name="Selected SP Vehicle Livery"
+		default="_VEHICLE LIVERY_"
+		description="Shows the livery of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+	<Link
+		name="Selected SP Vehicle Logo"
+		default="_VEHICLE LOGO_"
+		description="Shows the logo of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+	<Link
+		name="Selected SP Vehicle Description" 
+		default="_VEHICLE DESCRIPTION_"
+		description="Shows the Description of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected SP Vehicle Year" 
+		default="1969"
+		description="Shows the year of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected SP Vehicle Acceleration" 
+		default="99"
+		description="Shows the Acceleration of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected SP Vehicle Top Speed" 
+		default="200"
+		description="Shows the top speed of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected SP Vehicle Performance Index" 
+		default="200"
+		description="Shows the performance index of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected SP Vehicle Performance Index Icon" 
+		default="class_a"
+		description="Shows the performance index icon name of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+	<Link 
+		name="Selected SP Vehicle Miles Driven" 
+		default="100"
+		description="Shows the miles driven of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected SP Vehicle Unlock" 
+		default="_VEHICLE UNLOCk_"
+		description="Shows the unlock requirements of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Vehicle Unlock Era" 
+		default="_VEH UNLOCk ERA_"
+		description="Shows the unlock requirements of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Vehicle Unlock Episode" 
+		default="_VEH UNLOCk EPISODE_"
+		description="Shows the unlock requirements of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Vehicle Unlock Event" 
+		default="_VEH UNLOCk EVENT_"
+		description="Shows the unlock requirements of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+	
+    <Link
+		name="Performance Index"
+		default="0"
+		description="Shows the Performance Index including any upgrade points of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------- CAREER CAR SECTION --------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------->
+    <Link
+		name="Selected Career Vehicle Name"
+		default="_VEHICLE NAME_"
+		description="Shows the name of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link
+		name="Selected Career Vehicle Nick Name"
+		default="_VEHICLE NICK NAME_"
+		description="Shows the nickname of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+<Link
+	name="Selected Career Vehicle Manufacturer"
+	default="_VEHICLE MANUFACTURER_"
+	description="Shows the manufacturer of the currently selected vehicle"
+	category="Vehicle"
+	>
+	</Link>
+
+	<Link
+	name="Selected Career Vehicle Logo"
+	default="_VEHICLE LOGO_"
+	description="Shows the logo of the currently selected vehicle"
+	category="Vehicle"
+	>
+	</Link>
+
+	<Link
+	name="Selected Career Vehicle Model"
+	default="_VEHICLE MODEL_"
+	description="Shows the model of the currently selected vehicle"
+	category="Vehicle"
+	>
+	</Link>
+
+	<Link
+		name="Selected Career Vehicle Description" 
+		default="_VEHICLE DESCRIPTION_"
+		description="Shows the Description of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected Career Vehicle Year" 
+		default="1969"
+		description="Shows the year of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected Career Vehicle Acceleration" 
+		default="99"
+		description="Shows the Acceleration of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Career Vehicle Top Speed" 
+		default="200"
+		description="Shows the top speed of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Career Vehicle Performance Index" 
+		default="200"
+		description="Shows the performance index of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Career Vehicle Performance Index Icon" 
+		default="class_a"
+		description="Shows the performance index icon name of the currently selected vehicle"
+		category="Vehicle"
+	>
+	</Link>
+
+    <!--------------------MP Vehicle Selected info--------------------------------------------------------------------------------------------->
+   
+    <Link
+	name="MP Selected Vehicle Logo"
+	default="_VEHICLE LOGO_"
+	description="Shows the logo of the currently selected MP vehicle"
+	category="Vehicle"
+	>
+	</Link>
+    <Link
+	name="MP Selected Vehicle Model"
+	default="_VEHICLE MODEL_"
+	description="Shows the model of the currently selected MP vehicle"
+	category="Vehicle"
+	>
+	</Link> 
+    <Link
+	name="MP Selected Car Nickname"
+	default="_Selected Nickname_"
+	description="Shows the nickname of the currently selected MP vehicle"
+	category="Vehicle"
+	>
+	</Link>
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------- FAVOURITES SECTION --------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------->
+
+    <Link
+		name="SP Favourite Vehicle Name"
+		default="_FAVOURITE_SP_VEHICLE_"
+		description="The player's favourite single player vehicle"
+		category="Favourites"
+	/>
+
+    <Link
+		name="SP Favourite Vehicle By Milage Name"
+		default="_FAVOURITE_SP_VEHICLE__BY_MILEAGE_"
+		description="The player's favourite single player vehicle, by mileage"
+		category="Favourites"
+	/>
+
+    <Link
+		name="SP Favourite Location Name"
+		default="_FAVOURITE_SP_LOCATION_"
+		description="The player's favourite single player location"
+		category="Favourites"
+	/>
+
+    <Link
+		name="SP Favourite Manufacturer Name"
+		default="_FAVOURITE_SP_MANUFACTURER_"
+		description="The player's favourite single player manufacturer"
+		category="Favourites"
+	/>
+
+    <Link
+		name="SP Favourite Game Mode Name"
+		default="_FAVOURITE_SP_MODE_"
+		description="The player's favourite single player game mode"
+		category="Favourites"
+	/>
+
+    <Link
+		name="MP Favourite Vehicle Name"
+		default="_FAVOURITE_MP_VEHICLE_"
+		description="The player's favourite multi player vehicle"
+		category="Favourites"
+	/>
+
+    <Link
+		name="MP Favourite Vehicle By Milage Name"
+		default="_FAVOURITE_MP_VEHICLE__BY_MILEAGE_"
+		description="The player's favourite multi player vehicle, by mileage"
+		category="Favourites"
+	/>
+
+    <Link
+		name="MP Favourite Location Name"
+		default="_FAVOURITE_MP_LOCATION_"
+		description="The player's favourite multi player location"
+		category="Favourites"
+	/>
+
+    <Link
+		name="MP Favourite Manufacturer Name"
+		default="_FAVOURITE_MP_MANUFACTURER_"
+		description="The player's favourite multi player manufacturer"
+		category="Favourites"
+	/>
+
+    <Link
+		name="MP Favourite Game Mode Name"
+		default="_FAVOURITE_MP_MODE_"
+		description="The player's favourite multi player game mode"
+		category="Favourites"
+	/>
+
+
+	
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------- STATS SECTION --------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------->
+
+    <Link
+		name="Career Completion"
+		default="75%"
+		description="The percent the user has completed the career"
+		category="Stats"
+	/>
+
+    <Link
+		name="Online Win Loss"
+		default="0.5"
+		description="The ratio of wins to losses"
+		category="Stats"
+		format="Percentage"
+	/>
+
+    <Link
+		name="Online DNF"
+		default="0.5"
+		description="The percentage of races not finished"
+		category="Stats"
+		format="Percentage"
+	/>
+
+    <Link
+		name="Event Objectives"
+		default="750"
+		description="The number of objectives completed"
+		category="Stats"
+	/>
+
+    <Link
+		name="Tracks Mastered"
+		default="50"
+		description="The number of tracks mastered"
+		category="Stats"
+	/>
+
+    <Link
+		name="Badges Earned"
+		default="50"
+		description="The number of badges earned"
+		category="Stats"
+	/>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------- GEOGRAPHICAL SECTION ----------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------->
+
+    <Link
+		name="Player Current Region String"
+		default="_CURRENT_REGION_"
+		description="The player's current region"
+		category="Geographical"
+	/>
+
+    <Link
+		name="Player Current Region Flag Icon"
+		default="_CURRENT_REGION_"
+		description="The player's current region flag icon"
+		category="Geographical"
+	/>
+
+    <!----------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------ UPGRADES SECTION ----------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------->
+	
+	
+    <Link
+	name="Upgrade Name"
+	default="_UPGRADE NAME_"
+	description="Displays the name of an upgrade"
+	category="Vehicle"
+	>
+	</Link>
+
+    <Link
+	name="Upgrade Description"
+	default="_UPGRADE DESCRIPTION_"
+	description="Verbose description of an upgrade"
+	category="Vehicle"
+	>
+	</Link>	
+	
+    <Link
+	name="Installed Upgrade"
+	default="_INSTALLED UPGRADE_"
+	description="Displays the name of an installed upgrade"
+	category="Vehicle"
+	>
+	</Link>
+	
+    <Link
+	name="Upgrade Cost"
+	default="$0"
+	description="Displays the numerical value for the cost of an upgrade"
+	category="Vehicle"
+	>
+	</Link>
+
+	
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link
+		name="Selected SP Track Name" 
+		default="_TRACK NAME_"
+		description="Shows the name of the currently selected track"
+		category="Track"
+	>
+	</Link>
+
+    <Link
+		name="Selected SP Track Location"
+		default="_TRACK LOCATION_"
+		description="Shows the location of the currently selected track"
+		category="Track"
+	>
+	</Link>
+
+    <Link 
+		name="Selected SP Track Location Detailed" 
+		default="_TRACK LOCATION DETAILED_"
+		description="Shows the detailed location of the currently selected track"
+		category="Track"
+	>
+	</Link>
+
+    <Link 
+		name="Selected SP Track Variation Detailed" 
+		default="_TRACK VARIATION DETAILED_"
+		description="Shows the detailed variation of the currently selected track"
+		category="Track"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Track Location Icon" 
+		default="_NOT TEXT_"
+		description="The Track Location Icon used in currently selected track. This should be applied to a quad."
+		category="Track"
+	>
+		<Sprites>
+			<Entry value="UK" sprite="icon_england"/>
+			<Entry value="England" sprite="icon_england"/>
+			<Entry value="Scotland" sprite="icon_england"/>
+			<Entry value="Belgium" sprite="icon_belgium"/>
+			<Entry value="France" sprite="icon_france"/>
+			<Entry value="Germany" sprite="icon_germany"/>
+			<Entry value="Italy" sprite="icon_italy"/>
+			<Entry value="Monaco" sprite="icon_monaco"/>
+			<Entry value="Spain" sprite="icon_spain"/>
+			<Entry value="USA" sprite="icon_usa"/>
+		</Sprites>
+	</Link>
+	
+    <Link 
+		name="Selected SP Track Description" 
+		default="_TRACK DESCRIPTION_"
+		description="Shows the Description of the currently selected track"
+		category="Track"
+	>
+	</Link>
+
+    <Link 
+		name="Selected Track Unlock" 
+		default="_TRACK UNLOCK_"
+		description="Shows hows to unlock the currently selected track"
+		category="Track"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected SP Track Length" 
+		default="9.99KM"
+		description="Shows the Length of the currently selected track"
+		category="Track"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected SP Track Record Lap Time" 
+		default="00:00:00:000"
+		description="Shows the Track Record Lap Time of the currently selected track"
+		category="Track"
+		format="BTime String"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected SP Track Record Vehicle Name" 
+		default="_RECORD VEH NAME_"
+		description="Shows the Track Record Vehicle Name of the currently selected track"
+		category="Track"
+	>
+	</Link>
+	
+    <Link 
+		name="Selected SP Track Map Sprite" 
+		default="NOT TEXT"
+		description="Shows the Track Sprite (apply this to a Quad) of the currently selected track"
+		category="Track"
+	>
+	</Link>
+		
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="SP No Of Laps" 
+		default="99"
+		description="Number of Laps for SINGLEPLAYER"
+		category="Race Settings"
+	>
+	</Link>
+
+    <Link 
+		name="MP No Of Laps" 
+		default="99"
+		description="Number of Laps for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="SP No Of AI Participants" 
+		default="99"
+		description="Number of AI Opponents for SINGLEPLAYER"
+		category="Race Settings"
+	>
+	</Link>
+
+    <Link 
+		name="MP Max Participants" 
+		default="99"
+		description="Maximum Number of Participants for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+    <Link 
+		name="MP Min Participants" 
+		default="99"
+		description="Minimum Number of Participants for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="SP Opponent Difficulty" 
+		default="_EASY_"
+		description="Opponent Difficulty for SINGLEPLAYER"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_easy"/>
+			<Entry value="1" TextID="MainMenu_normal"/>
+			<Entry value="2" TextID="MainMenu_hard"/>
+		</AppEnum>
+	</Link>
+
+    <Link
+		name="SP Player Difficulty"
+		default="_PRO_"
+		description="Player Difficulty for SINGLEPLAYER"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_novice"/>
+			<Entry value="1" TextID="MainMenu_normal"/>
+			<Entry value="2" TextID="MainMenu_Experienced"/>
+			<Entry value="3" TextID="MainMenu_pro"/>
+			<Entry value="4" TextID="MainMenu_Elite"/>
+		</AppEnum>
+	</Link>
+
+    <Link
+		name="SP Game Difficulty" 
+		default="_MEDIUM_"
+		description="Player Difficulty for SINGLEPLAYER"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_easy"/>
+			<Entry value="1" TextID="MainMenu_medium"/>
+			<Entry value="2" TextID="MainMenu_hard"/>
+		</AppEnum>
+	</Link>
+
+    <Link 
+		name="SP Damage" 
+		default="_VISUAL_"
+		description="Damage setting for SINGLEPLAYER"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_VisualOnly"/>
+			<Entry value="2" TextID="MainMenu_FullDamage"/>
+		</AppEnum>
+	</Link>
+	
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="SP Time Of Day"
+		default="_DAY_"
+		description="Time Of Day Setting"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="TimeDateCurrency_Dawn"/>
+			<Entry value="1" TextID="TimeDateCurrency_Day"/>
+			<Entry value="2" TextID="TimeDateCurrency_SunSet"/>
+			<Entry value="3" TextID="TimeDateCurrency_Night"/>
+		</AppEnum>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="SP Weather" 
+		default="_CLEAR_"
+		description="Weather Setting"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Sunny"/>
+			<Entry value="1" TextID="MainMenu_Cloudy"/>
+			<Entry value="2" TextID="MainMenu_Rainy"/>
+		</AppEnum>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="SP Qualifying Session" 
+		default="_YES_"
+		description="Do Qualifying Session for SINGLEPLAYER"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+    <Link 
+		name="MP Qualifying Session" 
+		default="_YES_"
+		description="Do Qualifying Session for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="AI Vehicle Type" 
+		default="_IDENTICAL_"
+		description="The type of AI Vehicles that will be used (e.g. Identical/Same Class)"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_RANDOM"/>
+			<Entry value="1" TextID="MainMenu_IDENTICALVEHICLES"/>
+			<Entry value="2" TextID="MainMenu_SAMECLASS"/>
+		</AppEnum>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="MP Force Cockpit View" 
+		default="_YES_"
+		description="Force Cockpit View is disabled/enabled for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+    <Link 
+		name="MP Force Manual Gears" 
+		default="_YES_"
+		description="Force Manual Gears is disabled/enabled for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+    <Link 
+		name="MP Force Identical Opponent" 
+		default="_YES_"
+		description="Force Identical Opponent is disabled/enabled for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="MP Allow Traction Control" 
+		default="_YES_"
+		description="Allow Traction Control is disabled/enabled for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+    <Link 
+		name="MP Allow ABS"
+		default="_YES_"
+		description="Allow ABS is disabled/enabled for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+    <Link 
+		name="MP Allow Stability Control" 
+		default="_YES_"
+		description="Allow Stability is disabled/enabled for MULTIPLAYER"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+	<!------------------------------------- Create Online page -------------------------------------------------------->
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Link
+		name="MP Ranked"
+		default="RANKED/UNRANKED"
+		description="Ranked/unranked MP session"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MultiplayerMenus_Unranked"/>
+			<Entry value="1" TextID="MultiplayerMenus_Ranked"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP Private" 
+		default="PUBLIC/PRIVATE"
+		description="Public/private MP session"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MultiplayerMenus_Public"/>
+			<Entry value="1" TextID="MultiplayerMenus_Private"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP Game Mode"
+		default="_GAME MODE_"
+		description="Get MP game mode."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="50" TextID="RaceModes_Race"/>
+			<Entry value="52" TextID="RaceModes_TimeAttack"/>
+			<Entry value="53" TextID="RaceModes_SoloDrift"/>
+			<Entry value="54" TextID="RaceModes_MPDriverDuel"/>
+			<Entry value="55" TextID="RaceModes_DragRace"/>
+			<Entry value="56" TextID="RaceModes_DragStop"/>
+			<Entry value="57" TextID="RaceModes_CatchupDuel2"/>
+			<Entry value="58" TextID="RaceModes_CatchupPack2"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP Location" 
+		default="_TRACK NAME_"
+		description="Shows the name of the currently selected MP track"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="MP Performance Class"
+		default="All/D/C/B/A"
+		description="Get MP performance class."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MainMenu_All"/>
+			<Entry value="2" TextID="MultiplayerMenus_PerformanceClassD"/>
+			<Entry value="3" TextID="MultiplayerMenus_PerformanceClassC"/>
+			<Entry value="4" TextID="MultiplayerMenus_PerformanceClassB"/>
+			<Entry value="5" TextID="MultiplayerMenus_PerformanceClassA"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP Vehicle Type"
+		default="_VEHICLE_TYPE_"
+		description="Get MP vehicle type."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MainMenu_All"/>
+			<Entry value="2" TextID="MultiplayerMenus_VehicleTypeModern"/>
+			<Entry value="3" TextID="MultiplayerMenus_VehicleTypeRetro"/>
+			<Entry value="4" TextID="MultiplayerMenus_VehicleTypeLegends"/>
+			<Entry value="5" TextID="MultiplayerMenus_VehicleTypeMuscle"/>
+			<Entry value="6" TextID="MultiplayerMenus_VehicleTypeFiaGT3"/>
+			<Entry value="7" TextID="MultiplayerMenus_VehicleTypeFiaGT1"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP Vehicles"
+		default="MIXED/IDENTICAL"
+		description="Get MP vehicles."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MultiplayerMenus_VehiclesMixed"/>
+			<Entry value="2" TextID="MultiplayerMenus_VehiclesIdentical"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP Length"
+		default="SHORT"
+		description="Get MP race length."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MultiplayerMenus_RaceLengthShort"/>
+			<Entry value="2" TextID="MultiplayerMenus_RaceLengthMedium"/>
+			<Entry value="3" TextID="MultiplayerMenus_RaceLengthLong"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP DLC"
+		default="None"
+		description="Get MP session DLC filter."
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<!-- Min players already defined as MP Min Participants -->
+	<!-- Max players already defined as MP Max Participants -->
+
+	<Link
+		name="MP AI Difficulty"
+		default="EASY/MEDIUM/HARD/NA"
+		description="Get MP AI Difficulty."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_easy"/>
+			<Entry value="1" TextID="MainMenu_medium"/>
+			<Entry value="2" TextID="MainMenu_hard"/>
+			<Entry value="3" TextID="MultiplayerMenus_DifficultyNA"/>
+		</AppEnum>
+	</Link>
+
+	<Link 
+		name="MP Time Of Day"
+		default="_DAY_"
+		description="Time Of Day MP Setting"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="TimeDateCurrency_Dawn"/>
+			<Entry value="1" TextID="TimeDateCurrency_Day"/>
+			<Entry value="2" TextID="TimeDateCurrency_SunSet"/>
+			<Entry value="3" TextID="TimeDateCurrency_Night"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="MP Allowed Views"
+		default="_ALLOWED_VIEWS_"
+		description="Get MP race view restrictions."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MultiplayerMenus_AllowedViewsAll"/>
+			<Entry value="2" TextID="MultiplayerMenus_AllowedViewsCockpitHelmet"/>
+			<Entry value="3" TextID="MultiplayerMenus_AllowedViewsCockpit"/>
+			<Entry value="4" TextID="MultiplayerMenus_AllowedViewsHelmet"/>
+		</AppEnum>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<!-------------------------------------------- Lobby page --------------------------------------------------------->
+	<!----------------------------------------------------------------------------------------------------------------->
+	
+	<!-- Only the "Setup" values for now -->
+
+	<Link
+		name="Lobby Length Label"
+		default="Length:"
+		description="Lobby length - label."
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Lobby Length Value"
+		default="SHORT"
+		description="Lobby length - value."
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Lobby Time Of Day"
+		default="_DAY_"
+		description="Lobby Time Of Day"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="TimeDateCurrency_Dawn"/>
+			<Entry value="1" TextID="TimeDateCurrency_Day"/>
+			<Entry value="2" TextID="TimeDateCurrency_SunSet"/>
+			<Entry value="3" TextID="TimeDateCurrency_Night"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Lobby Performance Class"
+		default="All/D/C/B/A"
+		description="Lobby performance class."
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Lobby Vehicle Type"
+		default="_VEHICLE_TYPE_"
+		description="Lobby vehicle type."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MainMenu_All"/>
+			<Entry value="2" TextID="MultiplayerMenus_VehicleTypeModern"/>
+			<Entry value="3" TextID="MultiplayerMenus_VehicleTypeRetro"/>
+			<Entry value="4" TextID="MultiplayerMenus_VehicleTypeLegends"/>
+			<Entry value="5" TextID="MultiplayerMenus_VehicleTypeMuscle"/>
+			<Entry value="6" TextID="MultiplayerMenus_VehicleTypeFiaGT3"/>
+			<Entry value="7" TextID="MultiplayerMenus_VehicleTypeFiaGT1"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Lobby Vehicles"
+		default="MIXED/IDENTICAL"
+		description="Lobby vehicles."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MultiplayerMenus_VehiclesMixed"/>
+			<Entry value="2" TextID="MultiplayerMenus_VehiclesIdentical"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Lobby Allowed Views"
+		default="_ALLOWED_VIEWS_"
+		description="Lobby race view restrictions."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MultiplayerMenus_AllowedViewsAll"/>
+			<Entry value="2" TextID="MultiplayerMenus_AllowedViewsCockpitHelmet"/>
+			<Entry value="3" TextID="MultiplayerMenus_AllowedViewsCockpit"/>
+			<Entry value="4" TextID="MultiplayerMenus_AllowedViewsHelmet"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Lobby DLC"
+		default="None"
+		description="Get MP session DLC filter."
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Lobby AI Difficulty"
+		default="EASY/MEDIUM/HARD/NA"
+		description="Lobby AI Difficulty."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_easy"/>
+			<Entry value="1" TextID="MainMenu_medium"/>
+			<Entry value="2" TextID="MainMenu_hard"/>
+			<Entry value="3" TextID="MultiplayerMenus_DifficultyNA"/>
+		</AppEnum>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<!------------------------------------- Custom Matchmaking page --------------------------------------------------->
+	<!----------------------------------------------------------------------------------------------------------------->
+	
+	<Link 
+		name="Matchmaking Ranked" 
+		default="RANKED/UNRANKED"
+		description="Ranked/unranked matchmaking session"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MultiplayerMenus_Unranked"/>
+			<Entry value="1" TextID="MultiplayerMenus_Ranked"/>
+		</AppEnum>
+	</Link>
+	
+	<Link 
+		name="Matchmaking Use Specific Track" 
+		default="SPECIFIC/ANY"
+		description="Matchmake for specific or random track"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MultiplayerMenus_TrackAny"/>
+			<Entry value="1" TextID="MultiplayerMenus_TrackSpecific"/>
+		</AppEnum>
+	</Link>
+	
+	<Link 
+		name="Matchmaking Time Of Day" 
+		default="ANY/DAY/DUSK/NIGHT"
+		description="Matchmaking time of day"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Any"/>
+			<Entry value="1" TextID="TimeDateCurrency_Day"/>
+			<Entry value="2" TextID="TimeDateCurrency_SunSet"/>
+			<Entry value="3" TextID="TimeDateCurrency_Night"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Matchmaking Game Mode"
+		default="_GAME MODE_"
+		description="Get MP game mode matchmaking criteria."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Any"/>
+			<Entry value="50" TextID="RaceModes_Race"/>
+			<Entry value="52" TextID="RaceModes_TimeAttack"/>
+			<Entry value="53" TextID="RaceModes_SoloDrift"/>
+			<Entry value="54" TextID="RaceModes_MPDriverDuel"/>
+			<Entry value="55" TextID="RaceModes_DragRace"/>
+			<Entry value="56" TextID="RaceModes_DragStop"/>
+			<Entry value="57" TextID="RaceModes_CatchupDuel2"/>
+			<Entry value="58" TextID="RaceModes_CatchupPack2"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Matchmaking Location" 
+		default="_TRACK NAME_"
+		description="Shows the name of the currently selected MP track matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Matchmaking Performance Class"
+		default="Any/All/D/C/B/A"
+		description="Get MP performance class matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Any"/>
+			<Entry value="1" TextID="MainMenu_All"/>
+			<Entry value="2" TextID="MultiplayerMenus_PerformanceClassD"/>
+			<Entry value="3" TextID="MultiplayerMenus_PerformanceClassC"/>
+			<Entry value="4" TextID="MultiplayerMenus_PerformanceClassB"/>
+			<Entry value="5" TextID="MultiplayerMenus_PerformanceClassA"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Matchmaking Vehicle Type"
+		default="_VEHICLE_TYPE_"
+		description="Get MP vehicle type matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Any"/>
+			<Entry value="1" TextID="MainMenu_All"/>
+			<Entry value="2" TextID="MultiplayerMenus_VehicleTypeModern"/>
+			<Entry value="3" TextID="MultiplayerMenus_VehicleTypeRetro"/>
+			<Entry value="4" TextID="MultiplayerMenus_VehicleTypeLegends"/>
+			<Entry value="5" TextID="MultiplayerMenus_VehicleTypeMuscle"/>
+			<Entry value="6" TextID="MultiplayerMenus_VehicleTypeFiaGT3"/>
+			<Entry value="7" TextID="MultiplayerMenus_VehicleTypeFiaGT1"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Matchmaking Vehicles"
+		default="ANY/MIXED/IDENTICAL"
+		description="Get MP vehicles matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Any"/>
+			<Entry value="1" TextID="MultiplayerMenus_VehiclesMixed"/>
+			<Entry value="2" TextID="MultiplayerMenus_VehiclesIdentical"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Matchmaking Length"
+		default="SHORT"
+		description="Get MP race length matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Any"/>
+			<Entry value="1" TextID="MultiplayerMenus_RaceLengthShort"/>
+			<Entry value="2" TextID="MultiplayerMenus_RaceLengthMedium"/>
+			<Entry value="3" TextID="MultiplayerMenus_RaceLengthLong"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Matchmaking DLC"
+		default="None"
+		description="Get MP session DLC matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Matchmaking Max Participants" 
+		default="99"
+		description="Maximum Number of Participants for MULTIPLAYER matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+  <Link 
+		name="Matchmaking Min Participants" 
+		default="99"
+		description="Minimum Number of Participants for MULTIPLAYER matchmaking criteria"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Matchmaking Allowed Views"
+		default="_ALLOWED_VIEWS_"
+		description="Get matchmaking race view restrictions."
+		category="Multiplayer Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Any"/>
+			<Entry value="1" TextID="MultiplayerMenus_AllowedViewsAll"/>
+			<Entry value="2" TextID="MultiplayerMenus_AllowedViewsCockpitHelmet"/>
+			<Entry value="3" TextID="MultiplayerMenus_AllowedViewsCockpit"/>
+			<Entry value="4" TextID="MultiplayerMenus_AllowedViewsHelmet"/>
+		</AppEnum>
+	</Link>
+
+	<Link 
+		name="Browsing Type All" 
+		default="All"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Browsing Type Race" 
+		default="Race"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Browsing Type Drift" 
+		default="Drift"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Browsing Type Time Attack" 
+		default="Time Attack"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Browsing Type Standing Mile" 
+		default="Standing Mile"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Browsing Type Drag" 
+		default="Drag"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Browsing Type Catchup Duel" 
+		default="Catchup Duel"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Browsing Type Catchup Pack" 
+		default="Catchup Pack"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link 
+		name="Browsing Type Driver Duel" 
+		default="Driver Duel"
+		description="Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<Link
+		name="Browsing Type Selected"
+		default="Selected"
+		description="Selected option for Drop down option for game mode for the online browser"
+		category="Multiplayer Settings"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link
+		name="Use Manual Gears"
+		default="_YES_"
+		description="Manual Gears are disabled/enabled (shows YES/NO)"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+    <Link
+		name="Use Manual Gears - Manual/Auto"
+		default="_MANUAL_"
+		description="Manual Gears are disabled/enabled (shows MANUAL/AUTOMATIC)"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_Manual"/>
+			<Entry value="1" TextID="MainMenu_Automatic"/>
+		</AppEnum>
+	</Link>
+
+    <Link
+		name="Use Traction Control"
+		default="_YES_"
+		description="Traction Control is disabled/enabled"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_low"/>
+			<Entry value="2" TextID="MainMenu_high"/>
+		</AppEnum>
+	</Link>
+
+    <Link
+		name="Use ABS"
+		default="_YES_"
+		description="ABS is disabled/enabled"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+    <Link
+		name="Use Stability Control"
+		default="_YES_"
+		description="Stability Control is disabled/enabled"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Use Brake Assistance"
+		default="_YES_"
+		description="Toggle Braking Assistance on/off"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Use Steering Assistance"
+		default="_YES_"
+		description="Toggle Steering Assistance on/off"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Use Automatic Clutch"
+		default="_YES_"
+		description="Toggle Automatic Clutch on/off"
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Can Toggle ABS"
+		default="1"
+		description="Anti-lock brakes option is disabled/enabled"
+		category="Race Settings"
+	/>-
+
+	<Link
+		name="Can Toggle TCS"
+		default="1"
+		description="Traction control option is disabled/enabled"
+		category="Race Settings"
+	/>-
+
+	<Link
+		name="Can Toggle SBS"
+		default="1"
+		description="Stability control option is disabled/enabled"
+		category="Race Settings"
+	/>-
+
+	<Link
+		name="Can Toggle Brake Assistance"
+		description="Braking Assistance option is disabled/enabled"
+		category="Race Settings"
+	/>
+
+	<Link
+		name="Can Toggle Steering Assistance"
+		description="Steering Assistance option is disabled/enabled"
+		category="Race Settings"
+	/>
+
+	<!-- Online Driver Duel Championship ------------------------------------------------------------------------------->
+	<Link
+		name="MPDD Championship Stage"
+		default="_STAGE_"
+		description="Stage of Championship the player is in"
+		category="Online Driver Duel Championship"
+	>
+	</Link>
+	<Link
+		name="MPDD Championship Consecutive Wins"
+		default="_CONSWINS_"
+		description="Number of consecutive wins in the whole championship"
+		category="Online Driver Duel Championship"
+	>
+	</Link>
+	<Link
+		name="MPDD Championship Wins"
+		default="_WINS_"
+		description="Number of total wins in the whole championship"
+		category="Online Driver Duel Championship"
+	>
+	</Link>
+	<Link 
+		name="MPDD Championship Match Victories"
+		default="_MATCHWINS_"
+		description="Number of wins in single matches in the whole championship"
+		category="Online Driver Duel Championship"
+	>
+	</Link>
+	<Link 
+		name="MPDD Championship Match Defeats"
+		default="_MATCHDEFEATS_"
+		description="Number of defeats in single matches in the whole championship"
+		category="Online Driver Duel Championship"
+	>
+	</Link>
+
+	<!--DriverGeniusNotification---------------------------------------------------------------------------------------->
+
+ <Link 
+		name="DriverGeniusNotification - Career" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DG Career notifications"
+		category="DriverGeniusNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverGeniusNotification - Online"
+		default="_ON_"
+		description="Whether or not the user wants to recieve DG Online notifications"
+		category="DriverGeniusNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+	
+	<!--DriverNetworkNotification--------------------------------------------------------------------------------------->
+
+ <Link 
+		name="DriverNetworkNotification - AchievementsAndTrophies" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN Achievement notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - Records" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN Record notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - LeaderboardActivity" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN Leaderboard notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - SigninStatus" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN Sign-in notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - NFSNews" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN NFS News notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - NFSStore" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN NFS Store notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - CommunityEvents" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN Community Event notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - Recommendations" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN Recommendation notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - SHNews" 
+		default="_ON_"
+		description="Whether or not the user wants to recieve DN SpeedHunter News notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="DriverNetworkNotification - Media"
+		default="_ON_"
+		description="Whether or not the user wants to recieve photo or replay notifications"
+		category="DriverNetworkNotification"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Link
+		name="Share Friends List"
+		default="_YES_"
+		description="Controls privacy option for sharing of friends list"
+		category="FriendOptions"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>	
+
+	<!----------------------------------------------------------------------------------------------------------------->
+  <Link 
+		name="Phantom Driving Line" 
+		default="_YES_"
+		description="The Phantom Driving Line is disabled/enabled (NOTE: this is called PhantomDrivingLine in the code - I've no idea the differences)"
+		category="Phantom"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+ <Link 
+		name="Show Driving Line" 
+		default="_YES_"
+		description="The Driving Line is disabled/enabled (NOTE: this is called UseStaticPhantomLine in the code - I've no idea the differences)"
+		category="Phantom"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+  <Link 
+		name="Persistent Phantom"
+		default="_YES_"
+		description="The Persistent Phantom means that if you load a phantom and then beat him, he'll remain on the track so you can see if you can consistently beat him"
+		category="Phantom"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="Mirror On" 
+		default="_ON_"
+		description="The Mirror is set to be OFF/ON"
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+    <Link
+		name="HUD On"
+		default="_FULL, MIRROR ON_"
+		description="The HUD setting."
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_FullMirrorOn"/>
+			<Entry value="1" TextID="MainMenu_FullMirrorOff"/>
+			<Entry value="2" TextID="MainMenu_Lite"/>
+			<Entry value="3" TextID="MainMenu_Telemetry"/>
+			<Entry value="4" TextID="MainMenu_OFF"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Driver Labels On"
+		default="_ON_"
+		description="The driver labels setting."
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+	<Link 
+		name="Corner Markers On" 
+		default="_ON_"
+		description="The Corner Markers are set to be OFF/ON"
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_ON"/>
+		</AppEnum>
+	</Link>
+
+	<Link 
+		name="Control Steer Left" 
+		default="_NONE_"
+		description="Control assigned to steer left"
+		category="Options"
+	/>
+
+	<Link 
+		name="Control Steer Right" 
+		default="_NONE_"
+		description="Control assigned to steer right"
+		category="Options"
+	/>
+
+	<Link
+		name="Control Accelerate" 
+		default="_NONE_"
+		description="Control assigned to accelerate"
+		category="Options"
+	/>
+
+	<Link 
+		name="Control Brake" 
+		default="_NONE_"
+		description="Control assigned to brake"
+		category="Options"
+	/>
+
+	<Link 
+		name="Control Handbrake" 
+		default="_NONE_"
+		description="Control assigned to handbrake"
+		category="Options"
+	/>
+
+	<Link 
+		name="Control Clutch" 
+		default="_NONE_"
+		description="Control assigned to clutch"
+		category="Options"
+	/>
+
+	<Link 
+		name="Control Shift Up" 
+		default="_NONE_"
+		description="Control assigned to shift up"
+		category="Options"
+	/>
+
+	<Link 
+		name="Control Shift Down" 
+		default="_NONE_"
+		description="Control assigned to shift down"
+		category="Options"
+	/>
+	
+	<Link 
+		name="Control Change View" 
+		default="_NONE_"
+		description="Control assigned to change the camera view"
+		category="Options"
+	/>
+
+	<Link 
+		name="Control Look Back" 
+		default="_NONE_"
+		description="Control assigned to look back"
+		category="Options"
+	/>	
+
+	<Link 
+		name="Control Nitrous" 
+		default="_NONE_"
+		description="Control assigned to nitrous"
+		category="Options"
+	/>	
+	
+	<Link 
+		name="Control Pause Game" 
+		default="_NONE_"
+		description="Control assigned to pausing the game"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Driver Network"
+		default="_NONE_"
+		description="Control assigned to activating the driver network"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Opponent Names Toggle"
+		default="_NONE_"
+		description="Control assigned to toggling the opponent names"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Cycle HUD Mode"
+		default="_NONE_"
+		description="Control assigned to cycling the HUD mode"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Look Left"
+		default="_NONE_"
+		description="Control assigned to look left"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Look Right"
+		default="_NONE_"
+		description="Control assigned to look right"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Look Up"
+		default="_NONE_"
+		description="Control assigned to look up"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Look Down"
+		default="_NONE_"
+		description="Control assigned to look down"
+		category="Options"
+	/>
+
+  <Link
+		name="Control Reset Car"
+		default="_NONE_"
+		description="Control assigned to reset car"
+		category="Options"
+	/>
+
+  <Link
+		name="Control HUD Mode"
+		default="_NONE_"
+		description="Control assigned to change HUD mode"
+		category="Options"
+	/>
+
+  <Link 
+		name="Shifter Type" 
+		default="_SEQUENTIAL_"
+		description="The option to set control to H-Pattern or Sequential shifting"
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_SEQUENTIAL"/>
+			<Entry value="1" TextID="MainMenu_H-PATTERN"/>
+		</AppEnum>
+	</Link>
+	
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+
+    <Link 
+		name="Phantom Name" 
+		default="_PHANTOM NAME_"
+		description="The name of the currently selected Phantom"
+		category="Phantom"
+	>
+	</Link>
+
+    <Link 
+		name="Phantom Vehicle" 
+		default="_PHANTOM VEHICLE_"
+		description="The vehicle name of the currently selected Phantom"
+		category="Phantom"
+	>
+	</Link>
+	
+    <Link 
+		name="Phantom Lap Time" 
+		default="##:##:###"
+		description="The lap time of the currently selected Phantom"
+		category="Phantom"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+    <Link 
+		name="Offline Total Play Time" 
+		default="18:13:45:001"
+		description="Shows the total offline play time"
+		category="Stats"
+	>
+	</Link>
+
+    <Link 
+		name="Online Total Play Time" 
+		default="18:13:45:001"
+		description="Shows the total online play time"
+		category="Stats"
+	>
+	</Link>
+
+    <Link 
+		name="MP No of Races Won" 
+		default="999"
+		description="Number of races WON in ONLINE play"
+		category="Stats"
+	>
+	</Link>
+
+    <Link 
+		name="MP No of Races Lost" 
+		default="999"
+		description="Number of races LOST in ONLINE play (pointless stat number 101)"
+		category="Stats"
+	>
+	</Link>
+	
+    <Link 
+		name="SP Favourite Vehicle Name" 
+		default="_FAVE_SP_CAR_"
+		description="Shows the favourite car used Offline"
+		category="Stats"
+	>
+	</Link>
+
+    <Link 
+		name="MP Favourite Vehicle Name" 
+		default="_FAVE_MP_CAR_"
+		description="Shows the favourite car used Online"
+		category="Stats"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	
+	
+    <Link 
+		name="Paint Body Part" 
+		default="_FULL BODY_"
+		description="The user's selection of different parts to paint."
+		category="Visuals"
+	>
+		<AppEnum>
+		      <Entry value="0" TextID="VisualsScreens_WHOLECAR"/>
+		      <Entry value="1" TextID="VisualsScreens_BODYONLY"/>
+		      <Entry value="2" TextID="VisualsScreens_BONNET"/>
+		      <Entry value="3" TextID="VisualsScreens_FRONTBUMPER"/>
+		      <Entry value="4" TextID="VisualsScreens_REARBUMPER"/>
+		      <Entry value="5" TextID="VisualsScreens_TRUNK"/>
+		      <Entry value="6" TextID="VisualsScreens_WING"/>
+		      <Entry value="7" TextID="VisualsScreens_GLASS"/>
+		      <Entry value="8" TextID="VisualsScreens_MIRRORS"/>
+		</AppEnum>
+	</Link>
+	
+	<Link
+		name="Paint Type" 
+		default="_GLOSS_"
+		description="Type of paint to apply to the selected part"
+		category="Visuals"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="VisualsScreens_GLOSS"/>
+			<Entry value="1" TextID="VisualsScreens_GLOSS"/>
+			<Entry value="2" TextID="VisualsScreens_METALLIC"/>
+			<Entry value="3" TextID="VisualsScreens_METALLIC"/>
+			<Entry value="4" TextID="VisualsScreens_CANDY"/>
+			<Entry value="5" TextID="VisualsScreens_CANDY"/>
+			<Entry value="6" TextID="VisualsScreens_PEARLESCENT"/>
+			<Entry value="7" TextID="VisualsScreens_PEARLESCENT"/>
+			<Entry value="8" TextID="VisualsScreens_CHROME"/>
+			<Entry value="9" TextID="VisualsScreens_CHROME"/>
+			<Entry value="10" TextID="VisualsScreens_MATTE"/>
+			<Entry value="11" TextID="VisualsScreens_MATTE"/>
+			<Entry value="12" TextID="VisualsScreens_FLIP"/>
+			<Entry value="13" TextID="VisualsScreens_FLIP"/>
+		</AppEnum>
+	</Link>	
+	
+	<Link 
+		name="Paint Type Level Requried" 
+		default="_00_"
+		description="The level requried to unlock the paint type"
+		category="Visuals"
+	>
+	</Link>
+
+	<Link
+		name="Vinyl Group"
+		default="_TOP_"
+		description="The user's selection of views to apply vinyls to."
+		category="Visuals"
+	>
+		<AppEnum>
+			<Entry value="0" Text="Top"/>
+			<Entry value="1" Text="Left Side"/>
+			<Entry value="2" Text="Right Side"/>
+			<Entry value="3" Text="Front"/>
+			<Entry value="4" Text="Rear"/>
+			<Entry value="5" Text="Wing"/>
+			<Entry value="6" Text="Left Window"/>
+			<Entry value="7" Text="Right Window"/>
+			<Entry value="8" Text="Front Window"/>
+			<Entry value="9" Text="Rear Window"/>
+			<Entry value="10" Text="Top Window"/>
+		</AppEnum>
+	</Link>
+
+
+      <Link 
+          name="Paint Hue" 
+          default="50"
+          description="The hue of the current paint"
+          category="Visuals"
+     >
+     </Link>
+
+      <Link 
+          name="Paint Saturation" 
+          default="50"
+          description="The saturation of the current paint"
+          category="Visuals"
+     >
+     </Link>
+
+      <Link 
+          name="Paint Brightness" 
+          default="50"
+          description="The brightness of the current paint"
+          category="Visuals"
+     >
+     </Link>
+
+
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Link
+		name="Graphics Resolution"
+		default="1280x720"
+		description="Graphics config resolution index."
+		category="Graphics"
+	>
+	</Link>
+
+	<Link
+		name="Graphics Windowed"
+		default="_ON_"
+		description="Graphics config windows mode."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics Texture Filtering"
+		default="0"
+		description="Graphics config texture filtering."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="GraphicsOptions_Bilinear"/>
+			<Entry value="1" TextID="GraphicsOptions_Trilinear"/>
+			<Entry value="2" TextID="GraphicsOptions_Anisotropic2x"/>
+			<Entry value="3" TextID="GraphicsOptions_Anisotropic4x"/>
+			<Entry value="4" TextID="GraphicsOptions_Anisotropic8x"/>
+			<Entry value="5" TextID="GraphicsOptions_Anisotropic16x"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics V-Sync"
+		default="_ON_"
+		description="Graphics config V-Sync."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics Anti-Aliasing"
+		default="_ON_"
+		description="Graphics config Anti-Aliasing."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_normal"/>
+			<Entry value="2" TextID="MainMenu_HIGH"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics Reflection Quality"
+		default="_LOW_"
+		description="The Reflection Quality settings"
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="MainMenu_LOW"/>
+			<Entry value="2" TextID="MainMenu_medium"/>
+			<Entry value="3" TextID="MainMenu_HIGH"/>
+		</AppEnum>
+	</Link>
+	
+	<Link
+		name="Graphics Brightness"
+		default="1"
+		description="Graphics config brightness amount."
+		category="Graphics"
+	>
+	</Link>
+
+	<Link
+		name="Graphics Car Detail"
+		default="_HIGH_"
+		description="Graphics config car detail."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_LOW"/>
+			<Entry value="1" TextID="MainMenu_medium"/>
+			<Entry value="2" TextID="MainMenu_HIGH"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics Shadow Detail"
+		default="_HIGH_"
+		description="Graphics config shadow detail."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_LOW"/>
+			<Entry value="2" TextID="MainMenu_medium"/>
+			<Entry value="3" TextID="MainMenu_HIGH"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics Track Detail"
+		default="_HIGH_"
+		description="Graphics config track detail."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_LOW"/>
+			<Entry value="1" TextID="MainMenu_medium"/>
+			<Entry value="2" TextID="MainMenu_HIGH"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics Motion Blur"
+		default="_HIGH_"
+		description="Graphics config motion blur."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_OFF"/>
+			<Entry value="1" TextID="MainMenu_LOW"/>
+			<Entry value="2" TextID="MainMenu_medium"/>
+			<Entry value="3" TextID="MainMenu_HIGH"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="Graphics Texture Resolution"
+		default="_HIGH_"
+		description="Graphics config texture resolution."
+		category="Graphics"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_LOW"/>
+			<Entry value="1" TextID="MainMenu_medium"/>
+			<Entry value="2" TextID="MainMenu_HIGH"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="AutoLogin"
+		default="_YES_"
+		description="AutoLogin to EANations"
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Link
+		name="OnlineTelemetry"
+		default="_YES_"
+		description="Telemetry Logging"
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+
+	<Function
+		name="EANations Sign In Toggle"
+		description="Sign in/out of EA Nation"
+		category="Options"
+	>
+	</Function>
+	<Function
+		name="Telemetry Toggle"
+		description="Toggle telemetry"
+		category="Options"
+	>
+	</Function>
+
+	<Link
+		name="Online Player Mute All"
+		default="_YES_"
+		description="Mute all online players"
+		category="Options"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	<Function 
+		name="Adjust Online Player Mute All" 
+		description="Adjust the Online Player Mute All value"
+		category="Options"
+	>
+	</Function>
+	
+	<Link
+		name="SaveYouTubeAccountInfo"
+		default="_YES_"
+		description="Store YouTube login name and password info"
+		category="Youtube"
+	>	
+		<AppEnum>
+			<Entry value="0" TextID="MainMenu_no"/>
+			<Entry value="1" TextID="MainMenu_yes"/>
+		</AppEnum>
+	</Link>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<!---------------------- FUNCTIONS ---------------------------------------------------------------------------->
+	<!----------------------------------------------------------------------------------------------------------------->
+
+
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="Adjust Language"
+		description="Change the Language to Set. Set the Integer to -1 or 1 for the direction. It won't be applied until you call Set Language"
+		category="General"
+	/>
+
+	<Function
+		name="Set Language"
+		description="Sets the current Language. Reloads the menus etc to display it"
+		category="General"
+	/>
+
+	<Function
+		name="Adjust Audio Language"
+		description="Change the Language to Set. Set the Integer to -1 or 1 for the direction. It won't be applied until you call Set Language"
+		category="General"
+	/>
+
+	<Function
+		name="Set Audio Language"
+		description="Sets the current Language. Reloads the menus etc to display it"
+		category="General"
+	/>
+
+	<Function
+		name="Set Units of Measure"
+		description="Sets the displayed units of measure"
+		category="General"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="SP Adjust No Of Laps"
+		description="Add a value to the No Of Laps setting for SINGLE PLAYER. Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="MP Adjust No Of Laps"
+		description="Add a value to the No Of Laps setting for MULTI PLAYER. Use Integer for the value."
+		category="Multiplayer Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="SP Adjust No Of AI Participants" 
+		description="Add a value to the Number of AI Opponents for SINGLEPLAYER. Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="MP Adjust Max Participants" 
+		description="Add a value to the Maximum Number of Participants for MULTIPLAYER. Use Integer for the value."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Min Participants" 
+		description="Add a value to the Minimum Number of Participants for MULTIPLAYER. Use Integer for the value."
+		category="Multiplayer Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="SP Adjust Opponent Difficulty" 
+		description="Add a value to the Opponent Difficulty for SINGLEPLAYER. Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="SP Adjust Player Difficulty" 
+		description="Add a value to the Player Difficulty for SINGLEPLAYER. Use Integer for the value."
+		category="Race Settings"
+	/>
+	
+	<Function
+		name="SP Adjust Games Difficulty" 
+		description="Add a value to the Games Difficulty for SINGLEPLAYER. Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="SP Adjust Damage" 
+		description="Choose Damage Level for SINGLEPLAYER. Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="SP Adjust Time Of Day" 
+		description="Add a value to the Time Of Day setting. Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="SP Adjust Weather" 
+		description="Add a value to the Weather setting. Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="SP Adjust Qualifying Session" 
+		description="Toggle Do Qualifying Session for SINGLEPLAYER"
+		category="Race Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="Adjust AI Vehicle Type" 
+		description="Add a value to the the type of AI Vehicles that will be used (e.g. Random/Identical/Same Class). Use Integer for the value."
+		category="Race Settings"
+	/>
+
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="MP Adjust Force Cockpit View" 
+		description="Toggle Force Cockpit View Option for MULTIPLAYER."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Force Manual Gears"
+		description="Toggle Force Manual Gears Option for MULTIPLAYER."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Force Identical Opponent"
+		description="Toggle Force Identical Opponent Option for MULTIPLAYER."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Allow Traction Control" 
+		description="Toggle Allow Traction Control Option for MULTIPLAYER."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Allow ABS"
+		description="Toggle Allow ABS Option for MULTIPLAYER."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Allow Stability Control" 
+		description="Toggle Allow Stability Control Option for MULTIPLAYER."
+		category="Multiplayer Settings"
+	/>
+	
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+	<!---------------------------------------------- Lobby ------------------------------------------------------------>
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Function 
+		name="Lobby Name Switch" 
+		description="Fast Lobby Name Switch"
+		category="Lobby"
+	/>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+	<!------------------------------------- Create Online page -------------------------------------------------------->
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Function 
+		name="MP Adjust Ranked" 
+		description="Toggle ranked/unranked MP session"
+		category="Multiplayer Settings"
+	/>
+	
+	<Function 
+		name="MP Adjust Private" 
+		description="Toggle public/private MP session"
+		category="Multiplayer Settings"
+	/>
+ 
+	<Function
+		name="MP Adjust Game Mode"
+		description="Adjust MP game mode."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Performance Class"
+		description="Adjust MP performance class."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Vehicle Type"
+		description="Adjust MP vehicle type."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Vehicles"
+		description="Adjust MP vehicles."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Length"
+		description="Adjust MP race length."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust DLC"
+		description="Adjust MP session DLC filter."
+		category="Multiplayer Settings"
+	/>
+
+	<!-- Min players already defined as MP Adjust Min Participants -->
+	<!-- Max players already defined as MP Adjust Max Participants -->
+
+	<Function
+		name="MP Adjust AI Difficulty"
+		description="Adjust MP AI Difficulty."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Time Of Day"
+		default="_DAY_"
+		description="ADjust Time Of Day MP Setting"
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="MP Adjust Allowed Views"
+		description="Adjust MP race view restrictions."
+		category="Multiplayer Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<!------------------------------------- Custom Matchmaking page --------------------------------------------------->
+	<!----------------------------------------------------------------------------------------------------------------->
+	
+	<Function 
+		name="Matchmaking Adjust Ranked" 
+		description="Toggle ranked/unranked MP session matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+	
+	<Function 
+		name="Matchmaking Adjust Use Specific Track" 
+		description="Toggle any/specific MP session matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+	
+	<Function 
+		name="Matchmaking Adjust Time Of Day" 
+		description="Toggle any/day/dusk/night MP session matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+ 
+	<Function
+		name="Matchmaking Adjust Game Mode"
+		description="Adjust MP game mode matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust Performance Class"
+		description="Adjust MP performance class matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust Vehicle Type"
+		description="Adjust MP vehicle type matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust Vehicles"
+		description="Adjust MP vehicles matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust Length"
+		description="Adjust MP race length matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust DLC"
+		description="Adjust MP session DLC matchmaking criteria"
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust Max Participants" 
+		description="Add a value to the Maximum Number of Participants for MULTIPLAYER matchmaking criteria. Use Integer for the value."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust Min Participants" 
+		description="Add a value to the Minimum Number of Participants for MULTIPLAYER matchmaking criteria. Use Integer for the value."
+		category="Multiplayer Settings"
+	/>
+
+	<Function
+		name="Matchmaking Adjust Allowed Views"
+		description="Adjust matchmaking race view restrictions."
+		category="Multiplayer Settings"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="Adjust Use Manual Gears" 
+		description="Toggle Use Manual Gears Option."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="Adjust Use Traction Control"
+		description="Toggle Use Traction Control Option."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="Adjust Use ABS"
+		description="Toggle Use ABS Option."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="Adjust Use Stability Control"
+		description="Toggle Use Stability Control Option."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="Adjust Brake Assist"
+		description="Toggle Use Braking Assistance."
+		category="Race Settings"
+	/>
+	
+	<Function
+		name="Adjust Steering Assist" 
+		description="Toggle Use Steering Assistance."
+		category="Race Settings"
+	/>	
+
+	<Function
+		name="Adjust Use Automatic Clutch" 
+		description="Toggle Use Automatic Clutch."
+		category="Race Settings"
+	/>	
+
+	<!--DriverGeniusNotification -->
+
+	<Function
+		name="Adjust DriverGeniusNotification - Career" 
+		description="Toggle whether or not the user wants to recieve DG Career notifications"
+		category="DriverGeniusNotification"
+	/>
+
+	<Function
+		name="Adjust DriverGeniusNotification - Online" 
+		description="Toggle whether or not the user wants to recieve DG Online notifications"
+		category="DriverGeniusNotification"
+	/>
+	
+	<!--DriverNetworkNotification -->
+
+	<Function
+		name="Adjust DriverNetworkNotification - AchievementsAndTrophies" 
+		description="Toggle whether or not the user wants to recieve DN Achievement notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - Records"
+		description="Toggle whether or not the user wants to recieve DN Record notifications"
+		category="DriverNetworkNotification"
+	/>
+
+
+	<Function
+		name="Adjust DriverNetworkNotification - LeaderboardActivity" 
+		description="Toggle whether or not the user wants to recieve DN Leaderboard notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - SigninStatus" 
+		description="Toggle whether or not the user wants to recieve DN Sign-in notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - NFSNews"
+		description="Toggle whether or not the user wants to recieve DN NFS News notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - NFSStore" 
+		description="Toggle whether or not the user wants to recieve DN NFS Store notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - CommunityEvents" 
+		description="Toggle whether or not the user wants to recieve DN Community Event notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - Recommendations" 
+		description="Toggle whether or not the user wants to recieve DN Recommendation notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - SHNews" 
+		description="Toggle whether or not the user wants to recieve DN SpeedHunter News notifications"
+		category="DriverNetworkNotification"
+	/>
+
+	<Function
+		name="Adjust DriverNetworkNotification - Media" 
+		description="Toggle whether or not the user wants to recieve DN media notifications"
+		category="DriverNetworkNotification"
+	/>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Function 
+		name="Adjust Share Friends List" 
+		description="Sharing of friends list privacy option toggle"
+		category="FriendOptions"
+	>
+	</Function>		
+
+
+	<Link
+		name="Share Friends List Option"
+		default="1"
+		description="Controls visibilty of friends list option"
+		category="FriendOptions"
+	>
+	</Link>
+	<!----------------------------------------------------------------------------------------------------------------->
+
+
+	<Function
+		name="Adjust Phantom Driving Line"
+		description="Toggle Phantom Driving Line Option."
+		category="Phantom"
+	/>
+
+	<Function
+		name="Adjust Show Driving Line" 
+		description="Toggle Show Driving Line Option."
+		category="Phantom"
+	/>
+	
+	<Function
+		name="Adjust Loaded Phantom Persistent" 
+		description="Toggle Loaded Phantom Persistent Option."
+		category="Phantom"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	<Function
+		name="Adjust Mirror On"
+		description="Toggle Mirror On/Off"
+		category="Options"
+	/>
+
+	<Function
+		name="Adjust HUD On"
+		description="Toggle HUD On/Off."
+		category="Options"
+	/>
+
+	<Function
+		name="Adjust Driver Labels On"
+		description="Toggle driver labels On/Off."
+		category="Options"
+	/>
+
+	<Function
+		name="Graphics Reflection Quality Adjust"
+		description="Change relefection quality setting."
+		category="Options"
+	/>
+
+	<Function
+		name="Adjust Corner Markers On"
+		description="Toggle Corner Markers On/Off"
+		category="Options"
+	/>
+
+	<Function
+		name="Adjust Motion Blur Quality"
+		description="Adjust Motion Blur Quality. Use Integer set to -1 or 1"
+		category="Options"
+	/>
+
+	<Function
+		name="Control Assign"
+		description="Assigns Control. Pass in id of control"
+		category="Options"
+	/>
+
+	<Function
+		name="Save Control Assignment" 
+		description="Saves controller assigment"
+		category="Options"
+	/>
+
+	<Function
+		name="Switch Shifter Type" 
+		description="Toggle between H-Pattern and Sequential shifting."
+		category="Options"
+	/>
+
+	<Link
+		name="Cheat Menu Available"
+		default="1"
+		description=""
+		category="General"
+	>
+	</Link>
+
+	<Function
+		name="Display Cheat Menu"
+		description="Displays the Cheat Menu"
+		category="Options"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	
+	<Function
+		name="Reset Upgrades" 
+		description="Resets the vehicle's upgrade levels back to 0"
+		category="Upgrades"
+	/>
+
+	<Function
+		name="Purchase Upgrade" 
+		description="Purchases selected upgrade, applies it to the vehicle, removes funds from wallet"
+		category="Upgrades"
+	/>
+	
+	<Function
+		name="Set Rim Front" 
+		description="Sets currently selected rims as Front wheels"
+		category="Rims"
+	/>
+	
+	<Function
+		name="Set Rim Rear" 
+		description="Sets currently selected rims as Rear wheels"
+		category="Rims"
+	/>
+	
+	<Function
+		name="Purchase Rims" 
+		description="Purchases selected Rims"
+		category="Rims"
+	/>
+	
+	<Function
+		name="Reset Rims to Stock"
+		description="Removes all Rim upgrades and sets wheels back to stock"
+		category="Rims"
+	/>
+
+	<Function
+		name="Select Rim Manufacturer"
+		description="Scrolls through rim manufacturers"
+		category="Rims"
+	/>
+
+      <Link 
+          name="Rim Manufacturer" 
+          default="Undefined manufacturer"
+          description="The manufacturer of the rims"
+          category="Rims"
+     >
+     </Link>
+
+	<Function
+		name="Select Rim Diameter"
+		description="Scrolls through rim diameters"
+		category="Rims"
+	/>
+
+      <Link 
+          name="Rim Diameter" 
+          default="Undefined diameter"
+          description="The diameter of the rims"
+          category="Rims"
+     >
+     </Link>
+
+
+      <Link 
+          name="Rims Driver Level" 
+          default="0"
+          description="Driver Level Required for rims"
+          category="Rims"
+     >
+     </Link>
+
+
+      <Link 
+          name="Rims Installed Front" 
+          default="0"
+          description="Rims currently installed in front"
+          category="Rims"
+     >
+     </Link>
+      <Link 
+          name="Rims Installed Rear" 
+          default="0"
+          description="Rims currently installed in rear"
+          category="Rims"
+     >
+     </Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+
+	<Function
+		name="Adjust Paint Body Part"
+		description="Scrolls through body part options for painting"
+		category="Visuals"
+	/>
+
+	<Function
+		name="Adjust Paint Type"
+		description="Scrolls through types of paint"
+		category="Visuals"
+	/>
+
+	<Function
+		name="Adjust Vinyl Group Body Part"
+		description="Scrolls through vinyl group options for applying vinyls to different sides/body parts"
+		category="Visuals"
+	/>
+
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+
+	<Function
+		name="Graphics Resolution Adjust"
+		description="Graphics config resolution adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Windowed Toggle"
+		description="Graphics config windows mode toggle."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Texture Filtering Adjust"
+		description="Graphics config texture filtering adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics V-Sync Toggle"
+		description="Graphics config V-Sync toggle."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics AntiAlias Toggle"
+		description="Graphics config AntiAlias toggle."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Brightness Adjust"
+		description="Graphics config brightness amount adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Car Detail Adjust"
+		description="Graphics config car detail adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Shadow Detail Adjust"
+		description="Graphics config shadow detail adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Track Detail Adjust"
+		description="Graphics config track detail adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Motion Blur Adjust"
+		description="Graphics config motion blur adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+	<Function
+		name="Graphics Texture Resolution Adjust"
+		description="Graphics config texture resolution adjust. Use Integer set to -1 or 1."
+		category="Graphics"
+	/>
+
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Function
+		name="Steering Lock"
+		description="Adjust Steering Lock rate for current setup. Use Integer set to -1 or 1."
+		category="Vehicle Tuning"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Function
+		name="Steering Lock"
+		description="Adjust Steering Lock rate for current setup. Use Integer set to -1 or 1."
+		category="Vehicle Tuning"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Link
+		name="Game Mode"
+		default="_GAME MODE_"
+		description="Get game mode."
+		category="Race Settings"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="RaceModes_Race"/>
+			<Entry value="3" TextID="RaceModes_TimeAttack"/>
+			<Entry value="4" TextID="RaceModes_SoloDrift"/>
+			<Entry value="6" TextID="RaceModes_SPDriverDuel"/>
+			<Entry value="10" TextID="RaceModes_DragRace"/>
+			<Entry value="11" TextID="RaceModes_DragStop"/>
+			<Entry value="16" TextID="RaceModes_LapEliminator"/>
+			<Entry value="17" TextID="RaceModes_TimeEliminator"/>
+		</AppEnum>
+	</Link>
+
+	<Function
+		name="Adjust Game Mode"
+		description="Adjust game mode."
+		category="Race Settings"
+	/>
+
+	<Function
+		name="Adjust AutoLogin" 
+		description="Toggle AutoLogin Option."
+		category="Options"
+	/>
+
+	<Function
+		name="LaunchTelemetryViewer" 
+		description="Launches Telemetry Wiewer."
+		category="Misc"
+	/>
+
+	<Function 
+		name="Enter Career" 
+		description="Either launch DDay or enter career"
+		category="General"
+	>
+	</Function>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Function
+		name="Codes"
+		description="Launch the code entry dialog box"
+		category="General"
+	/>
+
+	<Function
+		name="OnlinePass"
+		description="Launch the online pass dialog box"
+		category="General"
+	/>
+
+	<Function
+		name="NFSVIP"
+		description="Launch the NFS VIP dialog box"
+		category="General"
+	/>
+
+	<Function
+		name="Store"
+		description="Launch the in-game store"
+		category="General"
+	/>
+
+	<Function
+		name="OnlineMenu"
+		description="Used to show online menu dialog"
+		category="General"
+	/>
+	
+	<!-- Splash screen -->
+
+	<Function
+		name="Start Game From Splash"
+		description="Progress from the splash screen"
+		category="Splash Screen"
+	>
+	</Function>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	
+	<Function
+		name="Adjust YouTubeSaveInfo" 
+		description="Adjust YouTubeSaveInfo. Use Integer set to -1 or 1"
+		category="Youtube"
+	/>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Link
+		name="Online Signed In"
+		default="0"
+		description=""
+		category="General"
+	/>
+
+	<Link
+		name="Online Signed Out"
+		default="0"
+		description=""
+		category="General"
+	/>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+
+	<Link
+		name="Lobby Is In Page History"
+		default="0"
+		description=""
+		category="General"
+	/>
+
+	<Link
+		name="Lobby Not In Page History"
+		default="0"
+		description=""
+		category="General"
+	/>
+
+	<!-------------------------Credits screen ---------------------------->
+
+	<Function
+		name="Credits Play Pause" 
+		description="Play/Pause button on credits screen"
+		category="Credits"
+	/>
+
+</GUIAppLinks>

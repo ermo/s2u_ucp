@@ -1,0 +1,1317 @@
+<?xml version="1.0" ?>
+<Reputation>
+  <Scoring>
+
+
+    <!-- -------------------- -->
+    <!-- Evaluation of combos -->
+    <!-- -------------------- -->
+    <Combos>
+
+      <!-- After how much time without any additional scoring the combo score will be added to the total. -->
+      <!-- Zero means that the values are committed almost immediately. -->
+      <Timeout                        Value="5" />
+
+      <!-- Specifies whether or not the events can be committed separately when a race is active. If so, -->
+      <!-- each event will be committed EventTimeout seconds after that event stops increasing score. -->
+      <CommitEventsSeparately         Value="yes" />
+
+      <!-- After how much time without any additional scoring will each event independently be added to the total. -->
+      <!-- Only meaningful if CommitEventsSeparately is true. -->
+      <EventTimeout                   Value="4" />
+
+      <!-- Should the zone be completely disabled? -->
+      <DisableZone                    Value="yes" />
+
+      <!-- How many points are required to reach the zone? -->
+      <ZoneThreshold                  Value="350" />
+
+      <!-- Multiplier to be applied to all scoring when the zone is active. -->
+      <ZoneMultiplier                 Value="2" />
+
+      <!-- How many seconds should the zone last after the threshold is reached? -->
+      <ZoneDuration                   Value="16" />
+
+      <!-- After how many seconds of no scoring will the point meter decay? -->
+      <MeterDecayDelay                Value="1" />
+
+      <!-- How many points per second will be lost when the meter is decaying? -->
+      <MeterDecaySpeed                Value="8" />
+
+    </Combos>
+
+
+    <!-- ------------------------------------- -->
+    <!-- Common restrictors for all detectors. -->
+    <!-- ------------------------------------- -->
+    <Common>
+
+      <!-- Links to restrictions based on race type. In order for the detectors to be enabled, all the restrictions must pass. -->
+      <!-- These links are added to the per-detector configuration. -->
+      <RaceTypeLink                   Name="NotDDay" />
+      <RaceTypeLink                   Name="NotOnTrackTuning" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- These links are added to the per-detector configuration. -->
+      <RestrictionLink                Name="PlayerAIControl" />
+
+    </Common>
+
+
+    <!-- ----------------------------- -->
+    <!-- Points awarded for overtaking -->
+    <!-- ----------------------------- -->
+    <Overtaking>
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- There's no overtaking in drift events, so it doesn't make any sense to award it there. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotTimeAttack" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- If any of these restrictions becomes active during any part of the save manoeuvre, the scoring for the manoeuvre -->
+      <!-- will not be granted. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- Time limit, during which you can only be awarded once for overtaking the same vehicle. -->
+      <RepeatTime                     Value="15" />
+
+      <!-- How long after the overtake maneuvre the player must keep driving fine (i.e. do not break any restrictions). -->
+      <!-- Score will only be added after this extra time. -->
+      <ExtensionTime                  Value="2" />
+
+      <!-- Maximum allowed duration of an overtake manoeuvre. If the overtake takes longer, the manoeuvre -->
+      <!-- is considered side-by-side driving and you will not be awarded. -->
+      <!-- ExtensionTime is not counted towards this limit. -->
+      <MaximumDuration                Value="15" />
+
+      <!-- Collisions of the specified properties will make the overtake manoeuvre dirty. -->
+      <CollisionMatch                 MinimumForce="100" />
+
+      <!-- Specifies whether any collision (true) or only collision with the opponent being overtaken (false) -->
+      <!-- will make the overtake manoeuvre dirty. -->
+      <AnyCollision                   Value="false" />
+
+      <!-- Distance parameters, in meters. An overtake is a manoeuvre, where the client moves from a distance -->
+      <!-- at least DistanceBehindClose behind the opponent to at least DistanceFrontClose to the front of the -->
+      <!-- opponent. The Far variants must be higher than the close variants are very much used only for sanity -->
+      <!-- checking. Please keep them a few dozen meters above the close variants. -->
+      <DistanceBehindFar             Value="25" />
+      <DistanceBehindClose           Value="5" />
+      <DistanceFrontClose            Value="7" />
+      <DistanceFrontFar              Value="25" />
+
+      <!-- What speed must the opponent travel at, and does the opponent have to be on road? If these conditions -->
+      <!-- are not specified, the overtake will not be awarded - it's not hard to overtake a vehicle standing off the road -->
+      <!-- and not moving. -->
+      <RequiredOpponentSpeedKMH      Value="30" />
+      <RequireOpponentOnRoad         Value="true" />
+
+      <!-- How many points you'll get for overtaking? -->
+      <CleanTarget                    Value="Precision" />
+      <DirtyTarget                    Value="Aggression" />
+      <CleanPoints                    Value="20" />
+      <DirtyPoints                    Value="20" />
+
+    </Overtaking>
+
+
+    <!-- -------------------------------------------------- -->
+    <!-- Points awarded for scrape collisions with vehicles -->
+    <!-- -------------------------------------------------- -->
+    <TradingPaint>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- Collisions are not awarded in drift events. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- If any of these restrictions becomes active during any part of the save manoeuvre, the scoring for the manoeuvre -->
+      <!-- will not be granted. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- How long to wait after an End Scrape notification before scoring is ended? This is to merge several scrapes that -->
+      <!-- come in a short succession into one event. -->
+      <EndDelay                       Value="0.35" />
+
+      <!-- Time limit, during which you can only be awarded once for scraping the same vehicle. -->
+      <RepeatTime                     Value="5" />
+
+      <!-- Collisions of the specified properties will award the score. -->
+      <!-- Each CollisionMatch tag can have a Type attribute with a value of "vehicle", "flappable", "ground", "terrain", or "object". -->
+      <!-- MinimumForce attribute, if present, specifies the minimum collision force for the impact to prevent scoring. -->
+      <!-- Other flags (Impact, Scrape, StartTouch, EndTouch) can further filter the collision events. -->
+      <!-- Vehicle and Scrape are implied here, so only use MinimumForce parameters. -->
+      <CollisionMatch                 MinimumForce="100" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been scraping with an opponent and I is the speed fraction integral. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Aggression" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="10" />
+        <Duration                     Value="3" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </TradingPaint>
+
+
+    <!-- ------------------------------------------------ -->
+    <!-- Points awarded for scrape collisions with armcos -->
+    <!-- ------------------------------------------------ -->
+    <Armco>
+      <!-- FIXME -->
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- Collisions are not awarded in drift events. -->
+      <RaceTypeLink                   Name="Never" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- If any of these restrictions becomes active during any part of the save manoeuvre, the scoring for the manoeuvre -->
+      <!-- will not be granted. -->
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- Collisions of the specified properties will award the score. -->
+      <!-- Each CollisionMatch tag can have a Type attribute with a value of "vehicle", "flappable", "ground", "terrain", or "object". -->
+      <!-- MinimumForce attribute, if present, specifies the minimum collision force for the impact to prevent scoring. -->
+      <!-- Other flags (Impact, Scrape, StartTouch, EndTouch) can further filter the collision events. -->
+      <!-- Vehicle and Scrape are implied here, so only use MinimumForce parameters. -->
+      <CollisionMatch                 MinimumForce="100" />
+
+      <!-- Material name that specifies the armco materials. -->
+      <MaterialName                   Value="GUARDRAILS" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been scraping with an opponent and I is the speed fraction integral. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Aggression" />
+        <MinimumDuration              Value="0" />
+        <Constant                     Value="10" />
+        <Duration                     Value="10" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </Armco>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <!-- Points awarded for blocking opponents attempting to overtake -->
+    <!-- ------------------------------------------------------------ -->
+    <Blocking>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                      Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                      Name="NotTimeAttack" />
+      <RaceTypeLink                      Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- If any of these restrictions becomes active during any part of the save manoeuvre, the scoring for the manoeuvre -->
+      <!-- will not be granted. -->
+      <RestrictionLink                   Name="OnRoad" />
+      <RestrictionLink                   Name="SomeSpeed" />
+
+      <!-- Time limit, during which you can only be awarded once for blocking the same vehicle. -->
+      <RepeatTime                        Value="10" />
+
+      <!-- How many points you'll get for blocking someone. -->
+      <Target                            Value="Neutral" />
+      <Block                             Value="10" />
+
+      <!--  Meters in front of client, beyond which we do not track opponents. -->
+      <InterestZoneFrontLength           Value="0" />
+
+      <!--  Meters behind client, beyond which we do not track opponents. -->
+      <InterestZoneRearLength            Value="12" />
+
+      <!--  Minimum speed for blocking. -->
+      <MinSpeedKMH                       Value="30" />
+
+      <!--  Fraction of client speed, at which opponent is judged to be overtaking. -->
+      <!--  1.1 = 110% of client speed (i.e. 10% faster than opponent). -->
+      <OvertakingSpeedFraction           Value="1.02" />
+
+      <!--  Maximum allowed opponent deviation from overtaking line, before overtake is cancelled. -->
+      <MaxOvertakingDeviation            Value="10.0" />
+
+      <!--  Maximum distance in meters from client to opponent's overtaking line, -->
+      <!--  which client needs to move towards to be judged as attempting to block. -->
+      <OvertakingLineDistanceTolerance   Value="0.5" />
+
+      <!--  Fraction of opponent speed, under which opponent will be judged as slowed by client block maneuvre. -->
+      <!--  Comparison is vs snapshot of opponent speed, taken when overtake attempt is detected. -->
+      <!--  0.9 = 90% of overtaking speed (i.e. slowed by 10%). -->
+      <BlockedSpeedFraction              Value="0.98" />
+
+      <!--  Minimum fraction of lateral vehicle overlap, outside which opponent is not considered blocked. -->
+      <MinBlockednessFraction            Value="0.5" />
+
+      <!--  After block maneuvre detection, duration that client has to actually block the opponent [seconds]. -->
+      <BlockConsiderationDuration        Value="1.5" />
+
+      <!--  Whether or not colliding with the opponent cancels the active blocking state. -->
+      <CollisionWithOpponentCancelsBlock Value="yes" />
+
+      <!--  Whether or not colliding with anything cancels any blocking state. -->
+      <CollisionWithWorldCancelsBlock    Value="no" />
+
+    </Blocking>
+
+
+    <!-- --------------------------------------------------------------------------------------------------- -->
+    <!-- Points awarded for spinning opponents and optionally moving them off track and flipping upside down -->
+    <!-- --------------------------------------------------------------------------------------------------- -->
+    <Spin>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                         Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                         Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- If any of these restrictions becomes active during any part of the save manoeuvre, the scoring for the manoeuvre -->
+      <!-- will not be granted. -->
+      <!-- Due to the difficulty of this manoeuvre, and because a collision is necessary to initiate it, -->
+      <!-- there are no restrictions placed here, not even the usual OnRoad and SomeSpeed ones. -->
+
+      <!-- Time limit, during which you can only be awarded once for knocking the same vehicle. -->
+      <RepeatTime                           Value="30" />
+
+      <!-- Awards you'll get for spinning someone. -->
+      <SpinScoreTarget                      Value="Aggression" />
+      <SpinPoints                           Value="50" />
+
+      <!-- Additional awards you'll get for knocking someone of the track. -->
+      <OffroadScoreTarget                   Value="Aggression" />
+      <OffroadPoints                        Value="80" />
+
+      <!-- Additional awards you'll get for flipping someone upside down. -->
+      <FlipScoreTarget                      Value="Aggression" />
+      <FlipPoints                           Value="120" />
+
+      <!-- Duration after collision, during which opponent continues to be monitored for spin conditions, in seconds. -->
+      <SpinEvaluationDuration               Value="3" />
+
+      <!-- Time after the spin during which flip/offtrack position is monitored, in seconds. -->
+      <BonusEvaluationDuration              Value="3" />
+
+      <!-- Sideslip angle (spin) in degrees, required for opponent to be considered spun. -->
+      <SpinSlipAngle                        Value="80" />
+
+      <!-- Fraction of speed of opponent vehicle after impact, -->
+      <!-- under which opponent is considered for spin conditions [ fraction in [0,1] interval ]. -->
+      <SpeedAfterCollisionFraction          Value="0.5" />
+
+      <!-- How far off-road, that the center of the vehicle must be, -->
+      <!-- to actually be considered as off-road [meters]. -->
+      <OffroadDistance                      Value="1.5" />
+
+      <!-- Required tilt angle to score a flip [degrees]. -->
+      <FlipAngle                            Value="90" />
+
+    </Spin>
+
+
+    <!-- ------------------------------------------------ -->
+    <!-- Points awarded for driving in the first position -->
+    <!-- ------------------------------------------------ -->
+    <Leading>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- If any of these restrictions becomes active during any part of the save manoeuvre, the scoring for the manoeuvre -->
+      <!-- will not be granted. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- Minimum number of participants in a race for leading score to be awarded. -->
+      <!-- Please note this is NOT the number of opponents, but participants including the player. -->
+      <!-- This must be at least 2 (player and one opponent). -->
+      <MinimumRequiredParticipants    Value="2" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been scraping with an opponent and I is the speed fraction integral. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="7" />
+        <Constant                     Value="0" />
+        <Duration                     Value="1" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </Leading>
+
+
+    <!-- ------------------------------------------ -->
+    <!-- Points awarded for leading for a whole lap -->
+    <!-- ------------------------------------------ -->
+    <LeadingWholeLap>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Number of points awarded for staying in the lead for a full lap. -->
+      <Target                         Value="Neutral" />
+      <LeadWholeLap                   Value="40" />
+
+    </LeadingWholeLap>
+
+
+    <!-- -------------------------------------------- -->
+    <!-- Points awarded for making a save from a spin -->
+    <!-- -------------------------------------------- -->
+    <SpinSave>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="Never" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- If any of these restrictions becomes active during any part of the save manoeuvre, the scoring for the manoeuvre -->
+      <!-- will not be granted. -->
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- How many points should be awarded for the spin save manoeuvre? -->
+      <Target                         Value="Aggression" />
+      <Points                         Value="25" />
+      
+      <!-- How often, in seconds, are you allowed to receive score for the save? -->
+      <RepeatTime                     Value="10" />
+
+      <!-- These angles define the limits of the manoeuvre. The Spin Save manoeuvre will be successful if the following happens -->
+      <!-- over time in this order: -->
+      <!-- 1. The slip angle is below StartAngle. -->
+      <!-- 2. The slip angle gets between TriggerAngle and ExcessiveAngle. -->
+      <!-- 3. The slip angle gets back below EndAngle. -->
+      <!-- All angles are specified in degrees and the time limit is in seconds. -->
+      <StartAngle                     Value="20" />
+      <TriggerAngle                   Value="60" />
+      <ExcessiveAngle                 Value="75" />
+      <EndAngle                       Value="20" />
+      <MaximumDuration                Value="5" />
+
+    </SpinSave>
+
+
+    <!-- -------------------------------- -->
+    <!-- Points awarded for clean driving -->
+    <!-- -------------------------------- -->
+    <CleanDriving>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- To make score more predictable, all effects of crashes on Reputation are disabled in Drift events. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <!-- Because Clean Driving needs to handle crashes on its own, it's recommended not to use a Restriction that -->
+      <!-- contains any sort of collision matching. -->
+
+      <!-- Collisions of the specified properties will prevent clean driving score from being awarded. -->
+      <!-- Each CollisionMatch tag can have a Type attribute with a value of "vehicle", "flappable", "ground", "terrain", or "object". -->
+      <!-- MinimumForce attribute, if present, specifies the minimum collision force for the impact to prevent scoring. -->
+      <!-- Other flags (Impact, Scrape, StartTouch, EndTouch) can further filter the collision events. -->
+      <CollisionMatch                 Type="Vehicle"     MinimumForce="100" />
+      <CollisionMatch                 Type="Terrain"     MinimumForce="100" />
+
+      <!-- How far away from the edge of the road the center of the vehicle is allowed to be? -->
+      <!-- If the vehicle gets further away from the road, clean driving will be prohibited for the current -->
+      <!-- part of the race. -->
+      <MaximumRoadDistance            Value="0.75" />
+
+      <!-- How many points you receive when you drive a whole sector, lap or race without collision. -->
+      <Target                         Value="Precision" />
+      <CleanSector                    Value="10" />
+      <CleanLap                       Value="30" />
+      <CleanRace                      Value="40" />
+
+      <!-- If set to true, then only one rule will be applied at the end of a lap or race. This means that you will only -->
+      <!-- get score for clean lap at the end of the lap and not for both clean lap and clean sector, unless the number of points -->
+      <!-- for clean lap is configured to be zero. If set to false, you will get both sector/lap or all of sector/lap/race at the -->
+      <!-- end of a lap or race. -->
+      <AwardOnlyHighestScore          Value="no" />
+
+    </CleanDriving>
+
+
+    <!-- --------------------------- -->
+    <!-- Points awarded for drafting -->
+    <!-- --------------------------- -->
+    <Drafting>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- Scoring from drafting is not intended in drift events. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- Minimum value of the physics drafting value that will be awarded. -->
+      <InterestingMinimum             Value="0.25" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been drafting and I is the quality integral. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="2" />
+        <Constant                     Value="0" />
+        <Duration                     Value="1" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </Drafting>
+
+
+    <!-- -------------------------- -->
+    <!-- Points awarded for jumping -->
+    <!-- -------------------------- -->
+    <Jumping>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- You're not supposed to be jumping in drift events. -->
+      <RaceTypeLink                   Name="Never" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- Specifies whether or not physics hint about wheels being on the ground will be taken into account -->
+      <!-- If false, then only the MinimumHeight value will be considered, otherwise both MinimumValue and physics' -->
+      <!-- flag saying whether or not a wheel touches the ground will be taken into account. -->
+      <HonorMaterial                  Value="yes" />
+
+      <!-- Minimum height above the ground that is considered in the air. -->
+      <MinimumHeight                  Value="0.025" />
+
+      <!-- Minimum number of wheels you must have in the air to be awarded. -->
+      <MinimumWheelsInAir             Value="2" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been in the air and I is the quality integral. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Aggression" />
+        <MinimumDuration              Value="0.25" />
+        <Constant                     Value="0" />
+        <Duration                     Value="15" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="no" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </Jumping>
+
+
+    <!-- --------------------------------------- -->
+    <!-- Points awarded for driving off the road -->
+    <!-- --------------------------------------- -->
+    <DrivingOffroad>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- You're not supposed to be jumping in drift events. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+
+      <RestrictionLink                Name="SomeSpeed" />
+
+      <!-- How far away from the edge of the road the center of the vehicle must be? -->
+      <MinimumRoadDistance            Value="1.5" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been in the air and I is the quality integral. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Aggression" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="10" />
+        <Duration                     Value="10" />
+        <DurationSquared              Value="2" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DrivingOffroad>
+
+
+    <!-- --------------------------------------------------------------------------------- -->
+    <!-- Points awarded for driving higher than a specified ratio of car's rated top speed -->
+    <!-- --------------------------------------------------------------------------------- -->
+    <CarTopSpeedRatio>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- Driving at the vehicle's top speed is not really possible or desirable in drift events, so we'll disable it. -->
+      <RaceTypeLink                   Name="Never" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+
+      <!-- Fraction of top speed that will be awarded. -->
+      <MinimumSpeedFraction           Value="0.9" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been driving at top speed and I is the speed fraction integral. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Precision" />
+        <MinimumDuration              Value="0.25" />
+        <Constant                     Value="0" />
+        <Duration                     Value="10" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </CarTopSpeedRatio>
+
+
+    <!-- -------------------------------------------- -->
+    <!-- Points awarded for reaching speed thresholds -->
+    <!-- -------------------------------------------- -->
+    <SpeedThresholdDiscrete>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="Never" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+
+      <!-- Thresholds that will be awarded with a discrete score. -->
+      <DiscreteThresholds>
+        <!-- For this detector to award score as expected, interpolation and extrapolation must be turned off. -->
+        <Interpolate                    Value="no" />
+        <Extrapolate                    Value="no" />
+
+        <!-- Mapping between speed and score. The values are in kilometers per hour. -->
+        <Target                         Value="Neutral" />
+        <Score                          Speed="100"     Points="25" />
+        <Score                          Speed="150"     Points="30" />
+        <Score                          Speed="200"     Points="35" />
+        <Score                          Speed="250"     Points="40" />
+        <Score                          Speed="300"     Points="45" />
+        <Score                          Speed="350"     Points="50" />
+      </DiscreteThresholds>
+
+    </SpeedThresholdDiscrete>
+
+
+    <!-- -------------------------------------------------------- -->
+    <!-- Points awarded for driving faster than a specified speed -->
+    <!-- -------------------------------------------------------- -->
+    <SpeedThresholdContinuous>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+
+      <!-- Minimum speed that will award score. -->
+      <MinimumSpeedKMH                Value="170" />
+
+      <!-- Number which is used to remap speeds higher than the minimum speed to quality passed to the scoring function -->
+      <!-- Speed this much higher than the minimum speed will map to quality of one, speed twice this much higher than minimum -->
+      <!-- will map to quality of two, etc. Value of zero forces quality to be always one. -->
+      <QualityThresholdKMH            Value="100" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been following the line and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="0" />
+        <Constant                     Value="0" />
+        <Duration                     Value="1" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </SpeedThresholdContinuous>
+
+
+    <!-- -------------------------------------------- -->
+    <!-- Points awarded for following the racing line -->
+    <!-- -------------------------------------------- -->
+    <RaceLine>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- Drift events have their own race line scoring detector. -->
+      <RaceTypeLink                   Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                   Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="NotDrifting" />
+
+      <!-- Maximum distance allowed from the racing line. -->
+      <MaximumRaceLineDistance        Value="4" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been following the line and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Precision" />
+        <MinimumDuration              Value="0" />
+        <Constant                     Value="0" />
+        <Duration                     Value="0.5" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </RaceLine>
+
+
+    <!-- --------------- -->
+    <!-- Track mastering -->
+    <!-- --------------- -->
+    <TrackMastering>
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- In addition, the detector will only be enabled on tracks that are enabled for mastering. -->
+      <RaceTypeLink                     Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                     Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                  Name="OnRoad" />
+      <RestrictionLink                  Name="SomeSpeed" />
+
+      <!-- Collisions of the specified properties will prevent sections from being corner mastered. -->
+      <!-- Each CollisionMatch tag can have a Type attribute with a value of "vehicle", "flappable", "ground", "terrain", or "object". -->
+      <!-- MinimumForce attribute, if present, specifies the minimum collision force for the impact to prevent scoring. -->
+      <!-- Other flags (Impact, Scrape, StartTouch, EndTouch) can further filter the collision events. -->
+      <CollisionMatch                 Type="Vehicle"     MinimumForce="100" />
+
+      <!-- Maximum slip angle that is allowed, in degrees. -->
+      <!-- If the vehicle slips this much, the corner or racing line will be considered failed. -->
+      <MaximumSlipAngle                 Value="20" />
+
+      <!-- Maximum allowed deviations from optimum in corners for Corner Mastering. -->
+      <CornerLimits>
+        <!-- Maximum allowed distance in meters from the racing line for a corner/straight to be -->
+        <!-- considered successful. If the vehicle gets farther than this for even a moment, the -->
+        <!-- whole track section will not be successful. -->
+        <MaximumLineDistance              Value="3" />
+
+        <!-- By how much can the speed be lower than optimum in AIW? -->
+        <!-- Whichever of these options gives more leeway at any particular moment is used. -->
+        <!-- For example, values of 30 and 0.6 means that the speed can drop by 30kmh, or by 40% (to 60%), -->
+        <!-- whichever leads to a lower allowed speed. -->
+        <MaximumSpeedDecreaseKMH          Value="75" />
+        <MinimumSpeedFraction             Value="0.5" />
+      </CornerLimits>
+
+      <!-- Specifies the distance from the start, until which the detection will automatically master -->
+      <!-- all sections on point-to-point tracks. -->
+      <AlwaysAwardCornersOnP2PDistance  Value="150" />
+
+      <!-- Percentage of the racing line that must be mastered in a single lap for the Line-Mastering part to be complete. -->
+      <RacingLineRatio                Value="0.9" />
+
+      <!-- Score values for mastering a single corner on track (awarded repeatedly for the same corner). -->
+      <CornerMasteredTarget           Value="Precision" />
+      <CornerMasteredScore            Value="5" />
+      <!-- Score values for mastering all corners on track. -->
+      <TrackMasteredCornersTarget     Value="Precision" />
+      <TrackMasteredCornersScore      Value="250" />
+      <!-- Score values for mastering racing line on track. -->
+      <TrackMasteredLineTarget        Value="Precision" />
+      <TrackMasteredLineScore         Value="150" />
+      <!-- Score values for fully mastering the track (i.e. mastering all corners and line). Awarded in addition to -->
+      <!-- the individual scores for corner mastering and line mastering. -->
+      <TrackMasteredTarget            Value="Precision" />
+      <TrackMasteredScore             Value="0" />
+
+    </TrackMastering>
+
+
+    <!-- --------------------------------- -->
+    <!-- Points awarded for corner sliding -->
+    <!-- --------------------------------- -->
+    <CornerSliding>
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                     Name="PlayerOutsideDriftEvent" />
+      <RaceTypeLink                     Name="NotDragRace" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                  Name="OnRoad" />
+      <RestrictionLink                  Name="SomeSpeed" />
+
+      <!-- Minimum slip angle that will be considered for sliding, in degrees. -->
+      <MinimumSlipAngle                 Value="30" />
+
+      <!-- The function that determines the score for corner sliding, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been sliding and I is the integral of the quality of the slide. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <SlidePointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="0.5" />
+        <Constant                     Value="0" />
+        <Duration                     Value="10" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="1" />
+      </SlidePointsFunction>
+
+      <!-- The function that determines the score for corner sliding nitrous boost, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <SlideBoostPointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="0.5" />
+        <Constant                     Value="0" />
+        <Duration                     Value="10" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="1" />
+      </SlideBoostPointsFunction>
+
+    </CornerSliding>
+
+
+    <!-- ---------------------------- -->
+    <!-- Points awarded for launching -->
+    <!-- ---------------------------- -->
+    <Start>
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                     Name="PlayerOutsideDriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+
+      <!-- How long after green light the actual launch must come for the score to be awarded. -->
+      <!-- This prevents scoring when the player stays for too long in the start line, but does an OK launch after a long time. -->
+      <MaximumLaunchTime                Value="1.0" />
+
+      <!-- Mapping between distance and score awarded. -->
+      <Scoring>
+        <!-- Should the distances and scores specified here be interpolated? If this is false, then the score for the -->
+        <!-- lowest higher distance than the car is at will be awarded. If true, the score between two defined will be -->
+        <!-- interpolated. -->
+        <Interpolate                    Value="yes" />
+
+        <!-- Award points for distances lower than minimum and higher than maximum? -->
+        <Extrapolate                    Value="no" />
+
+        <!-- Mapping between distance and score. -->
+        <Target                         Value="Neutral" />
+        <Score                          Range="-1"    Points="10" />
+        <Score                          Range="0"     Points="40" />
+        <Score                          Range="1"     Points="10" />
+      </Scoring>
+
+      <!-- How many points you need to get for the launch to be Perfect or at least Great? -->
+      <!-- Any nonzero score below both thresholds will be considered a Good start. -->
+      <PerfectThreshold                 Value="30" />
+      <GreatThreshold                   Value="20" />
+
+    </Start>
+
+
+    <!-- --------------------------- -->
+    <!-- Points awarded for drifting -->
+    <!-- --------------------------- -->
+    <Drifting>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <!-- Drift events have their own race drifting detector. -->
+      <RaceTypeLink                   Name="Never" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="WheelsOnGround" />
+
+      <!-- Minimum slip angle that will be awarded, in degrees. -->
+      <MinimumSlipAngle               Value="20" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been drifting and I is the integral of the quality of the drift. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Aggression" />
+        <MinimumDuration              Value="0.5" />
+        <Constant                     Value="0" />
+        <Duration                     Value="10" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="no" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </Drifting>
+
+
+    <!-- ---------------------------------------------- -->
+    <!-- Points awarded in drift events for drift angle -->
+    <!-- ---------------------------------------------- -->
+    <DriftEventAngle>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="WheelsOnGround" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+      <RestrictionLink                Name="NoBackwardScoring" />
+
+      <!-- Minimum slip angle that you must maintain in order to be awarded any points. -->
+      <MinimumSlipAngle               Value="10" />
+
+      <!-- Speed, in KMH, for which the drit quality should be one. Drifting at slower/faster speeds will be scaled accordingly. -->
+      <NormalizedSpeedKMH             Value="60" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been drifting and I is the integral of the quality of the drift. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Precision" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="0" />
+        <Duration                     Value="0.4" />
+        <DurationSquared              Value="0.4" />
+        <Quality                      Value="0.6" />
+        <QualitySquared               Value="0.6" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventAngle>
+
+    <DriftEventAngle RaceTypeFilter="NevadaDrift2Track">
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="WheelsOnGround" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+
+      <!-- Minimum slip angle that you must maintain in order to be awarded any points. -->
+      <MinimumSlipAngle               Value="10" />
+
+      <!-- Speed, in KMH, for which the drit quality should be one. Drifting at slower/faster speeds will be scaled accordingly. -->
+      <NormalizedSpeedKMH             Value="60" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been drifting and I is the integral of the quality of the drift. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Precision" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="0" />
+        <Duration                     Value="0.4" />
+        <DurationSquared              Value="0.4" />
+        <Quality                      Value="0.6" />
+        <QualitySquared               Value="0.6" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventAngle>
+
+
+    <!-- --------------------------------------------------------------- -->
+    <!-- Points awarded in drift events for passing near clipping points -->
+    <!-- --------------------------------------------------------------- -->
+    <DriftEventClipping>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="WheelsOnGround" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+      <RestrictionLink                Name="NoBackwardScoring" />
+
+      <!-- Mapping between distance and score awarded. -->
+      <DistanceFunction>
+        <!-- Should the distances and scores specified here be interpolated? If this is false, then the score for the -->
+        <!-- lowest higher distance than the car is at will be awarded. If true, the score between two defined will be -->
+        <!-- interpolated. -->
+        <Interpolate                    Value="no" />
+
+        <!-- Award points for distances lower than minimum and higher than maximum? -->
+        <Extrapolate                    Value="no" />
+
+        <!-- Mapping between distance and score. -->
+        <Target                         Value="Precision" />
+        <Score                          Distance="0"     Points="20" />
+        <Score                          Distance="1"     Points="15" />
+        <Score                          Distance="3"     Points="10" />
+        <Score                          Distance="5"     Points="5" />
+      </DistanceFunction>
+
+    </DriftEventClipping>
+
+    <DriftEventClipping RaceTypeFilter="NevadaDrift2Track">
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="WheelsOnGround" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+
+      <!-- Mapping between distance and score awarded. -->
+      <DistanceFunction>
+        <!-- Should the distances and scores specified here be interpolated? If this is false, then the score for the -->
+        <!-- lowest higher distance than the car is at will be awarded. If true, the score between two defined will be -->
+        <!-- interpolated. -->
+        <Interpolate                    Value="no" />
+
+        <!-- Award points for distances lower than minimum and higher than maximum? -->
+        <Extrapolate                    Value="no" />
+
+        <!-- Mapping between distance and score. -->
+        <Target                         Value="Precision" />
+        <Score                          Distance="0"     Points="20" />
+        <Score                          Distance="1"     Points="15" />
+        <Score                          Distance="3"     Points="10" />
+        <Score                          Distance="5"     Points="5" />
+      </DistanceFunction>
+
+    </DriftEventClipping>
+
+
+    <!-- --------------------------------------------------- -->
+    <!-- Points awarded in drift events for generating smoke -->
+    <!-- --------------------------------------------------- -->
+    <DriftEventSmoke>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+      <RestrictionLink                Name="NoBackwardScoring" />
+
+      <!-- Parameters for the smoke -->
+      <Smoke>
+        <!-- Specifies what wheels are taken into account. Possible values are "All", "Rear", "Front", "Driven", -->
+        <!-- "FrontLeft", "FrontRight", "RearLeft", "RearRight". -->
+        <WheelTypes                     Value="Driven" />
+
+        <!-- Minimum number of wheels that must be slipping in order to award any score. -->
+        <MinimumWheelsSlipping          Value="1" />
+
+        <!-- Specifies what value of the wheel slip speed starts to generate smoke. -->
+        <!-- This value should be the same, or similar to, to the value that the tyre smoke particle effect uses. -->
+        <WheelMinimumSlipSpeed          Value="5" />
+
+        <!-- Specifies the minimum sum of wheel slip speeds that will be awarded. -->
+        <MinimumSlipSpeedSum            Value="0" />
+      </Smoke>
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been generating smoke and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="0" />
+        <Duration                     Value="0.2" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventSmoke>
+
+    <DriftEventSmoke RaceTypeFilter="NevadaDrift2Track">
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+
+      <!-- Parameters for the smoke -->
+      <Smoke>
+        <!-- Specifies what wheels are taken into account. Possible values are "All", "Rear", "Front", "Driven", -->
+        <!-- "FrontLeft", "FrontRight", "RearLeft", "RearRight". -->
+        <WheelTypes                     Value="Driven" />
+
+        <!-- Minimum number of wheels that must be slipping in order to award any score. -->
+        <MinimumWheelsSlipping          Value="1" />
+
+        <!-- Specifies what value of the wheel slip speed starts to generate smoke. -->
+        <!-- This value should be the same, or similar to, to the value that the tyre smoke particle effect uses. -->
+        <WheelMinimumSlipSpeed          Value="5" />
+
+        <!-- Specifies the minimum sum of wheel slip speeds that will be awarded. -->
+        <MinimumSlipSpeedSum            Value="0" />
+      </Smoke>
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been generating smoke and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="0" />
+        <Duration                     Value="0.2" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventSmoke>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <!-- Points awarded in drift events for following the racing line -->
+    <!-- ------------------------------------------------------------ -->
+    <DriftEventLine>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+      <RestrictionLink                Name="NoBackwardScoring" />
+
+      <!-- Maximum distance allowed from the racing line. -->
+      <MaximumRaceLineDistance        Value="2" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been following the racing line and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Precision" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="0" />
+        <Duration                     Value="1" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventLine>
+
+    <DriftEventLine RaceTypeFilter="NevadaDrift2Track">
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+
+      <!-- Maximum distance allowed from the racing line. -->
+      <MaximumRaceLineDistance        Value="2" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been following the racing line and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Precision" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="0" />
+        <Duration                     Value="1" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventLine>
+
+
+    <!-- --------------------------------------------------------- -->
+    <!-- Points awarded in drift events for following driving fast -->
+    <!-- --------------------------------------------------------- -->
+    <DriftEventSpeed>
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+      <RestrictionLink                Name="NoBackwardScoring" />
+
+      <!-- Minimum fraction of the optimum speed that will be awarded. If the vehicle is driving slower than this fraction -->
+      <!-- of the optimum speed, it will not be awarded. -->
+      <MinimumSpeedFraction          Value="0.80" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been driving fast and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="-0.5" />
+        <Duration                     Value="0.5" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventSpeed>
+
+    <DriftEventSpeed RaceTypeFilter="NevadaDrift2Track">
+
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="DriftEvent" />
+
+      <!-- Links to a scoring restriction object. -->
+      <RestrictionLink                Name="OnRoad" />
+      <RestrictionLink                Name="SomeSpeed" />
+      <RestrictionLink                Name="DriftEventSlipAngle" />
+
+      <!-- Minimum fraction of the optimum speed that will be awarded. If the vehicle is driving slower than this fraction -->
+      <!-- of the optimum speed, it will not be awarded. -->
+      <MinimumSpeedFraction          Value="0.80" />
+
+      <!-- The function that determines the score, evaluated as C + Duration * T + DurationSquared * T^2 + Quality * I + QualitySquared * I^2 -->
+      <!-- where T is the time for which the player has been driving fast and I is the integral of the quality of the event. -->
+      <!-- The function will not award any points for durations lower than the specified minimum time. -->
+      <PointsFunction>
+        <Target                       Value="Neutral" />
+        <MinimumDuration              Value="1" />
+        <Constant                     Value="-0.5" />
+        <Duration                     Value="0.5" />
+        <DurationSquared              Value="0" />
+        <Quality                      Value="0" />
+        <QualitySquared               Value="0" />
+        <MergeMultipleEvents          Value="yes" />
+        <MergeMaximumAge              Value="0" />
+      </PointsFunction>
+
+    </DriftEventSpeed>
+
+
+    <!-- --------------------------------------------------------------------------------------- -->
+    <!-- Information about how much cash and XP should be awarded in races, per finish position. -->
+    <!-- Rewards for career mode missions are specified in the mission setup files, not here.    -->
+    <!-- These rules also specify in which races finish occurence awards will be enabled.        -->
+    <!-- --------------------------------------------------------------------------------------- -->
+
+    <!-- Defaults for all game modes that are not specified explicitly. -->
+    <FinishRewards>
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="NotOnTrackTuning" />
+      <RaceTypeLink                   Name="PlayerOnly" />
+
+      <!-- Cash and XP rewards for each position for this race type. -->
+      <Reward                         Position="1"    Cash="20000" XP="200" />
+      <Reward                         Position="2"    Cash="15000" XP="140" />
+      <Reward                         Position="3"    Cash="10000" XP="100" />
+      <Reward                         Position="4"    Cash="9000"  XP="75" />
+      <Reward                         Position="5"    Cash="8000"  XP="50" />
+      <Reward                         Position="6"    Cash="7000"  XP="50" />
+      <Reward                         Position="7"    Cash="6000"  XP="50" />
+      <Reward                         Position="8"    Cash="5000"  XP="50" />
+      <Reward                         Position="9"    Cash="4000"  XP="50" />
+      <Reward                         Position="10"   Cash="3000"  XP="50" />
+      <Reward                         Position="11"   Cash="2000"  XP="50" />
+      <Reward                         Position="12"   Cash="1000"  XP="50" />
+      <Reward                         Position="13"   Cash="500"   XP="50" />
+      <Reward                         Position="14"   Cash="400"   XP="50" />
+      <Reward                         Position="15"   Cash="300"   XP="50" />
+      <Reward                         Position="16"   Cash="200"   XP="50" />
+
+      <!-- Score given for beating a single friend record. This will be given repeatedly for each friend beaten in a race. -->
+      <AutologRecordScoreTarget       Value="Neutral" />
+      <AutologRecordScore             Value="400" />
+
+      <!-- Should the XP and cash rewards be given even in races with no opponents outside of career mode? -->
+      <!-- Regardless of this setting, awards will be given in solo races in career mode. -->
+      <AwardSoloNonCareerCash         Value="yes" />
+      <AwardSoloNonCareerXP           Value="yes" />
+      <!-- Should the XP and cash rewards be given in career-mode races that the player plays repeatedly and fails -->
+      <!-- to improve their best position? -->
+      <!-- Regardless of this setting, awards will be given if the player finishes better than in their best attemp so far. -->
+      <AwardCareerCashRepeatedly      Value="yes" />
+      <AwardCareerXPRepeatedly        Value="yes" />
+
+      <!-- List of restrictions which, when active, will prevent cash rewads on restart from being saved. -->
+      <NoCashOnRestart>
+        <RaceTypeLink                 Name="DDay" />
+      </NoCashOnRestart>
+
+    </FinishRewards>
+
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- Information about when series bonus cash reward should be given. -->
+    <!-- ---------------------------------------------------------------- -->
+
+    <SeriesFinishRewards>
+      <!-- Links to restrictions based on race type. In order for the detector to be enabled, all the restrictions must pass. -->
+      <RaceTypeLink                   Name="CampaignOnly" />
+      <RaceTypeLink                   Name="NotDDay" />
+      <RaceTypeLink                   Name="PlayerOnly" />
+
+    </SeriesFinishRewards>
+
+
+  </Scoring>
+</Reputation>

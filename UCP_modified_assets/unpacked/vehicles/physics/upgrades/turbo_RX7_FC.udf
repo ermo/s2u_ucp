@@ -1,0 +1,6 @@
+//Turbo upgrade file for car without stock Turbo disables it at level 0,1
+
+ID=Turbo // Turbo upgrade for cars without Stock equiped from factory.
+Turbo1 Size=(0.0,0.0,0,0) // This disables the turbo turned on in the VDFM
+Turbo1 Size=(0.45,0.66,1,2) // Stage1=Size 22.5, Stage2= Size 33
+Turbo1 Size=(1.00,1.25,3,4) // Stage3=Size 50, Stage4= Size 62.5

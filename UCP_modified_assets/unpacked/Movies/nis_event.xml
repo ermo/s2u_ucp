@@ -1,0 +1,220 @@
+<?xml version="1.0" ?>
+<Reflection>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="VideoEvent" base="BPersistent">
+        <prop name="Event Info" type="Fct" />
+    </class>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="VideoEvent::EventInfo" base="BPersistent">
+        <prop name="EventName" type="String" />
+        <prop name="EventID" type="String" />
+        <prop name="AllowVideoSkip" type="U32" />
+        <prop name="AllowVideoReplay" type="Bool" />
+		<prop name="AllowOnVideoPage" type="Bool" />
+    </class>
+    <data class="VideoEvent" id="0x343C6E0">
+        <prop name="Name" data="VideoEvent" />
+        <prop name="Event Info" elements="24">
+            <funcpropdata>
+			    <data class="VideoEvent::EventInfo" id="0x0">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="BootFlow_in" />
+                    <prop name="EventID" data="BootFlow_in" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="true" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1375">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Start Race" />
+                    <prop name="EventID" data="DDayBIntro" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1374">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Start Race" />
+                    <prop name="EventID" data="DDayRace" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1373">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="CareerIntro" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a136c">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="DriverNetworkIntro" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1360">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="XPIntro" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1362">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="TuningUpgradesIntro" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a136d">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="DriftSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1370">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="DriftTutorial1" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a136f">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="DriftTutorial2" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a136e">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="DriftTutorial3" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1365">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="RetroSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1366">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="MuscleSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1363">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="TimeAttackSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a136a">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="EnduranceSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1368">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="GT3Sets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1361">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="GTSSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                 <data class="VideoEvent::EventInfo" id="0x269a1369">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="GT1Sets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+ 				<data class="VideoEvent::EventInfo" id="0x269a1372">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="CareerWon" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+				<data class="VideoEvent::EventInfo" id="0x269a1367">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="LegendsSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1371">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="DragQMSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x269a1364">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Stinger" />
+                    <prop name="EventID" data="DragSMSets" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="false" />
+                    <prop name="AllowOnVideoPage" data="true" />
+                </data>
+               <data class="VideoEvent::EventInfo" id="0x1">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="BootFlow_out" />
+                    <prop name="EventID" data="BootFlow_out" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="true" />
+                    <prop name="AllowOnVideoPage" data="false" />
+                </data>
+                <data class="VideoEvent::EventInfo" id="0x2">
+                    <prop name="Name" data="EventInfo" />
+                    <prop name="EventName" data="Legal" />
+                    <prop name="EventID" data="Legal" />
+                    <prop name="AllowVideoSkip" data="1" />
+                    <prop name="AllowVideoReplay" data="true" />
+                    <prop name="AllowOnVideoPage" data="false" />
+                </data>
+            </funcpropdata>
+        </prop>
+    </data>
+</Reflection>

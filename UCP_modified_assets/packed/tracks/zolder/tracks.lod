@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LODCONTROL entries="52">
+  <ENTRY substring="BRAKEMARKER" LODA="500.0" LODB="1000.0" />
+  <ENTRY substring="BHOVERLAY_" LODA="150.0" />
+  <ENTRY substring="TREE" LODA="700.0" LODB="700.0" />
+  <ENTRY substring="BUSH" LODA="600.0" LODB="700.0" />
+  <ENTRY substring="PLANT" LODA="600.0" LODB="700.0" />
+  <ENTRY substring="Gen_Ambulance_GB_Euro" LODA="80.0" LODB="400.0" />
+  <ENTRY substring="Truck1" LODA="80.0" LODB="500.0" />
+  <ENTRY substring="Gen_Car_Bus" LODA="95.0" LODB="300.0" />
+  <ENTRY substring="Gen_Caravan8" LODA="80.0" LODB="300.0" />
+  <ENTRY substring="Gen_Caravan3" LODA="55.0" LODB="300.0" />
+  <ENTRY substring="Gen_Caravan2" LODA="55.0" LODB="300.0" />
+  <ENTRY substring="Gen_Caravan5" LODA="65.0" LODB="300.0" />
+  <ENTRY substring="Gen_Caravan9" LODA="70.0" LODB="300.0" />
+  <ENTRY substring="Gen_Car_Hatchback" LODA="60.0" LODB="150.0" />
+  <ENTRY substring="Gen_Car_Limousine" LODA="50.0" LODB="150.0" />
+  <ENTRY substring="Gen_Car_RV" LODA="75.0" LODB="150.0" />
+  <ENTRY substring="Gen_Car_Saloon" LODA="50.0" LODB="150.0" />
+  <ENTRY substring="Gen_Car_Van" LODA="60.0" LODB="150.0" />
+  <ENTRY substring="Gen_Car_Estate1_E2" LODA="80.0" LODB="150.0" />
+  <ENTRY substring="Gen_Car_PeopleCarrier" LODA="50.0" LODB="150.0" />
+  <ENTRY substring="Car" LODA="100.0" LODB="400.0" />
+  <ENTRY substring="Gen_Tent09" LODA="400.0" />
+  <ENTRY substring="Gen_Tent10" LODA="400.0" />
+  <ENTRY substring="Gen_Tyre_Stack2" LODA="200.0" LODB="500.0" />
+  <ENTRY substring="Gen_Vendor5" LODA="65.0" LODB="220.0" />
+  <ENTRY substring="Gen_Vendor6" LODA="65.0" LODB="260.0" />
+  <ENTRY substring="EVENT_flag" LODA="80.0" LODB="500.0" />
+  <ENTRY substring="DynAd_" LODA="500.0" LODB="1000.0" />
+  <ENTRY substring="flag" LODA="150.0" LODB="400.0" />
+  <ENTRY substring="EVENT_flag" LODA="150.0" LODB="400.0" />
+  <ENTRY substring="EVENT_billboard01" LODA="550.0" LODB="750.0" LODC="1000.0" />
+  <ENTRY substring="EVENT_billboard02" LODA="550.0" LODB="750.0" LODC="1000.0" />
+  <ENTRY substring="EVENT_billboard" LODA="550.0" LODB="750.0" LODC="1000.0" />
+  <ENTRY substring="EVENT_minibillboard" LODA="550.0" LODB="750.0" LODC="1000.0" />
+  <ENTRY substring="event_tent" LODA="150.0" LODB="850" />
+  <ENTRY substring="EVENT_tentroof" LODA="550.0" />
+  <ENTRY substring="EVENT_video" LODA="550.0" LODB="750" LODC="1000.0" />
+  <ENTRY substring="EVENT_start" LODA="550.0" />
+  <ENTRY substring="EVENT_chequered" LODA="550.0" />
+  <ENTRY substring="event_adverttraverse" LODA="80.0" LODB="750.0" />
+  <ENTRY substring="EVENT_advert" LODA="550.0" />
+  <ENTRY substring="EVENT_stage" LODA="700.0" />
+  <ENTRY substring="EVENT_truck" LODA="150.0" LODB="750.0" LODC="1000.0" />
+  <ENTRY substring="EVENT_scaffoldtower" LODA="200.0" LODB="700" />
+  <ENTRY substring="EVENT_merchandise" LODA="120.0" LODB="700" />
+  <ENTRY substring="EVENT_banner" LODA="120.0" LODB="650" />
+  <ENTRY substring="EVENT_car" LODA="400.0" />
+  <ENTRY substring="EVENT_LCD" LODA="400.0" LODB="750.0" LODC="1000.0" />
+  <ENTRY substring="EVENT_vertical_billboard" LODA="550.0" />
+  <ENTRY substring="BHDrift_Vidscreen" LODA="400.0" LODB="750.0" LODC="1000.0" />
+  <ENTRY substring="gen_pitlanetent02" LODA="400.0" LODB="750.0" LODC="1000.0" />   
+  <ENTRY LODA="100.0" LODB="750.0" LODC="1000.0" />
+</LODCONTROL>  

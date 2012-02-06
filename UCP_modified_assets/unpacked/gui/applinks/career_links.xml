@@ -1,0 +1,634 @@
+<?xml version="1.0" ?>
+<GUIAppLinks>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+	
+    <Link 
+		name="Series Type" 
+		default="_STREET_"
+		description="The current Series Type"
+		category="Game"
+	>
+		<AppEnum>
+			<Entry value="1" TextID="Career_SeriesType_Street"/>
+			<Entry value="2" TextID="Career_SeriesType_SuperStreet"/>
+			<Entry value="4" TextID="Career_SeriesType_Drift"/>
+		</AppEnum>
+	</Link>
+
+    <Link 
+		name="Game Type" 
+		default="_RACE_"
+		description="The current Race Type"
+		category="Game"
+	>
+		<AppEnum>
+			<Entry value="0" TextID="Career_GameType_Race"/>
+			<Entry value="1" TextID="Career_GameType_Rival"/>
+			<Entry value="2" TextID="Career_GameType_Qualifying"/>
+			<Entry value="3" TextID="Career_GameType_MirrorTag"/>
+			<Entry value="4" TextID="Career_GameType_SoloDrift"/>
+			<Entry value="5" TextID="Career_GameType_TimeAttack"/>
+			<Entry value="6" TextID="Career_GameType_Eliminator"/>
+		</AppEnum>
+	</Link>
+		
+	<!----------------------------------------------------------------------------------------------------------------->
+  <!-- Career Event ->
+    <Link 
+		name="Career: Event Stars Earned" 
+		default="##/##"
+		description="The number of Stars earned for the selected Career event"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Event Organizer" 
+		default="_ORGANIZER_"
+		description="The organizer for the selected Career event"
+		category="Career"
+	>
+	</Link>
+
+	<!----------------------------------------------------------------------------------------------------------------->
+  <!-- Career Event Info ->
+    <Link 
+		name="Career: Current Track" 
+		default="_TRACK_"
+		description="The currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Track Variation" 
+		default="_TRACK_VARIATION_"
+		description="The currently selected Career Track Variation"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Event Type" 
+		default="_EVENT_TYPE_"
+		description="The currently selected Career Event Type"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Description" 
+		default="_DESCRIPTION_"
+		description="The currently selected Career Description"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Num Laps" 
+		default="1"
+		description="The currently selected Career number of laps"
+		category="Career"
+	>
+	</Link>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+  <!-- STARS ->
+    <Link 
+		name="Career: Current Stars Earned" 
+		default="##/##"
+		description="Total stars earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Podium Star 3rd" 
+		default="STAR"
+		description="Podium stars earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Podium Star 2nd" 
+		default="STAR"
+		description="Podium stars earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Podium Star 1st" 
+		default="STAR"
+		description="Podium stars earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Podium Finishing Pos" 
+		default="STAR"
+		description="Best position gained on the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Profile Points Star1" 
+		default="STAR"
+		description="Profile points star earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Profile Points Star2" 
+		default="STAR"
+		description="Profile points star earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Profile Points" 
+		default="STAR"
+		description="Profile points earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Bonus Star1" 
+		default="STAR"
+		description="Bonus star earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Bonus Objective1" 
+		default="STAR"
+		description="Bonus objective earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Bonus Star2" 
+		default="STAR"
+		description="Bonus star earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Bonus Objective2" 
+		default="STAR"
+		description="Bonus objective earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Bonus Star3" 
+		default="STAR"
+		description="Bonus star earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+
+    <Link 
+		name="Career: Current Bonus Objective3" 
+		default="STAR"
+		description="Bonus objective earned for the currently selected Career Track"
+		category="Career"
+	>
+	</Link>
+	
+    <Link 
+		name="Career: Total Cash in Wallet" 
+		default="$0"
+		description="Total amount of cash player has"
+		category="Career"
+	>
+	</Link>
+
+	  <!----------------------------------------------------------------------------------------------------------------->
+	  <!--Leaderboard-->
+
+	<Link 
+		name="Career Leaderboard: Driver1" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points1" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash1" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver2" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points2" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash2" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver3" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points3" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash3" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver4" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points4" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash4" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver5" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points5" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash5" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver6" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points6" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash6" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver7" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points7" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash7" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver8" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points8" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash8" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver9" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points9" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash9" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver10" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points10" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash10" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver11" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points11" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash11" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver12" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points12" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash12" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver13" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points13" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash13" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver14" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points14" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash14" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver15" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points15" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash15" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Driver16" 
+		default="_DRIVER_"
+		description="Name of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Points16" 
+		default="0"
+		description="Points of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+	<Link 
+		name="Career Leaderboard: Cash16" 
+		default="$0"
+		description="Cash of the driver at this Leaderboard position"
+		category="Career"
+	>
+	</Link>
+
+  <!----------------------------------------------------------------------------------------------------------------->
+	<!---------------------- FUNCTIONS ---------------------------------------------------------------------------->
+	<!----------------------------------------------------------------------------------------------------------------->
+
+
+
+	<!----------------------------------------------------------------------------------------------------------------->
+		
+	<Function
+		name="Adjust Series Type" 
+		description="Adjust Series Type. Use Integer set to -1 or 1"
+		category="Game"
+	/>
+
+	<Function
+		name="Adjust Game Type" 
+		description="Adjust Game Type. Use Integer set to -1 or 1"
+		category="Game"
+	/>
+	
+	<Function
+		name="Select Unlocked Event" 
+		description="Select Event to be unlocked upon Driver Level Up."
+		category="Career"
+	/>
+	
+	<!----------------------------------------------------------------------------------------------------------------->
+		
+	
+</GUIAppLinks>
