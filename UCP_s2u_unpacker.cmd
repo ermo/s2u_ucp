@@ -25,34 +25,33 @@ SETLOCAL EnableDelayedExpansion
 :: and save it for future reference.
 :: d = drive letter, p = folder path, 0 = references this file
 
-SET _CWD=%~dp0
+SET _CWD="%~dp0"
 
 :: This is necessary when the script is run as administrator
 :: cd /d also switches drive as appropriate
 
 IF "%CD%"=="%windir%\system32" (
-@ECHO + Looks like we were run as administrator --
-@ECHO + Changing working folder from: %CD%
-@ECHO   to: %_CWD%
-@ECHO.
-CD /D "%_CWD%"
+  @ECHO + Looks like we were run as administrator --
+  @ECHO + Changing working folder from: "%CD%"
+  @ECHO   to: %_CWD%
+  @ECHO.
+  CD /D %_CWD%
 )
 
-REM Now we should definitely be in the correct folder, 
-REM but we're going to check that assumption anyway, just
-REM to be on the safe side.
+:: Now we should definitely be in the correct folder, 
+:: but we're going to check that assumption anyway, just
+:: to be on the safe side.
 
 IF "%CD%"=="%windir%\system32" (
-@ECHO - Current working folder is:
-@ECHO  %CD%
-@ECHO - It is supposed to be:
-@ECHO  %_CWD%
+  @ECHO - Current working folder is:
+  @ECHO  "%CD%"
+  @ECHO - It is supposed to be:
+  @ECHO  %_CWD%
 
 SET _MSG=Aborting install because this script can't find the S2U install dir. Sorry.
 
 GOTO die
 )
-
 
 @ECHO + Working folder is:
 @ECHO %_CWD% -- good.
@@ -69,12 +68,12 @@ SET _S2U_DIR=%_CWD%
 :: If a parameter was supplied to the script, use that instead
 
 IF NOT [%1]==[] (
-    SET _S2U_DIR=%1
+  SET _S2U_DIR="%1"
 )
 
-IF NOT EXIST "%_S2U_DIR%"\SHIFT2U.exe (
-    SET _MSG=- No SHIFT2U.exe file found in %_S2U_DIR% !
-    GOTO help
+IF NOT EXIST %_S2U_DIR%\SHIFT2U.exe (
+  SET _MSG=- No SHIFT2U.exe file found in %_S2U_DIR% !
+  GOTO help
 )
 
 @ECHO + Found SHIFT2U.exe in:
@@ -83,12 +82,12 @@ IF NOT EXIST "%_S2U_DIR%"\SHIFT2U.exe (
 
 :: check for the unpacking tool before we start
 
-IF NOT EXIST "%_CWD%"quickbms.exe (
+IF NOT EXIST %_CWD%quickbms.exe (
   SET _MSG=- No quickbms.exe S2U unpack tool found in %_CWD% -- aborting!
   GOTO die
 )
 
-IF NOT EXIST "%_CWD%"nfsshift.bms (
+IF NOT EXIST %_CWD%nfsshift.bms (
   SET _MSG=- No nfsshift.bms S2U BMS script found in %_CWD% -- aborting!
   GOTO die
 )
@@ -105,17 +104,16 @@ IF NOT EXIST "%_CWD%"nfsshift.bms (
 
 :: Set up commands
 
-SET LIST="%_CWD%"quickbms.exe -l nfsshift.bms
-SET UNPACK="%_CWD%"quickbms.exe -o nfsshift.bms
-SET DUMMYOUT=COPY /V /Y "%_CWD%"dummy.bff
+SET LIST=%_CWD%quickbms.exe -l nfsshift.bms
+SET UNPACK=%_CWD%quickbms.exe -o nfsshift.bms
+SET DUMMYOUT=COPY /V /Y %_CWD%dummy.bff
 
 :: Set up paths
 
 SET _VER=S2U_Unpacked_version
 SET _INSTALL_DIR=MODS\%_VER%
 SET _BACKUP=%_CWD%%_INSTALL_DIR%
-SET _OUTPUTLOG="%_CWD%"unpack_log.txt
-GOTO unpack
+SET _OUTPUTLOG=unpack_log.txt
 
 
 :unpack
@@ -124,16 +122,16 @@ pause
 SET _UNPACK_START=%TIME%
 SET _BFFCOUNT=0
 
-SET _MSG=Began unpacking at %_UNPACK_START%
+SET _MSG=Began unpacking at %_UNPACK_START% (log in %_OUTPUTLOG%)
 @ECHO %_MSG% > %_OUTPUTLOG% || GOTO die
 
 REM goto prune
 
 :: Ensure that the output folder exists
 
-IF NOT EXIST "%_BACKUP%" (
-  SET _MSG=- Could not create folder "%_BACKUP%" -- aborting!
-  MKDIR "%_BACKUP%" || GOTO die
+IF NOT EXIST %_BACKUP% (
+  SET _MSG=- Could not create folder %_BACKUP% -- aborting!
+  MKDIR %_BACKUP% || GOTO die
 )
 
 :: Ensure that BFF_index folders exist 
@@ -141,9 +139,9 @@ IF NOT EXIST "%_BACKUP%" (
 
 FOR %%I IN ( Dir Drivers Tracks\Organisers Vehicles ) DO (
 
-  IF NOT EXIST "%_CWD%BFF_index\Pakfiles\%%I" (
-    SET _MSG=- Could not create folder "%_CWD%BFF_index\Pakfiles\%%I" -- aborting!
-    MKDIR "%_CWD%BFF_index\Pakfiles\%%I" || GOTO die
+  IF NOT EXIST %_CWD%BFF_index\Pakfiles\%%I (
+    SET _MSG=- Could not create folder %_CWD%BFF_index\Pakfiles\%%I -- aborting!
+    MKDIR %_CWD%BFF_index\Pakfiles\%%I || GOTO die
   )
 )
 
@@ -1196,7 +1194,7 @@ REM and list the contents of the BFF and save to a file
 
 @ECHO ++ Dummying out ...
 SET _MSG=- Could not dummy out %%G -- aborting!
-CALL :copy_subroutine "%_INSTALL_DIR%\%%G"
+CALL :copy_subroutine %_INSTALL_DIR%\%%G
 
 SET /A _BFFCOUNT+=1
 @ECHO.
@@ -1214,7 +1212,7 @@ IF NOT EXIST %_DIR% (
   SET _MSG=- Could not create %_DIR% -- aborting!
   MKDIR %_DIR% || GOTO die
 )
-%DUMMYOUT% "%_CWD%%1" || GOTO die 
+%DUMMYOUT% %_CWD%%1 || GOTO die 
 REM Note that 'GOTO eof' simply means 'subroutine has finished'
 GOTO eof
 
@@ -1227,7 +1225,7 @@ GOTO eof
 @ECHO.
 
 SET _MSG=Could not prune the list of dummied out BFF files -- aborting!
-DEL /S /Q "%_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff" || GOTO die
+DEL /S /Q %_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff || GOTO die
 @ECHO.
 
 :: Disable the TXT files that makes the game crash when cars have body kits
@@ -1247,7 +1245,7 @@ MOVE /Y "%%G" "%%G".disabled || GOTO die
 
 @ECHO Moving ^*_kct.txt files to ^*_kct.txt.disabled ...
 @ECHO.
-FOR /F "tokens=*" %%G IN ('DIR /S /B "%_INSTALL_DIR%\vehicles\*_kct.txt"') DO (
+FOR /F "tokens=*" %%G IN ('DIR /S /B %_INSTALL_DIR%\vehicles\*_kct.txt') DO (
 
 @ECHO Disabling "%%G" ...
 SET _MSG=- Could not disable "%%G" -- aborting!
@@ -1298,10 +1296,12 @@ GOTO exit
 
 
 :exit
-REM return to the root folder of the unpacked mod
-cd /d "%_CWD%"
 
-REM End local variable scope
+:: return to the root folder of the unpacked mod
+CD /D %_CWD%
+
+:: End local variable scope
+
 ENDLOCAL
 pause
 

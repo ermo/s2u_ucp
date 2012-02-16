@@ -60,11 +60,11 @@ SET _CWD="%~dp0"
 :: cd /d also switches drive as appropriate
 
 IF "%CD%"=="%windir%\system32" (
-@ECHO + Looks like we were run as administrator --
-@ECHO + Changing working folder from: %CD%
-@ECHO   to: %_CWD%
-@ECHO.
-CD /D %_CWD%
+  @ECHO + Looks like we were run as administrator --
+  @ECHO + Changing working folder from: "%CD%"
+  @ECHO   to: %_CWD%
+  @ECHO.
+  CD /D %_CWD%
 )
 
 :: Now we should definitely be in the correct folder, 
@@ -72,14 +72,14 @@ CD /D %_CWD%
 :: to be on the safe side.
 
 IF "%CD%"=="%windir%\system32" (
-@ECHO - Current working folder is:
-@ECHO  %CD%
-@ECHO - It is supposed to be:
-@ECHO  %_CWD%
+  @ECHO - Current working folder is:
+  @ECHO  "%CD%"
+  @ECHO - It is supposed to be:
+  @ECHO  %_CWD%
 
-SET _MSG=Aborting install because we won't be able to inject properly. Sorry.
+  SET _MSG=Aborting install because we won't be able to inject properly. Sorry.
 
- GOTO die
+  GOTO die
 )
 
 @ECHO + Working folder is:
@@ -97,12 +97,12 @@ SET _S2U_DIR=%_CWD%
 :: If a parameter was supplied to the script, use that instead
 
 IF NOT [%1]==[] (
-    SET _S2U_DIR="%1"
+  SET _S2U_DIR="%1"
 )
 
 IF NOT EXIST %_S2U_DIR%\SHIFT2U.exe (
-    SET _MSG=- No SHIFT2U.exe file found in %_S2U_DIR% !
-    GOTO help
+  SET _MSG=- No SHIFT2U.exe file found in %_S2U_DIR% !
+  GOTO help
 )
 
 @ECHO + Found SHIFT2U.exe in:
@@ -152,9 +152,9 @@ SET _SRC=%_CWD%%_ASSETS%
 
 :prepare
 
-REM In this phase, create a full folder structure ready for JSGME activation.
-REM We need to support the case where the user copies the folder
-REM directly into the S2U installation folder as well.
+:: In this phase, create a full folder structure ready for JSGME activation.
+:: We need to support the case where the user copies the folder
+:: directly into the S2U installation folder as well.
 
 @ECHO + Preparing JSGME compatible UCP mod installation folder in:
 @ECHO %_CWD%%_INSTALL_DIR%
@@ -168,11 +168,11 @@ IF NOT EXIST %_BACKUP% (
   MKDIR %_BACKUP% || GOTO die
 )
 
-REM Getting a sense of how long it takes to prepare may be useful to users
+:: Getting a sense of how long it takes to prepare may be useful to users
 
 SET _PREP_START=%TIME%
 
-REM DLC1 various track fixes (for injection)
+:: DLC1 various track fixes (for injection)
 
 SET _DIR=DLC1\Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
@@ -193,7 +193,7 @@ if exist %_SRC% (
 )
 @ECHO.
 
-REM DLC2 various track fixes (for injection)
+:: DLC2 various track fixes (for injection)
 
 SET _DIR=DLC2\Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
@@ -216,7 +216,7 @@ if exist %_SRC% (
 )
 @ECHO.
 
-REM Stock game various track fixes (for injection)
+:: Stock game various track fixes (for injection)
 
 SET _DIR=Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
@@ -323,11 +323,11 @@ SET _PREP_FINISH=%TIME%
 
 :inject
 
-REM Ok, so we have prepared the files in the JSGME dir
-REM and can now inject the modifed files into the .bffs there.
+:: Ok, so we have prepared the files in the JSGME dir
+:: and can now inject the modifed files into the .bffs there.
 
-REM Ensure that we're on the correct drive and in the correct folder
-REM when injecting; better safe than sorry and all that jazz...
+:: Ensure that we're on the correct drive and in the correct folder
+:: when injecting; better safe than sorry and all that jazz...
 
 cd /d %_CWD%
 
@@ -343,45 +343,45 @@ SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packed %_INSTALL_DIR% :
 @ECHO %_MSG%
 @ECHO.
 
-REM Getting a sense of how long it takes to inject may be useful to users
+:: Getting a sense of how long it takes to inject may be useful to users
 
 SET _INJECT_START=%TIME%
 
 if exist %_ASSETS%\packed (
-%INJECT% -i %_ASSETS%\packed %_INSTALL_DIR% || GOTO die
-@ECHO.
+  %INJECT% -i %_ASSETS%\packed %_INSTALL_DIR% || GOTO die
+  @ECHO.
 ) else (
-@ECHO - Current working folder is:
-@ECHO  "%CD%"
-@ECHO - It is supposed to be:
-@ECHO  %_CWD%
-@ECHO.
-@ECHO - Hm. This is not supposed to happen.
-@ECHO.
-@ECHO - But since it did anyway, we'd better stop here.  Usually, this
-@ECHO - indicates that your S2U folder lives on a different drive than
-@ECHO - your Windows install and that you ran the script as administrator.
-@ECHO.
-@ECHO - If the above is true, try running the script normally instead
-@ECHO - of with 'run as administrator' and see if that helps any.
+  @ECHO - Current working folder is:
+  @ECHO  "%CD%"
+  @ECHO - It is supposed to be:
+  @ECHO  %_CWD%
+  @ECHO.
+  @ECHO - Hm. This is not supposed to happen.
+  @ECHO.
+  @ECHO - But since it did anyway, we'd better stop here.  Usually, this
+  @ECHO - indicates that your S2U folder lives on a different drive than
+  @ECHO - your Windows install and that you ran the script as administrator.
+  @ECHO.
+  @ECHO - If the above is true, try running the script normally instead
+  @ECHO - of with 'run as administrator' and see if that helps any.
 
-GOTO die
+  GOTO die
 )
 
 if exist %_INSTALL_DIR%\DLC1 (
-SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packedDLC1 %_INSTALL_DIR%\DLC1 :
-@ECHO %_MSG%
-@ECHO.
-%INJECT% -i %_ASSETS%\packedDLC1 %_INSTALL_DIR%\DLC1 || GOTO die
-@ECHO.
+  SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packedDLC1 %_INSTALL_DIR%\DLC1 :
+  @ECHO %_MSG%
+  @ECHO.
+  %INJECT% -i %_ASSETS%\packedDLC1 %_INSTALL_DIR%\DLC1 || GOTO die
+  @ECHO.
 )
 
 if exist %_INSTALL_DIR%\DLC2 (
-SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packedDLC2 %_INSTALL_DIR%\DLC2 :
-@ECHO %_MSG%
-@ECHO.
-%INJECT% -i %_ASSETS%\packedDLC2 %_INSTALL_DIR%\DLC2 || GOTO die
-@ECHO.
+  SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packedDLC2 %_INSTALL_DIR%\DLC2 :
+  @ECHO %_MSG%
+  @ECHO.
+  %INJECT% -i %_ASSETS%\packedDLC2 %_INSTALL_DIR%\DLC2 || GOTO die
+  @ECHO.
 )
 
 SET _INJECT_FINISH=%TIME%
@@ -392,7 +392,7 @@ SET _INJECT_FINISH=%TIME%
 
 :copy
 
-REM Now copy in the UCP unpacked modified assets
+:: Now copy in the UCP unpacked modified assets
 
 SET _SRC=%_CWD%\%_ASSETS%\unpacked
 SET _DEST=%_CWD%\%_INSTALL_DIR%
@@ -415,7 +415,6 @@ cd /d %_CWD%
 @ECHO. + Injection phase   : from %_INJECT_START% to %_INJECT_FINISH%
 :: @ECHO. + Unpacking phase   : from %_UNPACK_START% to %_UNPACK_FINISH%
 @ECHO.
-REM display the size of the newly created UCP folder?
 
 GOTO quit
 
@@ -439,10 +438,12 @@ GOTO quit
 
 :quit
 
-REM return to the root folder of the unpacked mod
-cd /d "%_CWD%"
+:: return to the root folder of the unpacked mod
 
-REM End local variable scope
+cd /d %_CWD%
+
+:: End local variable scope
+
 ENDLOCAL
 pause
 
