@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<Reputation>
+
+  <!-- List of levels. -->
+  <!-- Each element must contain the number of points required for that level and a TextId containing the level name. -->
+  <!-- Each element can also contain a Cash entry containing the amount of money rewarded when reaching the specified level. -->
+  <!-- The first level cannot contain any cash reward. -->
+  <Levels>
+
+    <!-- Information about what categories of points to count towards levelling. -->
+    <!-- By default, categories not listed here will be counted. -->
+    <PointCategory    Name="Aggression"   CountForLevelling="false" />
+
+    <!-- Levels  1 through 10. -->
+    <Level Points="0"/>
+    <Level Points="3000" Cash="2000"/>
+    <Level Points="6000" Cash="3000"/>
+    <Level Points="9000" Cash="4000"/>
+    <Level Points="13000" Cash="5000"/>
+    <Level Points="17000" Cash="10000"/>
+    <Level Points="21000" Cash="20000"/>
+    <Level Points="25000" Cash="40000"/>
+    <Level Points="30000" Cash="60000"/>
+    <Level Points="35000" Cash="80000"/>
+
+    <!-- Levels 11 through 20. -->
+    <Level Points="42000" Cash="100000"/>
+    <Level Points="50000" Cash="120000"/>
+    <Level Points="60000" Cash="140000"/>
+    <Level Points="70000" Cash="160000"/>
+    <Level Points="85000" Cash="180000"/>
+    <Level Points="100000" Cash="200000"/>
+    <Level Points="125000" Cash="250000"/>
+    <Level Points="150000" Cash="300000"/>
+    <Level Points="175000" Cash="400000"/>
+    <Level Points="200000" Cash="500000"/>
+
+    <!-- Levels 21 through 30. Extended by pez2k. -->
+    <Level Points="240000" Cash="750000"/>
+    <Level Points="280000" Cash="1000000"/>
+    <Level Points="320000" Cash="1250000"/>
+    <Level Points="370000" Cash="1500000"/>
+    <Level Points="430000" Cash="1750000"/>
+    <Level Points="490000" Cash="2000000"/>
+    <Level Points="550000" Cash="2500000"/>
+    <Level Points="610000" Cash="3000000"/>
+    <Level Points="680000" Cash="4000000"/>
+    <Level Points="750000" Cash="5000000"/>
+
+    <!-- Levels 31 through 40. Extended by maxtreble. -->
+    <Level Points="760000" Cash="6000000"/>
+    <Level Points="770000" Cash="7000000"/>
+    <Level Points="780000" Cash="8000000"/>
+    <Level Points="790000" Cash="9000000"/>
+    <Level Points="800000" Cash="10000000"/>
+    <Level Points="825000" Cash="15000000"/>
+    <Level Points="850000" Cash="20000000"/>
+    <Level Points="875000" Cash="25000000"/>
+    <Level Points="900000" Cash="30000000"/>
+    <Level Points="1000000" Cash="50000000"/>
+
+  </Levels>
+</Reputation>

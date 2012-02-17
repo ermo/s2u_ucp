@@ -73,7 +73,7 @@ IF NOT [%1]==[] (
 
 IF NOT EXIST %_S2U_DIR%\SHIFT2U.exe (
   SET _MSG=- No SHIFT2U.exe file found in %_S2U_DIR% !
-  GOTO help
+  GOTO die
 )
 
 @ECHO + Found SHIFT2U.exe in:

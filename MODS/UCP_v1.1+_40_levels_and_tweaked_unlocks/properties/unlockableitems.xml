@@ -1,0 +1,431 @@
+<?xml version="1.0" ?>
+<Reflection>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="UnlockableItems" base="BPersistent">
+        <prop name="Unlockable items" type="Fct" />
+    </class>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="UnlockableItems::ItemList" base="BPersistent">
+        <prop name="Item types" type="Fct" />
+    </class>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="UnlockableItems::ItemEntry" base="BPersistent" />
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="UnlockableItems::ItemType" base="BPersistent">
+        <prop name="Items" type="Fct" />
+    </class>
+    <data class="UnlockableItems" id="0x2754068">
+        <prop name="Name" data="UnlockableItems" />
+        <prop name="Unlockable items">
+            <funcpropdata>
+                <data class="UnlockableItems::ItemList" id="0x2754078">
+                    <prop name="Name" data="ItemList" />
+                    <prop name="Item types" elements="7">
+                        <funcpropdata>
+                            <data class="UnlockableItems::ItemType" id="0x3000">
+                                <prop name="Name" data="Vehicles" />
+                                <prop name="Items" elements="44">
+                                    <funcpropdata>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3001">
+                                            <prop name="Name" data="TOYOTA_corolla_ae86_dmac" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3002">
+                                            <prop name="Name" data="shelby_terlingua" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3003">
+                                            <prop name="Name" data="mazda_rx8_madmike" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x300999">
+                                            <prop name="Name" data="porsche_997gt3rsr_falken" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3004">
+                                            <prop name="Name" data="BMW_M3_GT2" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3005">
+                                            <prop name="Name" data="BMW_Z4_GT3" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3008">
+                                            <prop name="Name" data="Nissan_GTR_SPECV_Rival" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3009">
+                                            <prop name="Name" data="Ford_Mustang_FALKEN" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x300A">
+                                            <prop name="Name" data="Nissan_GT-R_GT1" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x300B">
+                                            <prop name="Name" data="Mazda_RX7_FC_Rival" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x300C">
+                                            <prop name="Name" data="Ford_Mustang_RTRX" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x300D">
+                                            <prop name="Name" data="Scion_tC_TeamNFS" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3012">
+                                            <prop name="Name" data="Alfa_Romeo_GTA_1600" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3013">
+                                            <prop name="Name" data="Austin_Mini_Cooper" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3014">
+                                            <prop name="Name" data="BMW_CSL_Gr4" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3015">
+                                            <prop name="Name" data="Ford_Capri_RS3100" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3016">
+                                            <prop name="Name" data="Ford_Escort_Mk1" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3017">
+                                            <prop name="Name" data="Ford_GT40" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3018">
+                                            <prop name="Name" data="Jaguar_E_LW" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3019">
+                                            <prop name="Name" data="Lotus_Cortina" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x301A">
+                                            <prop name="Name" data="Nissan_240ZG" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x301B">
+                                            <prop name="Name" data="Nissan_Skyline2000GTR" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x301C">
+                                            <prop name="Name" data="Porsche_911RSR74" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x301D">
+                                            <prop name="Name" data="Porsche_911RSR74_Rival" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x301E">
+                                            <prop name="Name" data="Porsche_914" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x301F">
+                                            <prop name="Name" data="Shelby_Daytona" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3020">
+                                            <prop name="Name" data="Dodge_Challenger_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3021">
+                                            <prop name="Name" data="dodge_viper_twinsturbo" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="Lexus_LFA_SH">
+                                            <prop name="Name" data="Lexus_LFA_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3022">
+                                            <prop name="Name" data="Mazda_RX7_FC_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3023">
+                                            <prop name="Name" data="mclaren_mp4-12c_sh" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="Mercedes_190E_SH">
+                                            <prop name="Name" data="Mercedes_190E_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="Mercedes_SLS_SH">
+                                            <prop name="Name" data="Mercedes_SLS_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3026">
+                                            <prop name="Name" data="Mitsubishi_EvoIX_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="Nissan_240ZG_SH">
+                                            <prop name="Name" data="Nissan_240ZG_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3027">
+                                            <prop name="Name" data="Nissan_Skyline_R32_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3028">
+                                            <prop name="Name" data="Nissan_Skyline2000GTR_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x302b">
+                                            <prop name="Name" data="Nissan_240SX_Drift" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="Pagani_C9_Rival">
+                                            <prop name="Name" data="Pagani_C9_Rival" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3029">
+                                            <prop name="Name" data="Scion_tC_Drag" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x302A">
+                                            <prop name="Name" data="TOYOTA_SUPRA_SH" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3102">
+                                            <prop name="Name" data="lotus_exige" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3103">
+                                            <prop name="Name" data="CHEVROLET_C6Z06" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x3104">
+                                            <prop name="Name" data="McLaren_MP4-12C" />
+                                        </data>
+                                    </funcpropdata>
+                                </prop>
+                            </data>
+                            <data class="UnlockableItems::ItemType" id="0xC0D6D40">
+                                <prop name="Name" data="Orgs" />
+                                <prop name="Items" elements="24">
+                                    <funcpropdata>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D4CC">
+                                            <prop name="Name" data="CD_Set_01" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D4DC">
+                                            <prop name="Name" data="CD_Set_02" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D4EC">
+                                            <prop name="Name" data="CD_Set_03" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D4FC">
+                                            <prop name="Name" data="CD_Set_04" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D50C">
+                                            <prop name="Name" data="CD_Set_05" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D51C">
+                                            <prop name="Name" data="CC_Set_01" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D52C">
+                                            <prop name="Name" data="CC_Set_02" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D53C">
+                                            <prop name="Name" data="CC_Set_03" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D54C">
+                                            <prop name="Name" data="CC_Set_04" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D55C">
+                                            <prop name="Name" data="CC_Set_05" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D56C">
+                                            <prop name="Name" data="CB_Set_01" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D57C">
+                                            <prop name="Name" data="CB_Set_02" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D58C">
+                                            <prop name="Name" data="CB_Set_03" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D59C">
+                                            <prop name="Name" data="CB_Set_04" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D5AC">
+                                            <prop name="Name" data="CB_Set_05" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D5BC">
+                                            <prop name="Name" data="CB_Set_06" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D3A0">
+                                            <prop name="Name" data="CB_Set_07" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D3B0">
+                                            <prop name="Name" data="CA_Set_01" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D3C0">
+                                            <prop name="Name" data="CA_Set_02" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D3D0">
+                                            <prop name="Name" data="CA_Set_03" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D3E0">
+                                            <prop name="Name" data="CA_Set_04" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D3F0">
+                                            <prop name="Name" data="CA_Set_05" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D400">
+                                            <prop name="Name" data="CA_Set_06" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xC07D410">
+                                            <prop name="Name" data="CA_Set_07" />
+                                        </data>
+                                    </funcpropdata>
+                                </prop>
+                            </data>
+                            <data class="UnlockableItems::ItemType" id="0xC0D6E40">
+                                <prop name="Name" data="Branches" />
+                                <prop name="Items" elements="22">
+                                    <funcpropdata>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d285">
+                                            <prop name="Name" data="ClassCSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d284">
+                                            <prop name="Name" data="ClassBSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d283">
+                                            <prop name="Name" data="ClassASets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d282">
+                                            <prop name="Name" data="GTSSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d286">
+                                            <prop name="Name" data="GT3Sets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d28f">
+                                            <prop name="Name" data="GT1Sets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d281">
+                                            <prop name="Name" data="RetroSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d27a">
+                                            <prop name="Name" data="TimeAttackSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d279">
+                                            <prop name="Name" data="MuscleSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d27b">
+                                            <prop name="Name" data="EnduranceSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d276">
+                                            <prop name="Name" data="DriftSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d280">
+                                            <prop name="Name" data="ManufCatchupSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d27f">
+                                            <prop name="Name" data="ManufShowdownSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d296">
+                                            <prop name="Name" data="ManufSpecSets" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d287">
+                                            <prop name="Name" data="SpecialEventsSet1" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d28e">
+                                            <prop name="Name" data="SpecialEventsSet2" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d28d">
+                                            <prop name="Name" data="SpecialEventsSet3" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d28c">
+                                            <prop name="Name" data="SpecialEventsSet4" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d28b">
+                                            <prop name="Name" data="SpecialEventsSet5" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d28a">
+                                            <prop name="Name" data="SpecialEventsSet6" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d289">
+                                            <prop name="Name" data="SpecialEventsSet7" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc07d288">
+                                            <prop name="Name" data="SpecialEventsSet8" />
+                                        </data>
+                                    </funcpropdata>
+                                </prop>
+                            </data>
+                            <data class="UnlockableItems::ItemType" id="0x1">
+                                <prop name="Name" data="Paint" />
+                                <prop name="Items" elements="6">
+                                    <funcpropdata>
+                                        <data class="UnlockableItems::ItemEntry" id="0x1000">
+                                            <prop name="Name" data="metallic" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x1001">
+                                            <prop name="Name" data="flip" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x1002">
+                                            <prop name="Name" data="pearl" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x1003">
+                                            <prop name="Name" data="candy" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x1005">
+                                            <prop name="Name" data="chrome" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x1006">
+                                            <prop name="Name" data="matte" />
+                                        </data>
+                                    </funcpropdata>
+                                </prop>
+                            </data>
+                            <data class="UnlockableItems::ItemType" id="0x3">
+                                <prop name="Name" data="Cup" />
+                                <prop name="Items" elements="12">
+                                    <funcpropdata>
+                                        <data class="UnlockableItems::ItemEntry" id="0x4">
+                                            <prop name="Name" data="Cup_ModernRoad" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x5">
+                                            <prop name="Name" data="Cup_Drift" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x6">
+                                            <prop name="Name" data="Cup_Drag" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x7">
+                                            <prop name="Name" data="Cup_Endurance" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x8">
+                                            <prop name="Name" data="Cup_GT1" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x9">
+                                            <prop name="Name" data="Cup_GT3" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xa">
+                                            <prop name="Name" data="Cup_Works" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xb">
+                                            <prop name="Name" data="Cup_Legends" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xc">
+                                            <prop name="Name" data="Cup_Muscle" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xd">
+                                            <prop name="Name" data="Cup_Retro" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xf">
+                                            <prop name="Name" data="Cup_StandingMile" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0xe">
+                                            <prop name="Name" data="Cup_TimeAttack" />
+                                        </data>
+                                    </funcpropdata>
+                                </prop>
+                            </data>
+                            <data class="UnlockableItems::ItemType" id="0x0">
+                                <prop name="Name" data="DDay" />
+                                <prop name="Items" elements="1">
+                                    <funcpropdata>
+                                        <data class="UnlockableItems::ItemEntry" id="0x10">
+                                            <prop name="Name" data="DDay" />
+                                        </data>
+                                    </funcpropdata>
+                                </prop>
+                            </data>
+                            <data class="UnlockableItems::ItemType" id="0x2">
+                                <prop name="Name" data="Tracks" />
+                                <prop name="Items" elements="4">
+                                    <funcpropdata>
+                                        <data class="UnlockableItems::ItemEntry" id="0x11">
+                                            <prop name="Name" data="Nevada_Drift1" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x12">
+                                            <prop name="Name" data="Nevada_Drift2" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x13">
+                                            <prop name="Name" data="Nevada_Drift3" />
+                                        </data>
+                                        <data class="UnlockableItems::ItemEntry" id="0x14">
+                                            <prop name="Name" data="Nevada_Drift4" />
+                                        </data>
+                                    </funcpropdata>
+                                </prop>
+                            </data>
+                        </funcpropdata>
+                    </prop>
+                </data>
+            </funcpropdata>
+        </prop>
+    </data>
+</Reflection>
