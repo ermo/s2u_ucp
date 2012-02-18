@@ -16,20 +16,6 @@
     <Unlockable  Level="11"   Type="Vehicles" Name="shelby_terlingua"/>
     <Unlockable  Level="15"   Type="Vehicles" Name="porsche_997gt3rsr_falken"/>
 
-    <!-- Extra prizes added by pez2k for levels 21-30. -->
-    <Unlockable  Level="21"   Type="Vehicles" Name="Alfa_Romeo_Giulietta"/>
-    <Unlockable  Level="21"   Type="Vehicles" Name="Nissan_S15"/>
-    <Unlockable  Level="21"   Type="Vehicles" Name="Lamborghini_Murcielago_LP640"/>
-    <Unlockable  Level="22"   Type="Vehicles" Name="CAMARO_DP"/>
-    <Unlockable  Level="23"   Type="Vehicles" Name="porsche_997gt3ab"/>
-    <Unlockable  Level="24"   Type="Vehicles" Name="Alfa_Romeo_8C_Spider"/>
-    <Unlockable  Level="25"   Type="Vehicles" Name="Aston_Martin_DBS_Volante"/>
-    <Unlockable  Level="26"   Type="Vehicles" Name="Audi_R8_Spyder"/>
-    <Unlockable  Level="27"   Type="Vehicles" Name="Pagani_Cinque_Roadster"/>
-    <Unlockable  Level="28"   Type="Vehicles" Name="Pagani_Cinque_Roadster_HP"/>
-    <Unlockable  Level="29"   Type="Vehicles" Name="Lamborghini_Reventon_Cop"/>
-    <Unlockable  Level="30"   Type="Vehicles" Name="Koenigsegg_Agera"/>
-
     <Unlockable  Level="3"   Type="Paint" Name="metallic"/>
     <Unlockable  Level="6"   Type="Paint" Name="flip"/>
     <Unlockable  Level="8"   Type="Paint" Name="pearl"/>

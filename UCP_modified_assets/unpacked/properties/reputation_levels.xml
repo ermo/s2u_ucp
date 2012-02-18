@@ -47,6 +47,17 @@
     <Level Points="680000" Cash="4000000"/>
     <Level Points="750000" Cash="5000000"/>
 
-  </Levels>
+    <!-- Levels 31 through 40. Extended by maxtreble. -->
+    <Level Points="760000" Cash="6000000"/>
+    <Level Points="770000" Cash="7000000"/>
+    <Level Points="780000" Cash="8000000"/>
+    <Level Points="790000" Cash="9000000"/>
+    <Level Points="800000" Cash="10000000"/>
+    <Level Points="825000" Cash="15000000"/>
+    <Level Points="850000" Cash="20000000"/>
+    <Level Points="875000" Cash="25000000"/>
+    <Level Points="900000" Cash="30000000"/>
+    <Level Points="1000000" Cash="50000000"/>
 
+  </Levels>
 </Reputation>
