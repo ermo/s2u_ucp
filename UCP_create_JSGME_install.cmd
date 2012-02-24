@@ -45,7 +45,7 @@ GOTO check
 @ECHO  onto the the icon representing this script :)
 @ECHO.
 
-GOTO quit
+GOTO exit
 
 
 :check
@@ -77,7 +77,7 @@ IF "%CD%"=="%windir%\system32" (
   @ECHO - It is supposed to be:
   @ECHO  %_CWD%
 
-  SET _MSG=Aborting install because we won't be able to inject properly. Sorry.
+  SET _MSG=- Aborting install because we won't be able to inject properly. Sorry.
 
   GOTO die
 )
@@ -139,14 +139,14 @@ if not exist %_CWD%\NFSSInjector.exe (
 :: Set up commands
 
 SET INJECT=NFSSInjector.exe
-SET UNPACK=%_CWD%quickbms.exe -o nfsshift.bms
+SET UNPACK=quickbms.exe -o nfsshift.bms
 SET XCOPY=xcopy /s /i /y /v /q
 
 :: Set up paths
 
 SET _ASSETS=UCP_modified_assets
 SET _INSTALL_DIR=MODS\%_VER%_JSGME_install
-SET _BACKUP=%_CWD%%_INSTALL_DIR%
+SET _TARGET=%_CWD%%_INSTALL_DIR%
 SET _SRC=%_CWD%%_ASSETS%
 
 
@@ -157,15 +157,15 @@ SET _SRC=%_CWD%%_ASSETS%
 :: directly into the S2U installation folder as well.
 
 @ECHO + Preparing JSGME compatible UCP mod installation folder in:
-@ECHO %_CWD%%_INSTALL_DIR%
+@ECHO %_TARGET%
 @ECHO.
 @ECHO                                   (Press CTRL+C to quit now)
 pause
 @ECHO.
 
-IF NOT EXIST %_BACKUP% (
-  SET _MSG=- Could not create folder %_BACKUP% -- aborting!
-  MKDIR %_BACKUP% || GOTO die
+IF NOT EXIST %_TARGET% (
+  SET _MSG=- Could not create folder %_TARGET% -- aborting!
+  MKDIR %_TARGET% || GOTO die
 )
 
 :: Getting a sense of how long it takes to prepare may be useful to users
@@ -176,10 +176,10 @@ SET _PREP_START=%TIME%
 
 SET _DIR=DLC1\Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
-SET _DEST=%_BACKUP%\%_DIR%\
-SET _MSG=+ Copying files from %_SRC% ...
+SET _DEST=%_TARGET%\%_DIR%\
+SET _MSG=- Couldn't copy files from %_SRC% -- aborting!
 if exist %_SRC% (
-  @ECHO %_MSG%
+  @ECHO + Copying files from %_SRC% ...
   @ECHO.
   FOR %%F in (
   hockenheim_era2.bff
@@ -197,10 +197,10 @@ if exist %_SRC% (
 
 SET _DIR=DLC2\Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
-SET _DEST=%_BACKUP%\%_DIR%\
-SET _MSG=+ Copying files from %_SRC% ...
+SET _DEST=%_TARGET%\%_DIR%\
+SET _MSG=- Couldn't copy files from %_SRC% -- aborting!
 if exist %_SRC% (
-  @ECHO %_MSG%
+  @ECHO + Copying files from %_SRC% ...
   @ECHO.
   FOR %%F in (
   asia_drag_strip.bff
@@ -220,9 +220,9 @@ if exist %_SRC% (
 
 SET _DIR=Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
-SET _DEST=%_BACKUP%\%_DIR%\
-SET _MSG=+ Copying files from %_SRC% ...
-@ECHO %_MSG%
+SET _DEST=%_TARGET%\%_DIR%\
+SET _MSG=- Couldn't copy files from %_SRC% -- aborting!
+@ECHO + Copying files from %_SRC% ...
 @ECHO.
 FOR %%F in (
 Tokyo_Circuit_Night.bff
@@ -329,12 +329,12 @@ SET _PREP_FINISH=%TIME%
 :: Ensure that we're on the correct drive and in the correct folder
 :: when injecting; better safe than sorry and all that jazz...
 
-cd /d %_CWD%
+CD /D %_CWD%
 
 @ECHO.
 @ECHO + Ready to inject modified assets into the packed files in:
 @ECHO.
-@ECHO   %_CWD%%_INSTALL_DIR%\Pakfiles ...
+@ECHO   %_TARGET%\Pakfiles ...
 @ECHO.
 REM pause 
 @ECHO. 
@@ -394,11 +394,11 @@ SET _INJECT_FINISH=%TIME%
 
 :: Now copy in the UCP unpacked modified assets
 
-SET _SRC=%_CWD%\%_ASSETS%\unpacked
-SET _DEST=%_CWD%\%_INSTALL_DIR%
+SET _SRC=%_CWD%%_ASSETS%\unpacked
+SET _DEST=%_TARGET%
 SET "_MSG=+ Copying modified files from %_ASSETS%\unpacked to the installation folder:"
 @ECHO %_MSG%
-@ECHO  %_CWD%%_INSTALL_DIR%
+@ECHO  %_TARGET%
 cd /d %_CWD%
 %XCOPY% %_SRC% %_DEST% || GOTO die 
 
@@ -411,12 +411,12 @@ cd /d %_CWD%
 @ECHO.
 @ECHO %_INSTALL_DIR%
 @ECHO.
-@ECHO. + Preparation phase : from %_PREP_START% to %_PREP_FINISH%
-@ECHO. + Injection phase   : from %_INJECT_START% to %_INJECT_FINISH%
-:: @ECHO. + Unpacking phase   : from %_UNPACK_START% to %_UNPACK_FINISH%
+@ECHO. + Preparation phase   : from %_PREP_START% to %_PREP_FINISH%
+@ECHO. + Injection phase     : from %_INJECT_START% to %_INJECT_FINISH%
+@ECHO. + All phases combined : from %_TIME% to %TIME%
 @ECHO.
 
-GOTO quit
+GOTO exit
 
 
 :die
@@ -433,10 +433,10 @@ GOTO quit
 @ECHO - Please review the error message given, act appropriately, and try again :)
 @ECHO.
 
-GOTO quit
+GOTO exit
 
 
-:quit
+:exit
 
 :: return to the root folder of the unpacked mod
 
