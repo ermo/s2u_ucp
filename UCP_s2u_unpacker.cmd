@@ -13,9 +13,10 @@ CLS
 
 SETLOCAL EnableDelayedExpansion
 
+SET _TIME=%TIME%
 @ECHO.
-@ECHO NFS SHIFT 2: Unleashed unpacking script
-@ECHO =======================================
+@ECHO NFS SHIFT 2: Unleashed Unofficial Community Patch unpacking script
+@ECHO ==================================================================
 @ECHO.
 
 
@@ -48,9 +49,9 @@ IF "%CD%"=="%windir%\system32" (
   @ECHO - It is supposed to be:
   @ECHO  %_CWD%
 
-SET _MSG=Aborting install because this script can't find the S2U install dir. Sorry.
+  SET _MSG=- Aborting install because this script can't find the S2U install dir. Sorry.
 
-GOTO die
+  GOTO die
 )
 
 @ECHO + Working folder is:
@@ -104,15 +105,15 @@ IF NOT EXIST %_CWD%nfsshift.bms (
 
 :: Set up commands
 
-SET LIST=%_CWD%quickbms.exe -l nfsshift.bms
-SET UNPACK=%_CWD%quickbms.exe -o nfsshift.bms
-SET DUMMYOUT=COPY /V /Y %_CWD%dummy.bff
+SET LIST=quickbms.exe -l nfsshift.bms
+SET UNPACK=quickbms.exe -o nfsshift.bms
+SET DUMMYOUT=COPY /V /Y dummy.bff
 
 :: Set up paths
 
 SET _VER=S2U_Unpacked_version
 SET _INSTALL_DIR=MODS\%_VER%
-SET _BACKUP=%_CWD%%_INSTALL_DIR%
+SET _TARGET=%_CWD%%_INSTALL_DIR%
 SET _OUTPUTLOG=unpack_log.txt
 
 
@@ -122,16 +123,16 @@ pause
 SET _UNPACK_START=%TIME%
 SET _BFFCOUNT=0
 
-SET _MSG=Began unpacking at %_UNPACK_START% (log in %_OUTPUTLOG%)
+SET _MSG=+ Began unpacking at %_UNPACK_START% (log in %_OUTPUTLOG%)
 @ECHO %_MSG% > %_OUTPUTLOG% || GOTO die
 
 REM goto prune
 
 :: Ensure that the output folder exists
 
-IF NOT EXIST %_BACKUP% (
-  SET _MSG=- Could not create folder %_BACKUP% -- aborting!
-  MKDIR %_BACKUP% || GOTO die
+IF NOT EXIST %_TARGET% (
+  SET _MSG=- Could not create folder %_TARGET% -- aborting!
+  MKDIR %_TARGET% || GOTO die
 )
 
 :: Ensure that BFF_index folders exist 
@@ -1207,7 +1208,7 @@ GOTO prune
 REM Chop off the filename part and keep the full path of the 1st parameter
 SET _DIR="%~dp1"
 IF NOT EXIST %_DIR% (
-  @ECHO Creating %_DIR% ...
+  @ECHO + Creating %_DIR% ...
 
   SET _MSG=- Could not create %_DIR% -- aborting!
   MKDIR %_DIR% || GOTO die
@@ -1221,10 +1222,10 @@ GOTO eof
 
 :: Don't dummy out car liveries, as that will crash the game
 
-@ECHO Pruning the list of dummied out BFF files ...
+@ECHO + Pruning the list of dummied out BFF files ...
 @ECHO.
 
-SET _MSG=Could not prune the list of dummied out BFF files -- aborting!
+SET _MSG=- Could not prune the list of dummied out BFF files -- aborting!
 DEL /S /Q %_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff || GOTO die
 @ECHO.
 
@@ -1233,21 +1234,21 @@ DEL /S /Q %_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff || GOTO die
 :: space character is encountered. 
 :: !_MSG! denotes that we use delayed expansion so that we can show each filename
 
-@ECHO Moving ^*_kt.txt files to ^*_kt.txt.disabled ...
+@ECHO + Moving ^*_kt.txt files to ^*_kt.txt.disabled ...
 @ECHO.
 
 FOR /F "tokens=*" %%G IN ('DIR /S /B %_INSTALL_DIR%\vehicles\*_kt.txt') DO (
-@ECHO Disabling "%%G" ...
+@ECHO + Disabling "%%G" ...
 SET _MSG=- Could not disable "%%G" -- aborting!
 MOVE /Y "%%G" "%%G".disabled || GOTO die
 )
 @ECHO.
 
-@ECHO Moving ^*_kct.txt files to ^*_kct.txt.disabled ...
+@ECHO + Moving ^*_kct.txt files to ^*_kct.txt.disabled ...
 @ECHO.
 FOR /F "tokens=*" %%G IN ('DIR /S /B %_INSTALL_DIR%\vehicles\*_kct.txt') DO (
 
-@ECHO Disabling "%%G" ...
+@ECHO + Disabling "%%G" ...
 SET _MSG=- Could not disable "%%G" -- aborting!
 MOVE /Y "%%G" "%%G".disabled || GOTO die
 )
@@ -1256,21 +1257,24 @@ MOVE /Y "%%G" "%%G".disabled || GOTO die
 
 :finished
 
-SET _MSG=Unpacked %_BFFCOUNT% BFF files, started at %_UNPACK_START%, finished at %TIME%.
+SET _MSG=+ Unpacked %_BFFCOUNT% BFF files, started at %_UNPACK_START%, finished at %TIME%
 @ECHO. >> %_OUTPUTLOG%
 @ECHO %_MSG% >> %_OUTPUTLOG%
 
 @ECHO.
 @ECHO %_MSG%
 @ECHO.
+@ECHO + The unpacking process started at %_TIME%, finished at %TIME%
+@ECHO.
 @ECHO + The output from the unpacking process was saved to the file
 @ECHO   %_OUTPUTLOG% 
 @ECHO.
 @ECHO + The unpacked files were saved to the folder
-@ECHO   "%_BACKUP%"
+@ECHO   "%_TARGET%"
 @ECHO.
-@ECHO   The unpacked S2U version can be enabled with the JSGME tool, which will obviously 
-@ECHO   take a while as it needs move a lot of files around, so please be patient.
+@ECHO The unpacked S2U version can be activated with the JSGME tool, 
+@ECHO which will obviously take a while as it needs move a lot of files around,
+@ECHO so please be patient.
 @ECHO.
 @ECHO   --The Authors
 @ECHO.
