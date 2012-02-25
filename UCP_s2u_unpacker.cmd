@@ -1,22 +1,28 @@
 @ECHO OFF
 CLS
 
+:: This script is Copyright (c) ermo 2011-2012 and is distributed under the
+:: Creative Commons Attribution-NonCommercial-ShareAlike unported v3.0 license,
+:: which can be read in full at http://creativecommons.org/licenses/by-nc-sa/3.0/
+::
 :: Authors: ermo@NoGripRacing (S2U Unofficial Community Patch maintainer)
 ::          tulib202@NoGripRacing (S2U Career Mod author)
 ::
 :: With special thanks to JDougNY@NoGripRacing for his work on unpacking and
 :: dummying out files, and matt2380@NoGripRacing for kicking off the S2U UCP project
 :: and suggesting that I figure out a way to make mods drop-in compatible with it.
+::
+:: Any remixes of this script shall include the above notices.
 
+:: Automate the injection of relevant S2U BFF assets for the UCP.
 
 :: Let's not pollute the system variable namespace...
 
 SETLOCAL EnableDelayedExpansion
 
-SET _TIME=%TIME%
 @ECHO.
-@ECHO NFS SHIFT 2: Unleashed Unofficial Community Patch unpacking script
-@ECHO ==================================================================
+@ECHO NFS SHIFT 2: Unleashed -- Unofficial Community Patch unpacking script
+@ECHO =====================================================================
 @ECHO.
 
 
@@ -32,9 +38,7 @@ SET _CWD="%~dp0"
 :: cd /d also switches drive as appropriate
 
 IF "%CD%"=="%windir%\system32" (
-  @ECHO + Looks like we were run as administrator --
-  @ECHO + Changing working folder from: "%CD%"
-  @ECHO   to: %_CWD%
+  @ECHO + Looks like we were run as administrator ...
   @ECHO.
   CD /D %_CWD%
 )
@@ -119,6 +123,7 @@ SET _OUTPUTLOG=unpack_log.txt
 
 :unpack
 pause
+@ECHO.
 
 SET _UNPACK_START=%TIME%
 SET _BFFCOUNT=0
@@ -1264,17 +1269,17 @@ SET _MSG=+ Unpacked %_BFFCOUNT% BFF files, started at %_UNPACK_START%, finished 
 @ECHO.
 @ECHO %_MSG%
 @ECHO.
-@ECHO + The unpacking process started at %_TIME%, finished at %TIME%
-@ECHO.
 @ECHO + The output from the unpacking process was saved to the file
+@ECHO.
 @ECHO   %_OUTPUTLOG% 
 @ECHO.
 @ECHO + The unpacked files were saved to the folder
-@ECHO   "%_TARGET%"
 @ECHO.
-@ECHO The unpacked S2U version can be activated with the JSGME tool, 
-@ECHO which will obviously take a while as it needs move a lot of files around,
-@ECHO so please be patient.
+@ECHO   %_TARGET%
+@ECHO.
+@ECHO   The unpacked S2U version can be activated with the JSGME tool, which will
+@ECHO   obviously take a while as it needs move a lot of files around, so
+@ECHO   please be patient during the activation process.
 @ECHO.
 @ECHO   --The Authors
 @ECHO.

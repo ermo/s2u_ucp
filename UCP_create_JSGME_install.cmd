@@ -1,14 +1,20 @@
 @ECHO OFF
 CLS
 
+:: This script is Copyright (c) ermo 2011-2012 and is distributed under the
+:: Creative Commons Attribution-NonCommercial-ShareAlike unported v3.0 license,
+:: which can be read in full at http://creativecommons.org/licenses/by-nc-sa/3.0/
+::
+:: Authors: ermo@NoGripRacing (S2U Unofficial Community Patch maintainer)
+::          matt2380@NoGripRacing (S2U Unofficial Community Patch creator)
+::
+:: Any remixes of this script shall include the above notices.
+
 :: Automate the injection of relevant S2U BFF assets for the UCP.
 ::
 :: Per request, this script now also works if it is 
 :: run as administrator directly from the S2U install folder.
 ::
-:: Authors: ermo@NoGripRacing (S2U Unofficial Community Patch maintainer)
-::          matt2380@NoGripRacing (S2U Unofficial Community Patch creator)
-
 :main
 
 :: Let's not pollute the system variable namespace...
@@ -16,11 +22,11 @@ CLS
 SETLOCAL EnableDelayedExpansion
 
 SET _TIME=%TIME%
-SET _VER=NoGrip_UCP_v1.1
+SET _VER=NoGrip_UCP_v1.1-pre1.0.94
 
 @ECHO.
-@ECHO NFS SHIFT 2: Unleashed Unofficial Community Patch
-@ECHO =================================================
+@ECHO NFS SHIFT 2: Unleashed -- Unofficial Community Patch install script
+@ECHO ===================================================================
 @ECHO.
 
 GOTO check
@@ -60,9 +66,7 @@ SET _CWD="%~dp0"
 :: cd /d also switches drive as appropriate
 
 IF "%CD%"=="%windir%\system32" (
-  @ECHO + Looks like we were run as administrator --
-  @ECHO + Changing working folder from: "%CD%"
-  @ECHO   to: %_CWD%
+  @ECHO + Looks like we were run as administrator ...
   @ECHO.
   CD /D %_CWD%
 )
@@ -409,12 +413,19 @@ cd /d %_CWD%
 @ECHO.
 @ECHO + Successfully prepared the %_VER% JSGME installation folder in:
 @ECHO.
-@ECHO %_INSTALL_DIR%
+@ECHO %_TARGET%
 @ECHO.
-@ECHO. + Preparation phase   : from %_PREP_START% to %_PREP_FINISH%
-@ECHO. + Injection phase     : from %_INJECT_START% to %_INJECT_FINISH%
-@ECHO. + All phases combined : from %_TIME% to %TIME%
+@ECHO   The UCP should now be activated with the JSGME tool, which will
+@ECHO   take a little while as it needs to move a lot of files around, so
+@ECHO   please be patient during the activation process.
 @ECHO.
+@ECHO.  -- The Authors
+@ECHO.
+@ECHO + This UCP install script run started at %_TIME% and finished at %TIME%
+@ECHO.
+REM @ECHO. + Preparation phase   : from %_PREP_START% to %_PREP_FINISH%
+REM @ECHO. + Injection phase     : from %_INJECT_START% to %_INJECT_FINISH%
+REM @ECHO.
 
 GOTO exit
 
@@ -440,7 +451,7 @@ GOTO exit
 
 :: return to the root folder of the unpacked mod
 
-cd /d %_CWD%
+CD /D %_CWD%
 
 :: End local variable scope
 
