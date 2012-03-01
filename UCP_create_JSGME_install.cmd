@@ -22,7 +22,7 @@ CLS
 SETLOCAL EnableDelayedExpansion
 
 SET _TIME=%TIME%
-SET _VER=NoGrip_UCP_v1.1-pre1.0.94
+SET _VER=NoGrip_UCP_v1.1-pre1.0.95
 
 @ECHO.
 @ECHO NFS SHIFT 2: Unleashed -- Unofficial Community Patch install script

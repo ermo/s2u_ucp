@@ -164,7 +164,6 @@ FOR %%I IN ( Dir Drivers Tracks\Organisers Vehicles ) DO (
 :: Pakfiles\GUICONTROLLERIMAGES.bff
 :: Pakfiles\GUIGAMEMODEBANNERS.bff
 :: Pakfiles\GUIINSIGNIA.bff
-:: Pakfiles\GUILOADINGTEXTURES.bff
 :: Pakfiles\GUIMANUFACTURERLOGO_BIG.bff
 :: Pakfiles\GUIMANUFACTURERLOGOS.bff
 :: Pakfiles\GUIREGIONALFLAGS.bff
@@ -193,6 +192,7 @@ Pakfiles\BOOTFLOW.bff
 Pakfiles\BOOTPERSISTENT.bff
 Pakfiles\BOOTPSA.bff
 Pakfiles\BOOTSPLASH.bff
+Pakfiles\GUILOADINGTEXTURES.bff
 Pakfiles\IGPHASEACTIVATE.bff
 Pakfiles\IGPHASEHUD.bff
 Pakfiles\IGPHASETEMP.bff
