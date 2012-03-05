@@ -164,6 +164,7 @@ FOR %%I IN ( Dir Drivers Tracks\Organisers Vehicles ) DO (
 :: Pakfiles\GUICONTROLLERIMAGES.bff
 :: Pakfiles\GUIGAMEMODEBANNERS.bff
 :: Pakfiles\GUIINSIGNIA.bff
+:: Pakfiles\GUILOADINGTEXTURES.bff
 :: Pakfiles\GUIMANUFACTURERLOGO_BIG.bff
 :: Pakfiles\GUIMANUFACTURERLOGOS.bff
 :: Pakfiles\GUIREGIONALFLAGS.bff
@@ -192,25 +193,24 @@ Pakfiles\BOOTFLOW.bff
 Pakfiles\BOOTPERSISTENT.bff
 Pakfiles\BOOTPSA.bff
 Pakfiles\BOOTSPLASH.bff
-Pakfiles\GUILOADINGTEXTURES.bff
+Pakfiles\CommonVehicleTextures.bff
 Pakfiles\IGPHASEACTIVATE.bff
 Pakfiles\IGPHASEHUD.bff
 Pakfiles\IGPHASETEMP.bff
 Pakfiles\IGPHASEUSERLIVERIES.bff
-Pakfiles\CommonVehicleTextures.bff
-Pakfiles\MenuTextures.bff
 Pakfiles\MenuSetup.bff
+Pakfiles\MenuTextures.bff
 Pakfiles\PaintShop.bff
 Pakfiles\PHYSICSBOOTFLOW.bff
 Pakfiles\PHYSICSMENU.bff
 Pakfiles\PHYSICSPERSISTENT.bff
+Pakfiles\Shaders.bff
+Pakfiles\TRACKPARTICLETEXTURES.bff
 Pakfiles\VEHICLECATALOGUES.bff
 Pakfiles\VehicleHRLiveries.bff
 Pakfiles\VEHICLEMASKS.bff
-Pakfiles\Shaders.bff
-Pakfiles\TRACKPARTICLETEXTURES.bff
-Pakfiles\VEHICLEUPGRADES.bff
 Pakfiles\WEATHERTEXTURES.bff
+Pakfiles\VEHICLEUPGRADES.bff
 Pakfiles\Dir\AI.bff
 Pakfiles\Dir\ANIMATION.bff
 Pakfiles\Dir\AUDIO.bff
