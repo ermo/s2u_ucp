@@ -22,7 +22,7 @@ CLS
 SETLOCAL EnableDelayedExpansion
 
 SET _TIME=%TIME%
-SET _VER=NoGrip_UCP_v1.1-pre1.0.96
+SET _VER=NoGrip_UCP_v1.1-pre1.0.97
 
 @ECHO.
 @ECHO NFS SHIFT 2: Unleashed -- Unofficial Community Patch install script
@@ -410,6 +410,7 @@ cd /d %_CWD%
 :finished
 
 @ECHO.
+@ECHO + This UCP install script run started at %_TIME% and finished at %TIME%
 @ECHO.
 @ECHO + Successfully prepared the %_VER% JSGME installation folder in:
 @ECHO.
@@ -420,8 +421,6 @@ cd /d %_CWD%
 @ECHO   please be patient during the activation process.
 @ECHO.
 @ECHO.  -- The Authors
-@ECHO.
-@ECHO + This UCP install script run started at %_TIME% and finished at %TIME%
 @ECHO.
 REM @ECHO. + Preparation phase   : from %_PREP_START% to %_PREP_FINISH%
 REM @ECHO. + Injection phase     : from %_INJECT_START% to %_INJECT_FINISH%
