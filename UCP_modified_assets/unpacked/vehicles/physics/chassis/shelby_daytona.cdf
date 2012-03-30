@@ -6,7 +6,7 @@ AdjustableUpgradeLevel_0=4 //base upgrade level tuning allowed. (ie used so a fu
 TuningTier=3
 Rules=0                         // what rules to apply to garage setups (0=none, 1=stock car)
 GarageDisplayFlags=7            // how settings are displayed in garage (add): 1=rear wing, 2=radiator, 4=more gear info
-FeelerFlags=1                 // how collision feelers are generated (add): 1=box influence 2=reduce wall-jumping 4=allow adjustment hack 8=top directions
+FeelerFlags=0                 // how collision feelers are generated (add): 1=box influence 2=reduce wall-jumping 4=allow adjustment hack 8=top directions
 Mass=1125.0                      // all mass except fuel  (1395kg car + 80kg driver weight)
 Inertia=(1400.0,1520.0,320.0)    // all inertia except fuel
 FuelTankPos=(0.0, 0.200, 0.230)  // location of tank affects center of gravity (very close and even slightly ahead of CG in F1)
