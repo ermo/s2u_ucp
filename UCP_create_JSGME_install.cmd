@@ -22,7 +22,7 @@ CLS
 SETLOCAL EnableDelayedExpansion
 
 SET _TIME=%TIME%
-SET _VER=NoGrip_UCP_v1.1-pre1.0.98
+SET _VER=NoGrip_UCP_v1.1-pre1.0.99
 
 @ECHO.
 @ECHO NFS SHIFT 2: Unleashed -- Unofficial Community Patch install script
@@ -41,14 +41,9 @@ GOTO check
 @ECHO.
 @ECHO HINT:
 @ECHO.
-@ECHO  You can copy the contents of this folder (including subfolders) to
-@ECHO  your S2U installation folder and right click this script and choose 
-@ECHO  the option 'Run as administrator' (with no parameters).
-@ECHO.
-@ECHO  OR 
-@ECHO.  
-@ECHO  Using Windows Explorer, you can drag'n'drop your S2U installation folder
-@ECHO  onto the the icon representing this script :)
+@ECHO  You should copy the contents of this folder (including subfolders)
+@ECHO  to your S2U installation folder and right click this script and 
+@ECHO  choose the option 'Run as administrator'.
 @ECHO.
 
 GOTO exit
@@ -129,9 +124,9 @@ IF NOT EXIST %_CWD%nfsshift.bms (
 @ECHO %_CWD% -- good.
 @ECHO.
 
-REM check for the injector tool before we start
+:: check for the injector tool before we start
 
-if not exist %_CWD%\NFSSInjector.exe (
+IF NOT EXIST %_CWD%NFSSInjector.exe (
   SET _MSG=- No NFSSInjector.exe tool found in %_CWD% -- aborting!
   GOTO die
 )
@@ -139,6 +134,22 @@ if not exist %_CWD%\NFSSInjector.exe (
 @ECHO + NFSSInjector.exe tool found in:
 @ECHO %_CWD% -- good.
 @ECHO.
+
+:: check for the existence of \MODS\S2U_Unpacked_version and point people towards the
+:: install instructions if it doesn't exist
+
+IF NOT EXIST %_CWD%MODS\S2U_Unpacked_version\_RTFM_.txt (
+  SET _MSG=- \MODS\S2U_Unpacked_version\ wasn^'t found^? Did you Read The Fine Manual^?
+  GOTO die
+)
+
+:: check that people activated \MODS\S2U_Unpacked_version and point them towards the
+:: install instructions if hasn't been activated
+
+IF NOT EXIST %_CWD%_RTFM_.txt (
+  SET _MSG=- S2U_Unpacked_version wasn^'t activated^? Did you Read The Fine Manual^?
+  GOTO die
+)
 
 :: Set up commands
 
