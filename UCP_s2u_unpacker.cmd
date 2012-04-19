@@ -1259,6 +1259,21 @@ MOVE /Y "%%G" "%%G".disabled || GOTO die
 )
 @ECHO.
 
+@ECHO + Setting up automagical JSGME TOCFiles handling...
+IF NOT EXIST %_INSTALL_DIR%\TOCFiles (
+  MKDIR %_INSTALL_DIR%\TOCFiles
+)
+@ECHO. > %_INSTALL_DIR%\TOCFiles\DirPaks.toc-remove
+@ECHO. > %_INSTALL_DIR%\TOCFiles\VehicleLiveries.toc-remove
+
+:: Create (and hide) a "Kilroy Was Here" stamp that the UCP install script can check for
+:: to ensure that lusers who are too cool to read the fine manual don't go
+:: asking for support before they have been reminded to read the install instructions.
+
+IF NOT EXIST %_INSTALL_DIR%\_RTFM_.txt (
+  @ECHO Killroy Was Here. If you remove this file, you won't be able to make the UCP install script run. > %_INSTALL_DIR%\_RTFM_.txt
+  ATTRIB +H %_INSTALL_DIR%\_RTFM_.txt
+)
 
 :finished
 
@@ -1277,9 +1292,9 @@ SET _MSG=+ Unpacked %_BFFCOUNT% BFF files, started at %_UNPACK_START%, finished 
 @ECHO.
 @ECHO   %_TARGET%
 @ECHO.
-@ECHO   The unpacked S2U version can be activated with the JSGME tool, which will
-@ECHO   obviously take a while as it needs move a lot of files around, so
-@ECHO   please be patient during the activation process.
+@ECHO   The unpacked S2U version should now be activated with the JSGME tool, 
+@ECHO   which will obviously take a while as it needs move a lot of files around,
+@ECHO   so please be patient during the activation process.
 @ECHO.
 @ECHO   --The Authors
 @ECHO.
