@@ -1,0 +1,48 @@
+// Tier 3 Engine upgrade file.
+
+
+ID=Intake  // Intake upgrade. 3% max increase
+RPMTorque000=(1.0,1.02,3,4) // 
+RPMTorque025=(1.0,1.02,3,4)
+RPMTorque050=(1.0,1.02,3,4)
+RPMTorque075=(1.0,1.02,3,4)
+RPMTorque100=(1.0,1.02,3,4)
+
+ID=Exhaust  // Exhaust upgrade. 4.2% max increase
+RPMTorque000=(1.0,1.02,3,4) // 
+RPMTorque025=(1.0,1.02,3,4)
+RPMTorque050=(1.0,1.02,3,4)
+RPMTorque075=(1.0,1.02,3,4)
+RPMTorque100=(1.0,1.02,3,4)
+
+ID=FuelDelivery  // Pumps/Inj/Software Modern / Manifolds and Carbs Classic. Gui Text difference only. 10% max increase
+RPMTorque000=(1.0,1.02,3,4) // 
+RPMTorque025=(1.0,1.02,3,4)
+RPMTorque050=(1.0,1.02,3,4)
+RPMTorque075=(1.0,1.02,3,4)
+RPMTorque100=(1.0,1.02,3,4)
+
+ID=Camshaft  // Camshaft upgrade. 12% max increase
+RPMTorque000=(1.0,1.02,3,4) // 
+RPMTorque025=(1.0,1.02,3,4)
+RPMTorque050=(1.0,1.03,3,4)
+RPMTorque075=(1.0,1.04,3,4)
+RPMTorque100=(1.0,1.06,3,4)
+RevLimitRangeX=(1.0,1.05,3,4) // 10% Rev limit increase over the last 3 upgrades. Aprox 700rpm total for a 7000 rpm stock engine
+
+ID=Valvetrain  // Valve Train upgrade. 4% max increase
+RPMTorque000=(1.0,1.02,3,4) // 
+RPMTorque025=(1.0,1.02,3,4)
+RPMTorque050=(1.0,1.02,3,4)
+RPMTorque075=(1.0,1.02,3,4)
+RPMTorque100=(1.0,1.06,3,4)
+
+ID=Block  // Block and Lower end. 15% max increase
+RPMTorque000=(1.0,1.03,3,4) // 
+RPMTorque025=(1.0,1.03,3,4)
+RPMTorque050=(1.0,1.03,3,4)
+RPMTorque075=(1.0,1.03,3,4)
+RPMTorque100=(1.0,1.03,3,4)
+
+ID=Flywheel  // Flywheel inertial upgrade. 40% max decrease
+EngineInertia=(0.95,.95,3,4) // reduce engine inertia 15% over 4 upgrades
