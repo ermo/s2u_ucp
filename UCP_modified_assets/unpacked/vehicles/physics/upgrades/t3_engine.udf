@@ -40,8 +40,6 @@ RPMTorque025=(1.0,1.04,2,4)
 RPMTorque050=(1.0,1.06,2,4)
 RPMTorque075=(1.0,1.08,2,4)
 RPMTorque100=(1.0,1.10,2,4)
-RevLimitRangeX=(1.0,1.10,2,4) // 10% Rev limit increase over the last 3 upgrades. Aprox 700rpm total for a 7000 rpm stock engine
-LifetimeEngineRPMX=(1.0,1.15,2,4)
 
 ID=Valvetrain  // Valve Train upgrade. 4% max increase
 RPMTorque000=(1.0,1.02,2,4) // 
@@ -49,6 +47,8 @@ RPMTorque025=(1.0,1.02,2,4)
 RPMTorque050=(1.0,1.02,2,4)
 RPMTorque075=(1.0,1.04,2,4)
 RPMTorque100=(1.0,1.06,2,4)
+RevLimitRangeX=(1.0,1.10,2,4) // 10% Rev limit increase over the last 3 upgrades. Aprox 700rpm total for a 7000 rpm stock engine
+LifetimeEngineRPMX=(1.0,1.15,2,4)
 
 ID=Block  // Block and Lower end. 15% max increase
 RPMTorque000=(1.0,1.08,2,4) // 
