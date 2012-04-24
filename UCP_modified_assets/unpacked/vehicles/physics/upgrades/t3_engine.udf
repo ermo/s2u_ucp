@@ -1,0 +1,61 @@
+// Tier 3 Engine upgrade file.
+
+
+//RPMTorque000=(1.00,1.15,3,4) // 20% evenly spaced over the first 2/3 RPM range (5-9 upgrades). Then 30% Over the last third aprox.
+//RPMTorque025=(1.00,1.15,3,4) // (8% per upgrade 0-5000, 12% per upgrade from 5000-8000 for example)
+//RPMTorque050=(1.05,1.25,3,4)
+//RPMTorque075=(1.05,1.25,3,4)
+//RPMTorque100=(1.05,1.25,3,4)
+
+//RevLimitRangeX=(1.0,1.10,2,4) // 10% Rev limit increase over the last 5 upgrades. Aprox 1000rpm total for a 7000 rpm stock engine
+
+//LifetimeEngineRPMX=(1.0,1.04,3,4) // 4% increase in RPM to start counting engine failure to go with rev limit increase
+
+//New Individual Moray Upgrades. Total power increase at level 4 additive is 28%
+
+ID=Intake  // Intake upgrade. 3% max increase
+RPMTorque000=(1.0,1.03,2,4) // 
+RPMTorque025=(1.0,1.03,2,4)
+RPMTorque050=(1.0,1.03,2,4)
+RPMTorque075=(1.0,1.03,2,4)
+RPMTorque100=(1.0,1.03,2,4)
+
+ID=Exhaust  // Exhaust upgrade. 4.2% max increase
+RPMTorque000=(1.0,1.04,2,4) // 
+RPMTorque025=(1.0,1.04,2,4)
+RPMTorque050=(1.0,1.04,2,4)
+RPMTorque075=(1.0,1.04,2,4)
+RPMTorque100=(1.0,1.04,2,4)
+
+ID=FuelDelivery  // Pumps/Inj/Software Modern / Manifolds and Carbs Classic. Gui Text difference only. 10% max increase
+RPMTorque000=(1.0,1.04,2,4) // 
+RPMTorque025=(1.0,1.04,2,4)
+RPMTorque050=(1.0,1.04,2,4)
+RPMTorque075=(1.0,1.04,2,4)
+RPMTorque100=(1.0,1.04,2,4)
+
+ID=Camshaft  // Camshaft upgrade. 12% max increase
+RPMTorque000=(1.0,1.04,2,4) // 
+RPMTorque025=(1.0,1.04,2,4)
+RPMTorque050=(1.0,1.06,2,4)
+RPMTorque075=(1.0,1.08,2,4)
+RPMTorque100=(1.0,1.10,2,4)
+RevLimitRangeX=(1.0,1.10,2,4) // 10% Rev limit increase over the last 3 upgrades. Aprox 700rpm total for a 7000 rpm stock engine
+LifetimeEngineRPMX=(1.0,1.15,2,4)
+
+ID=Valvetrain  // Valve Train upgrade. 4% max increase
+RPMTorque000=(1.0,1.02,2,4) // 
+RPMTorque025=(1.0,1.02,2,4)
+RPMTorque050=(1.0,1.02,2,4)
+RPMTorque075=(1.0,1.04,2,4)
+RPMTorque100=(1.0,1.06,2,4)
+
+ID=Block  // Block and Lower end. 15% max increase
+RPMTorque000=(1.0,1.08,2,4) // 
+RPMTorque025=(1.0,1.08,2,4)
+RPMTorque050=(1.0,1.08,2,4)
+RPMTorque075=(1.0,1.08,2,4)
+RPMTorque100=(1.0,1.08,2,4)
+
+ID=Flywheel  // Flywheel inertial upgrade. 40% max decrease
+EngineInertia=(0.95,.85,3,4) // reduce engine inertia 15% over 4 upgrades
