@@ -89,13 +89,13 @@ name=fl_steering posbody=body negbody=fl_spindle pos=(0.200,0.01,-1.700) neg=(0.
 
 // Front right suspension (2 A-arms + 1 steering arm = 5 links)
 [BAR] // forward upper arm (used in steering lock calculation)
-name=fr_fore_upper posbody=body negbody=fr_spindle pos=(-0.258,0.130,-1.802) neg=(-0.613,0.128,-1.650)
+name=fr_fore_upper posbody=body negbody=fr_spindle pos=(-0.258,0.110,-1.802) neg=(-0.613,0.128,-1.650)
 
 [BAR] // rearward upper arm
 posbody=body negbody=fr_spindle pos=(-0.258,0.110,-1.574) neg=(-0.613,0.128,-1.650)
 
 [BAR] // forward lower arm
-name=fr_fore_lower posbody=body negbody=fr_spindle pos=(-0.200,-0.110,-1.735) neg=(-0.613,-0.132,-1.650)
+name=fr_fore_lower posbody=body negbody=fr_spindle pos=(-0.200,-0.130,-1.735) neg=(-0.613,-0.132,-1.650)
 
 [BAR] // rearward lower arm
 posbody=body negbody=fr_spindle pos=(-0.200,-0.130,-1.621) neg=(-0.613,-0.132,-1.650)
