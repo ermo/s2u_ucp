@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<Reflection>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="CarSoundConfig" base="BPersistent">
+        <prop name="EngineReverb" type="Vec2" />
+        <prop name="TurboReverb" type="Vec2" />
+        <prop name="TransmissionReverb" type="Vec2" />
+        <prop name="GearReverb" type="Vec2" />
+        <prop name="BrakeReverb" type="Vec2" />
+        <prop name="ExhaustReverb" type="Vec2" />
+        <prop name="SurfacesReverb" type="Vec2" />
+        <prop name="CollisionReverb" type="Vec2" />
+        <prop name="JetstreamReverb" type="Vec2" />
+        <prop name="WindReverb" type="Vec2" />
+        <prop name="EngineVolumeOverride" type="F32" />
+        <prop name="TurboVolumeOverride" type="F32" />
+        <prop name="TurboWastegateVolumeOverride" type="F32" />
+        <prop name="TransmissionVolumeOverrideInterior" type="F32" />
+        <prop name="TransmissionVolumeOverrideExterior" type="F32" />
+        <prop name="SurfacesVolumeOverride" type="F32" />
+        <prop name="JetstreamVolumeOverride" type="F32" />
+        <prop name="GearChangeVolumeOverride" type="F32" />
+        <prop name="BrakesVolumeOverride" type="F32" />
+        <prop name="AIEngineVolumeOverride" type="F32" />
+        <prop name="AISurfaceVolumeOverride" type="F32" />
+        <prop name="AIRacingViewVolume" type="F32" />
+        <prop name="RearTyreFrequencyMultiplier" type="F32" />
+        <prop name="GripPowerModifier" type="F32" />
+        <prop name="AvailForceScalingFraction" type="F32" />
+        <prop name="TransmissionRPSMax" type="F32" />
+        <prop name="TransmissionTorqueMax" type="F32" />
+        <prop name="BrakeTemperatureTotal" type="F32" />
+        <prop name="WheelRPSMax" type="F32" />
+        <prop name="Engine3DPanLevel" type="F32" />
+        <prop name="Transmission3DPanLevel" type="F32" />
+        <prop name="MinTorqueScale" type="F32" />
+        <prop name="MaxTorqueScale" type="F32" />
+        <prop name="MaxUndertrayForce" type="F32" />
+        <prop name="MaxUndertrayFrictionMag" type="F32" />
+        <prop name="UndertrayScrapeTimeMS" type="U32" />
+        <prop name="MaxCarCarImpactForce" type="F32" />
+        <prop name="MaxCarTerrainImpactForce" type="F32" />
+        <prop name="MaxCarObjectImpactForce" type="F32" />
+        <prop name="WastegateMinRise" type="F32" />
+        <prop name="WastegateMinDrop" type="F32" />
+        <prop name="WastegateLowestLevel" type="F32" />
+        <prop name="WastegateAveragePeriodMS" type="F32" />
+        <prop name="PlayerCarMinDistanceMultiplier" type="F32" />
+        <prop name="WindMaxCarVelocity" type="F32" />
+        <prop name="AICarMinDistanceMultiplier" type="F32" />
+        <prop name="MaxAIEngineSounds" type="U32" />
+    </class>
+    <data class="CarSoundConfig" id="0x2A63C90">
+        <prop name="Name" data="CarSoundConfig" />
+        <prop name="EngineReverb" data="0.8;0.8" />
+        <prop name="TurboReverb" data="0.1;0" />
+        <prop name="TransmissionReverb" data="0.1;0" />
+        <prop name="GearReverb" data="0.1;0" />
+        <prop name="BrakeReverb" data="0.8;0.27" />
+        <prop name="ExhaustReverb" data="1;0.33" />
+        <prop name="SurfacesReverb" data="0.85;0.28" />
+        <prop name="CollisionReverb" data="0.8;0.27" />
+        <prop name="JetstreamReverb" data="0;0" />
+        <prop name="WindReverb" data="0;0" />
+        <prop name="EngineVolumeOverride" data="1" />
+        <prop name="TurboVolumeOverride" data="1" />
+        <prop name="TurboWastegateVolumeOverride" data="1" />
+        <prop name="TransmissionVolumeOverrideInterior" data="1" />
+        <prop name="TransmissionVolumeOverrideExterior" data="1" />
+        <prop name="SurfacesVolumeOverride" data="1" />
+        <prop name="JetstreamVolumeOverride" data="1" />
+        <prop name="GearChangeVolumeOverride" data="1" />
+        <prop name="BrakesVolumeOverride" data="1" />
+        <prop name="AIEngineVolumeOverride" data="1" />
+        <prop name="AISurfaceVolumeOverride" data="0.5" />
+        <prop name="AIRacingViewVolume" data="1" />
+        <prop name="RearTyreFrequencyMultiplier" data="1" />
+        <prop name="GripPowerModifier" data="1" />
+        <prop name="AvailForceScalingFraction" data="0.35" />
+        <prop name="TransmissionRPSMax" data="-1000" />
+        <prop name="TransmissionTorqueMax" data="250" />
+        <prop name="BrakeTemperatureTotal" data="1200" />
+        <prop name="WheelRPSMax" data="240" />
+        <prop name="Engine3DPanLevel" data="0.18" />
+        <prop name="Transmission3DPanLevel" data="0.2" />
+        <prop name="MinTorqueScale" data="0.95" />
+        <prop name="MaxTorqueScale" data="0.95" />
+        <prop name="MaxUndertrayForce" data="25000" />
+        <prop name="MaxUndertrayFrictionMag" data="65" />
+        <prop name="UndertrayScrapeTimeMS" data="100" />
+        <prop name="MaxCarCarImpactForce" data="1000000" />
+        <prop name="MaxCarTerrainImpactForce" data="2700000" />
+        <prop name="MaxCarObjectImpactForce" data="150000" />
+        <prop name="WastegateMinRise" data="0" />
+        <prop name="WastegateMinDrop" data="0" />
+        <prop name="WastegateLowestLevel" data="0" />
+        <prop name="WastegateAveragePeriodMS" data="100" />
+        <prop name="PlayerCarMinDistanceMultiplier" data="1" />
+        <prop name="WindMaxCarVelocity" data="55" />
+        <prop name="AICarMinDistanceMultiplier" data="2" />
+        <prop name="MaxAIEngineSounds" data="4" />
+    </data>
+</Reflection>

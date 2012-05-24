@@ -155,7 +155,6 @@ FOR %%I IN ( Dir Drivers Tracks\Organisers Vehicles ) DO (
 
 :: Pakfiles\AUDIOMOVIES.bff
 :: Pakfiles\BOOTTEXTDB.bff
-:: Pakfiles\BOOTUPAUDIO.bff
 :: Pakfiles\BOOTUPAUDIO2.bff
 :: Pakfiles\GUIBADGES.bff
 :: Pakfiles\GUIBRANCHPOSTERS.bff
@@ -193,6 +192,7 @@ Pakfiles\BOOTFLOW.bff
 Pakfiles\BOOTPERSISTENT.bff
 Pakfiles\BOOTPSA.bff
 Pakfiles\BOOTSPLASH.bff
+Pakfiles\BOOTUPAUDIO.bff
 Pakfiles\CommonVehicleTextures.bff
 Pakfiles\IGPHASEACTIVATE.bff
 Pakfiles\IGPHASEHUD.bff

@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<Reflection>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="SurfaceSound" base="BPersistent">
+        <prop name="GripFractionAverage_Ticks" type="U32" />
+        <prop name="WheelOnGroundAverage_Ticks" type="U32" />
+        <prop name="WheelOnGroundAverage_Ratio" type="F32" />
+        <prop name="AvailForceAverage_Ticks" type="U32" />
+        <prop name="Maximum_AvailForceFront" type="F32" />
+        <prop name="Maximum_AvailForceRear" type="F32" />
+        <prop name="Maximum_CarVelocity" type="F32" />
+        <prop name="Maximum_TyreLoadOverMass" type="F32" />
+        <prop name="SurfaceWetnessThreshold" type="F32" />
+        <prop name="MarblesTerrainID" type="U32" />
+        <prop name="MarblesOverlaySoundName" type="String" />
+    </class>
+    <data class="SurfaceSound" id="0x18E02D94">
+        <prop name="Name" data="SurfaceSoundConfig" />
+        <prop name="GripFractionAverage_Ticks" data="3" />
+        <prop name="WheelOnGroundAverage_Ticks" data="6" />
+        <prop name="WheelOnGroundAverage_Ratio" data="0.3" />
+        <prop name="AvailForceAverage_Ticks" data="6" />
+        <prop name="Maximum_AvailForceFront" data="14" />
+        <prop name="Maximum_AvailForceRear" data="18" />
+        <prop name="Maximum_CarVelocity" data="60" />
+        <prop name="Maximum_TyreLoadOverMass" data="25" />
+        <prop name="SurfaceWetnessThreshold" data="0.1" />
+        <prop name="MarblesTerrainID" data="5" />
+        <prop name="MarblesOverlaySoundName" data="Surface_MarblesOverlay" />
+    </data>
+</Reflection>
