@@ -61,10 +61,10 @@
         <prop name="GearReverb" data="0.1;0" />
         <prop name="BrakeReverb" data="0.8;0.27" />
         <prop name="ExhaustReverb" data="1;0.33" />
-        <prop name="SurfacesReverb" data="0.85;0.28" />
+        <prop name="SurfacesReverb" data="0.3;0.1" />
         <prop name="CollisionReverb" data="0.8;0.27" />
-        <prop name="JetstreamReverb" data="0;0" />
-        <prop name="WindReverb" data="0;0" />
+        <prop name="JetstreamReverb" data="0.5;0.5" />
+        <prop name="WindReverb" data="0.5;0.5" />
         <prop name="EngineVolumeOverride" data="1" />
         <prop name="TurboVolumeOverride" data="1" />
         <prop name="TurboWastegateVolumeOverride" data="1" />

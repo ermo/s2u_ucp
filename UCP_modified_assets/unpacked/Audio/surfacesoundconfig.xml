@@ -26,7 +26,7 @@
         <prop name="Maximum_AvailForceFront" data="14" />
         <prop name="Maximum_AvailForceRear" data="18" />
         <prop name="Maximum_CarVelocity" data="60" />
-        <prop name="Maximum_TyreLoadOverMass" data="25" />
+        <prop name="Maximum_TyreLoadOverMass" data="1" />
         <prop name="SurfaceWetnessThreshold" data="0.1" />
         <prop name="MarblesTerrainID" data="5" />
         <prop name="MarblesOverlaySoundName" data="Surface_MarblesOverlay" />
