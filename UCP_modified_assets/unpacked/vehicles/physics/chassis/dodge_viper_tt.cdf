@@ -379,7 +379,6 @@ SlowReboundRange=(8000.0, 300.0, 16)
 SlowReboundSetting=2
 FastReboundRange=(4000.0, 300.0, 16)
 FastReboundSetting=2
-FastReboundRange=(3500.0, 300.0, 16)
 BrakeDiscRange=(0.032, 0.000, 0)    // disc thickness
 BrakeDiscSetting=0
 BrakePadRange=(0, 1, 5)             // pad type (not implemented)
