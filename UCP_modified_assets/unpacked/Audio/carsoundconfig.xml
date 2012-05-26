@@ -70,7 +70,7 @@
         <prop name="TurboWastegateVolumeOverride" data="1" />
         <prop name="TransmissionVolumeOverrideInterior" data="1" />
         <prop name="TransmissionVolumeOverrideExterior" data="1" />
-        <prop name="SurfacesVolumeOverride" data="1.5" />
+        <prop name="SurfacesVolumeOverride" data="2.0" />
         <prop name="JetstreamVolumeOverride" data="1" />
         <prop name="GearChangeVolumeOverride" data="1" />
         <prop name="BrakesVolumeOverride" data="1" />
