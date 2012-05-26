@@ -139,7 +139,7 @@ RightCasterRange=(0.0, 0.1, 100)         // front-right caster
 RightCastersetting=20
 
 [CONTROLS]
-ThrottleControl=(2,2,0,1)
+ThrottleControl=(2,2,1,1)
 DriftThrottleControl=(0,0,0)
 AntilockBrakes=(2,2,1,1)
 DriftSteerFilterSpeedOffset=8.0
