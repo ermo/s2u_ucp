@@ -250,7 +250,7 @@ BrakeFadeRange=400.0               // temperature outside of optimum that brake 
 BrakeWearRate=1.215e-011             // meters of wear per second at optimum temperature
 BrakeFailure=(1.33e-002,7.20e-004)  // average and variation in disc thickness at failure
 BrakeTorque=3400.0                  // maximum brake torque at zero wear and optimum temp
-BrakeHeating=0.00050                 // heat added linearly with brake torque
+BrakeHeating=0.00060                 // heat added linearly with brake torque
 BrakeCooling=(0.80e-002,0.600e-004)  // minimum brake cooling rate (static and per unit velocity)
 BrakeDuctCooling=1.760e-004         // brake cooling rate per brake duct setting
 
@@ -371,7 +371,7 @@ PressureRange=(0.0, 1.0, 286)
 PressureSetting=230
 PackerRange=(0.000, 0.001, 30)
 PackerSetting=0
-SpringMult=1.0                 // take into account suspension motion if spring is not attached to spindle (affects physics but not garage display)
+SpringMult=1.00                 // take into account suspension motion if spring is not attached to spindle (affects physics but not garage display)
 SpringRange=(45000.0, 3750.0, 6)
 SpringSetting=0
 RideHeightRange=(0.120, -0.005, 10)
