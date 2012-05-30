@@ -341,7 +341,7 @@ BrakeWearRate=1.215e-011             // meters of wear per second at optimum tem
 BrakeFailure=(1.33e-002,7.20e-004)  // average and variation in disc thickness at failure
 BrakeTorque=4000.0                  // maximum brake torque at zero wear and optimum temp
 BrakeHeating=0.00035                 // heat added linearly with brake torque
-BrakeCooling=(1.000e-002,0.600e-004)  // minimum brake cooling rate (static and per unit velocity)
+BrakeCooling=(1.00e-002,0.600e-004)  // minimum brake cooling rate (static and per unit velocity)
 BrakeDuctCooling=1.760e-004         // brake cooling rate per brake duct setting
 
 
