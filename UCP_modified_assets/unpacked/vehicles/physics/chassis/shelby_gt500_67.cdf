@@ -186,7 +186,6 @@ WheelDrive=REAR                     // which wheels are driven: REAR, FOUR (even
 FinalDriveSetting=35                 // indexed into GearFile list
 ReverseSetting=0
 ForwardGears=4
-ForwardGears=4
 Gear1Setting=6
 Gear2Setting=27
 Gear3Setting=47
