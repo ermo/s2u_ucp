@@ -1,0 +1,10 @@
+//Duplicate of gen_lowrpm_33 - Used for Nissan_GTR Engine-Swap Bug-fix
+//Generic model for LowRPM - all in by 3500 rpms
+Turbo1 Size=33.0					// size of turbo influences eventual power delivered
+Turbo1 Turbine Optimum RPM=140000.0		// optimum rpm where turbo produces max power
+Turbo1 Engine RPM=500.0			// engine rpm that the turbine begins to spin up from
+Turbo1 Inertia=10000.0				// turbo inertia/spin up speed
+Turbo1 Friction=2000.0				// turbo friction/spin down speed
+Turbo1 Fuel Percentage=10.0			// extra percentage of fuel burned at optimum RPM (0 = no change)
+WasteGate Opening=0.5				// minimum time taken in seconds for the wastegate to open
+WasteGate Closing=0.3				// minimum time taken in seconds for the wastegate to close
