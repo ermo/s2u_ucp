@@ -2,7 +2,6 @@
 //
 [GENERAL]
 Works=0
-AdjustableUpgradeLevel_0=4 //base upgrade level tuning allowed. (ie used so a full racecar has full adjustablity "stock")
 TuningTier=3
 Rules=0                         // what rules to apply to garage setups (0=none, 1=stock car)
 GarageDisplayFlags=7            // how settings are displayed in garage (add): 1=rear wing, 2=radiator, 4=more gear info
