@@ -189,6 +189,7 @@ Gear2Setting=20
 Gear3Setting=41
 Gear4Setting=52
 Gear5Setting=56
+Gear6Setting=57
 DiffPumpTorque=200.0                // at 100% pump diff setting, the torque redirected per wheelspeed difference in radians/sec (roughly 1.2kph)
 DiffPumpRange=(0.00, 0.05, 20)
 DiffPumpSetting=10

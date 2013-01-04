@@ -1,0 +1,21 @@
+// NFS2 Drivetrain upgrade File - Generic 6-speed 4WD
+
+
+ID=Clutch
+ClutchTorque=(1.25,2.00,1,4) // 80% linear increase for 1-4, 20% per step.
+BaulkTorque=(1.25,2.00,1,4) // 80% linear increase for 1-4, 20% per step.
+
+ID=Transmission
+//Levels 1-3
+UpshiftDelay=(0.8,0.8,1,3) //20% shift reduction - bought on first upgrade and carried through level 3.
+UpshiftClutchTime=(0.8,0.8,1,3)
+DownshiftDelay=(0.9,0.9,1,3)
+DownshiftClutchTime=(0.9,0.9,1,3)
+// Level 4
+UpshiftDelay=(0.5,0.5,4,4) //Sequential shift Works 4 uprgrade 90% reduction
+UpshiftClutchTime=(0.5,0.5,4,4)
+DownshiftDelay=(0.6,0.6,4,4)
+DownshiftClutchTime=(0.6,0.6,4,4)
+
+//FinalDriveSetting=+(-2,-4,3,4)
+
