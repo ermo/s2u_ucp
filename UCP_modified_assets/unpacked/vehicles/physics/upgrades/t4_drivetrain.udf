@@ -1,0 +1,32 @@
+// Shift2 Supercar Drivetrain file
+
+
+ID=Clutch
+ClutchTorque=(1.4,1.50,3,4) // 50% linear increase for 3-4, 25% per step.
+BaulkTorque=(1.25,1.50,3,4) // 50% linear increase for 3-4, 25% per step.
+
+ID=Transmission
+//Levels 1-3
+UpshiftDelay=(0.9,0.9,1,3) //20% shift reduction - bought on first upgrade and carried through level 3.
+UpshiftClutchTime=(0.9,0.9,1,3)
+DownshiftDelay=(0.9,0.9,1,3)
+DownshiftClutchTime=(0.9,0.9,1,3)
+// Level 4
+UpshiftDelay=(0.8,0.8,4,4) //Sequential shift Works 4 uprgrade 90% reduction
+UpshiftClutchTime=(0.8,0.8,4,4)
+DownshiftDelay=(0.9,0.9,4,4)
+DownshiftClutchTime=(0.9,0.9,4,4)
+
+//FinalDriveSetting=+(-4,-4,4,4)
+//Gear1Setting=+(-2,-2,4,4)
+//Gear2Setting=+(-5,-5,4,4) //dropping gears to space for 5-speed change 
+//Gear3Setting=+(-3,-3,4,4)
+//Gear4Setting=+(-2,-2,4,4)
+//Gear5Setting=+(-1,-1,4,4)
+//Gear6Setting=+(-1,-1,4,4)
+
+
+
+
+
+
