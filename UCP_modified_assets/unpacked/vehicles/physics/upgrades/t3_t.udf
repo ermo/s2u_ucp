@@ -1,0 +1,7 @@
+//Duplicate of t3_turbo - Used for Nissan_GTR Engine-Swap Bug-fix
+//Tier 3 Turbo upgrade file for car without stock Turbo disables it at level 0,1,2
+
+ID=Turbo // Turbo upgrade for T3 type.
+Turbo1 Size=(0.0,0.0,0,0) // This disables the turbo turned on in the VDF levels 0-1
+Turbo1 Size=(1.02,1.20,1,4) // 20% upgrade from level 2-4
+
