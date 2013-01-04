@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" ?>
+<Reflection>
+    <class name="BRTTIRefCount" base="root class" />
+    <class name="BPersistent" base="BRTTIRefCount">
+        <prop name="Name" type="String" />
+    </class>
+    <class name="CockpitRender" base="BPersistent">
+        <prop name="Cockpit camera eyepoint" type="Vec3f" />
+        <prop name="Cockpit camera eyepoint for rear view" type="Vec3f" />
+        <prop name="Shotgun Camera Pos" type="Vec3f" />
+        <prop name="Cockpit Render Model" type="String" />
+        <prop name="Motec GUI file" type="String" />
+        <prop name="Max Steer Rot" type="Float" />
+        <prop name="Local head physics scale" type="Float" />
+        <prop name="Speed Gauge - (minVal,maxVal,rotation(degrees))" type="Vec3f" />
+        <prop name="Tach Gauge" type="Vec3f" />
+        <prop name="Oil Pressure Gauge" type="Vec3f" />
+        <prop name="Oil temp Gauge" type="Vec3f" />
+        <prop name="Water pressure Gauge" type="Vec3f" />
+        <prop name="Water temp Gauge" type="Vec3f" />
+        <prop name="Fuel pressure Gauge" type="Vec3f" />
+        <prop name="Fuel level Gauge" type="Vec3f" />
+        <prop name="Boost Gauge - (minVal,maxVal,rotation(degrees))" type="Vec3f" />
+        <prop name="SpeedGaugeUnits (0=kph,1=mph)" type="U32" />
+        <prop name="PressureGaugeUnits (0=KPa,1=Kg/cm2)" type="U32" />
+        <prop name="TempGaugeUnits (0=C,1=F)" type="U32" />
+        <prop name="RedLineWaitTime" type="Float" />
+        <prop name="RedLineDropoff - RPM per second" type="Float" />
+        <prop name="PaddleShiftRot" type="Float" />
+        <prop name="GearStickType" type="U32" />
+        <prop name="GearStick lateral rot" type="Float" />
+        <prop name="GearStick fwd rot/trans" type="Float" />
+        <prop name="GearStick layout(reverse)" type="Vec2f" />
+        <prop name="GearStick layout(neutral)" type="Vec2f" />
+        <prop name="GearStick layout(1)" type="Vec2f" />
+        <prop name="GearStick layout(2)" type="Vec2f" />
+        <prop name="GearStick layout(3)" type="Vec2f" />
+        <prop name="GearStick layout(4)" type="Vec2f" />
+        <prop name="GearStick layout(5)" type="Vec2f" />
+        <prop name="GearStick layout(6)" type="Vec2f" />
+        <prop name="ReverseShift rotation" type="Float" />
+        <prop name="Gear Gaiter skeleton node name" type="String" />
+        <prop name="HandBrakeRot" type="Float" />
+        <prop name="Window Rotation" type="Float" />
+        <prop name="CDPlayer switch Rot(degrees)/Trans(mm)" type="Float" />
+        <prop name="Traction switch Rot/Trans" type="Float" />
+        <prop name="Lights switch Rot/Trans" type="Float" />
+        <prop name="HazardLights switch Rot/Trans" type="Float" />
+        <prop name="FogLights switch Rot/Trans" type="Float" />
+        <prop name="Ignition switch Rot/Trans" type="Float" />
+        <prop name="Start switch Rot/Trans" type="Float" />
+        <prop name="ABS switch Rot/Trans" type="Float" />
+        <prop name="DSC switch Rot/Trans" type="Float" />
+        <prop name="Window switch Rot/Trans" type="Float" />
+        <prop name="Wiper switch Rot/Trans" type="Float" />
+        <prop name="Indicator switch Rot/Trans" type="Float" />
+        <prop name="RPM LED 1 rpm level" type="Float" />
+        <prop name="RPM LED 2 rpm level" type="Float" />
+        <prop name="RPM LED 3 rpm level" type="Float" />
+        <prop name="RPM LED 4 rpm level" type="Float" />
+        <prop name="RPM LED 5 rpm level" type="Float" />
+        <prop name="RPM LED 6 rpm level" type="Float" />
+        <prop name="motec RPM bar range(min,max)" type="Vec2f" />
+        <prop name="motec FuelLevel bar range" type="Vec2f" />
+        <prop name="motec OilPressure bar range" type="Vec2f" />
+        <prop name="motec OilTemp bar range" type="Vec2f" />
+        <prop name="motec WaterTemp bar range" type="Vec2f" />
+        <prop name="motec TurboBoost bar range" type="Vec2f" />
+        <prop name="OdometerDecimalPlaces" type="S32" />
+    </class>
+    <data class="CockpitRender" id="0x18763FB8">
+        <prop name="Name" data="Audi S4 Cockpit" />
+        <prop name="Cockpit camera eyepoint" data="0.5;1;-0.25" />
+        <prop name="Cockpit camera eyepoint for rear view" data="0;0.8;1.9" />
+        <prop name="Shotgun Camera Pos" data="0;0;0" />
+        <prop name="Cockpit Render Model" data="AUDI_S4_Cockpit.vhf" />
+        <prop name="Motec GUI file" data="display_audi_s3" />
+        <prop name="Max Steer Rot" data="115" />
+        <prop name="Local head physics scale" data="1" />
+        <prop name="Speed Gauge - (minVal,maxVal,rotation(degrees))" data="0;100;125" />
+        <prop name="Tach Gauge" data="0;9000;250" />
+        <prop name="Oil Pressure Gauge" data="0;600;270" />
+        <prop name="Oil temp Gauge" data="30;130;90" />
+        <prop name="Water pressure Gauge" data="0;100;180" />
+        <prop name="Water temp Gauge" data="30;120;90" />
+        <prop name="Fuel pressure Gauge" data="0;100;20" />
+        <prop name="Fuel level Gauge" data="0;1;90" />
+        <prop name="Boost Gauge - (minVal,maxVal,rotation(degrees))" data="0;100;152" />
+        <prop name="SpeedGaugeUnits (0=kph,1=mph)" data="0" />
+        <prop name="PressureGaugeUnits (0=KPa,1=Kg/cm2)" data="0" />
+        <prop name="TempGaugeUnits (0=C,1=F)" data="0" />
+        <prop name="RedLineWaitTime" data="2" />
+        <prop name="RedLineDropoff - RPM per second" data="3000" />
+        <prop name="PaddleShiftRot" data="14" />
+        <prop name="GearStickType" data="2" />
+        <prop name="GearStick lateral rot" data="8" />
+        <prop name="GearStick fwd rot/trans" data="12" />
+        <prop name="GearStick layout(reverse)" data="-2;-1" />
+        <prop name="GearStick layout(neutral)" data="0;0" />
+        <prop name="GearStick layout(1)" data="-1;-1" />
+        <prop name="GearStick layout(2)" data="-1;1" />
+        <prop name="GearStick layout(3)" data="0;-1" />
+        <prop name="GearStick layout(4)" data="0;1" />
+        <prop name="GearStick layout(5)" data="1;-1" />
+        <prop name="GearStick layout(6)" data="1;1" />
+        <prop name="ReverseShift rotation" data="45" />
+        <prop name="Gear Gaiter skeleton node name" data="AUDI_S4_KIT00_GEARSHIFT_CPIT" />
+        <prop name="HandBrakeRot" data="28.6" />
+        <prop name="Window Rotation" data="11.5" />
+        <prop name="CDPlayer switch Rot(degrees)/Trans(mm)" data="45" />
+        <prop name="Traction switch Rot/Trans" data="45" />
+        <prop name="Lights switch Rot/Trans" data="45" />
+        <prop name="HazardLights switch Rot/Trans" data="45" />
+        <prop name="FogLights switch Rot/Trans" data="45" />
+        <prop name="Ignition switch Rot/Trans" data="45" />
+        <prop name="Start switch Rot/Trans" data="45" />
+        <prop name="ABS switch Rot/Trans" data="45" />
+        <prop name="DSC switch Rot/Trans" data="45" />
+        <prop name="Window switch Rot/Trans" data="45" />
+        <prop name="Wiper switch Rot/Trans" data="45" />
+        <prop name="Indicator switch Rot/Trans" data="45" />
+        <prop name="RPM LED 1 rpm level" data="5000" />
+        <prop name="RPM LED 2 rpm level" data="5500" />
+        <prop name="RPM LED 3 rpm level" data="6000" />
+        <prop name="RPM LED 4 rpm level" data="6500" />
+        <prop name="RPM LED 5 rpm level" data="6750" />
+        <prop name="RPM LED 6 rpm level" data="7000" />
+        <prop name="motec RPM bar range(min,max)" data="1000;9000" />
+        <prop name="motec FuelLevel bar range" data="0;1" />
+        <prop name="motec OilPressure bar range" data="0;5" />
+        <prop name="motec OilTemp bar range" data="40;160" />
+        <prop name="motec WaterTemp bar range" data="60;140" />
+        <prop name="motec TurboBoost bar range" data="0;0" />
+        <prop name="OdometerDecimalPlaces" data="3" />
+    </data>
+</Reflection>
