@@ -85,6 +85,13 @@ IF NOT EXIST %_S2U_DIR%\SHIFT2U.exe (
 @ECHO %_S2U_DIR% -- good.
 @ECHO.
 
+:: Check whether DLC w/patch 1.02 was installed (apparently people often miss this step)
+
+IF NOT EXIST %_S2U_DIR%\Pakfiles\dir\EFFECTS.bff (
+  SET _MSG=- Patch v1.02 (aka Legends and Speedhunters DLC) not installed? -- aborting!
+  GOTO die
+)
+ 
 :: check for the unpacking tool before we start
 
 IF NOT EXIST %_CWD%quickbms.exe (
