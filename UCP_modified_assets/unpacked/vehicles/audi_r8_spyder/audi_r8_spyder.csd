@@ -42,7 +42,7 @@
         <prop name="Name" data="audi_r8_spyderSoundDetails" />
         <prop name="EngineVolume" data="0.7" />
         <prop name="EngineFrequencyMultiplier" data="1" />
-        <prop name="EngineRevRangeMultiplier" data="1" />
+        <prop name="EngineRevRangeMultiplier" data="1.05" />
         <prop name="TurboVolume" data="0.6" />
         <prop name="TransmissionVolume" data="0.7" />
         <prop name="TransmissionFrequencyMultiplier" data="1" />
