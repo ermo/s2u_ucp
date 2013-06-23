@@ -55,7 +55,7 @@ IF "%CD%"=="%windir%\system32" (
   @ECHO - It is supposed to be:
   @ECHO  "%_CWD%"
 
-  SET _MSG=- Aborting install because this script can't find the S2U install folder. Sorry.
+  SET _MSG=- aborting install because this script can't find the S2U install folder. Sorry.
 
   GOTO die
 )
@@ -81,7 +81,7 @@ IF NOT [%1]==[] (
 CALL :DeQuote _S2U_DIR
 
 IF NOT EXIST "%_S2U_DIR%\SHIFT2U.exe" (
-  SET _MSG=- No SHIFT2U.exe file found in "%_S2U_DIR%" -- aborting...
+  SET _MSG=- No SHIFT2U.exe file found in "%_S2U_DIR%" -- aborting^!
   GOTO die
 )
 
@@ -92,19 +92,19 @@ IF NOT EXIST "%_S2U_DIR%\SHIFT2U.exe" (
 :: Check whether DLC w/patch 1.02 was installed (apparently people often miss this step)
 
 IF NOT EXIST "%_S2U_DIR%\Pakfiles\Dir\EFFECTS.bff" (
-  SET _MSG=- Patch v1.02 ^(aka Legends and Speedhunters DLC^) not installed? -- aborting...
+  SET _MSG=- Patch v1.02 ^(aka Legends and Speedhunters DLC^) not installed? -- aborting^!
   GOTO die
 )
  
 :: check for the unpacking tool before we start
 
 IF NOT EXIST "%_CWD%\quickbms.exe" (
-  SET _MSG=- No quickbms.exe S2U unpack tool found in "%_CWD%" -- aborting...
+  SET _MSG=- No quickbms.exe S2U unpack tool found in "%_CWD%" -- aborting^!
   GOTO die
 )
 
 IF NOT EXIST "%_CWD%\nfsshift.bms" (
-  SET _MSG=- No nfsshift.bms S2U BMS script found in "%_CWD%" -- aborting...
+  SET _MSG=- No nfsshift.bms S2U BMS script found in "%_CWD%" -- aborting^!
   GOTO die
 )
 
@@ -148,7 +148,7 @@ REM goto prune
 :: Ensure that the output folder exists
 
 IF NOT EXIST "%_TARGET%" (
-  SET _MSG=- Could not create folder "%_TARGET%" -- aborting...
+  SET _MSG=- Could not create folder "%_TARGET%" -- aborting^!
   MKDIR "%_TARGET%" || GOTO die
 )
 
@@ -158,7 +158,7 @@ IF NOT EXIST "%_TARGET%" (
 FOR %%I IN ( Dir Drivers Tracks\Organisers Vehicles ) DO (
 
   IF NOT EXIST "%_CWD%\BFF_index\Pakfiles\%%I" (
-    SET _MSG=- Could not create folder "%_CWD%\BFF_index\Pakfiles\%%I" -- aborting...
+    SET _MSG=- Could not create folder "%_CWD%\BFF_index\Pakfiles\%%I" -- aborting^!
     MKDIR "%_CWD%\BFF_index\Pakfiles\%%I" || GOTO die
   )
 )
@@ -1200,18 +1200,18 @@ Pakfiles\Vehicles\VW_Scirocco_Cockpit.bff
 @ECHO + Processing %%G ...
 
 @ECHO ++ Unpacking ...
-SET _MSG=- Could not unpack %%G -- aborting...
+SET _MSG=- Could not unpack %%G -- aborting^!
 REM Save the quickbms unpacking output to a file instead of showing it on screen
 %UNPACK% %%G "%_INSTALL_DIR%" >> %_OUTPUTLOG% 2>&1 || GOTO die
 
 @ECHO ++ Creating index file ...
-SET _MSG=- Could not create BFF index file BFF_index\%%G___.txt -- aborting...
+SET _MSG=- Could not create BFF index file BFF_index\%%G___.txt -- aborting^!
 REM Assume that the appropriate BFF_index dir exists (it should)
 REM and list the contents of the BFF and save to a file
 %LIST% %%G > BFF_index\%%G___.txt 2>&1 || GOTO die
 
 @ECHO ++ Dummying out ...
-SET _MSG=- Could not dummy out %%G -- aborting...
+SET _MSG=- Could not dummy out %%G -- aborting^!
 CALL :copy_subroutine "%_INSTALL_DIR%\%%G"
 
 SET /A _BFFCOUNT+=1
@@ -1227,7 +1227,7 @@ SET _DIR="%~dp1"
 IF NOT EXIST %_DIR% (
   @ECHO + Creating %_DIR% ...
 
-  SET _MSG=- Could not create %_DIR% -- aborting...
+  SET _MSG=- Could not create %_DIR% -- aborting^!
   MKDIR %_DIR% || GOTO die
 )
 %DUMMYOUT% "%_CWD%\%1" || GOTO die 
@@ -1242,7 +1242,7 @@ GOTO eof
 @ECHO + Pruning the list of dummied out BFF files ...
 @ECHO.
 
-SET _MSG=- Could not prune the list of dummied out BFF files -- aborting...
+SET _MSG=- Could not prune the list of dummied out BFF files -- aborting^!
 DEL /S /Q "%_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff" || GOTO die
 @ECHO.
 
@@ -1256,7 +1256,7 @@ DEL /S /Q "%_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff" || GOTO die
 
 FOR /F "tokens=*" %%G IN ('DIR /S /B "%_INSTALL_DIR%\vehicles\*_kt.txt"') DO (
 @ECHO + Disabling "%%G" ...
-SET _MSG=- Could not disable "%%G" -- aborting...
+SET _MSG=- Could not disable "%%G" -- aborting^!
 MOVE /Y "%%G" "%%G".disabled || GOTO die
 )
 @ECHO.
@@ -1266,7 +1266,7 @@ MOVE /Y "%%G" "%%G".disabled || GOTO die
 FOR /F "tokens=*" %%G IN ('DIR /S /B "%_INSTALL_DIR%\vehicles\*_kct.txt"') DO (
 
 @ECHO + Disabling "%%G" ...
-SET _MSG=- Could not disable "%%G" -- aborting...
+SET _MSG=- Could not disable "%%G" -- aborting^!
 MOVE /Y "%%G" "%%G".disabled || GOTO die
 )
 @ECHO.

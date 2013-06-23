@@ -134,7 +134,7 @@ IF NOT EXIST "%_CWD%\nfsshift.bms" (
 :: check for the injector tool before we start
 
 IF NOT EXIST "%_CWD%\NFSSInjector.exe" (
-  SET _MSG=- No NFSSInjector.exe tool found in "%_CWD%" -- aborting!
+  SET _MSG=- No NFSSInjector.exe tool found in "%_CWD%" -- aborting^!
   GOTO die
 )
 
@@ -202,7 +202,7 @@ pause
 @ECHO.
 
 IF NOT EXIST "%_TARGET%" (
-  SET _MSG=- Could not create folder "%_TARGET%" -- aborting!
+  SET _MSG=- Could not create folder "%_TARGET%" -- aborting^!
   MKDIR "%_TARGET%" || GOTO die
 )
 
@@ -216,10 +216,10 @@ SET _DIR=DLC1\Pakfiles\Tracks
 SET _SRC="%_S2U_DIR%\%_DIR%"
 SET _DEST="%_TARGET%\%_DIR%\"
 CALL :DeQuote _SRC _DEST
-SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting!
+SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting^!
 
 IF NOT EXIST "%_DEST%" (
-  SET _MSG=- Could not create folder "%_DEST%" -- aborting!
+  SET _MSG=- Could not create folder "%_DEST%" -- aborting^!
   MKDIR "%_DEST%" || GOTO die
 )
 
@@ -244,10 +244,10 @@ SET _DIR=DLC2\Pakfiles\Tracks
 SET _SRC="%_S2U_DIR%\%_DIR%"
 SET _DEST="%_TARGET%\%_DIR%\"
 CALL :DeQuote _SRC _DEST
-SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting!
+SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting^!
 
 IF NOT EXIST "%_DEST%" (
-  SET _MSG=- Could not create folder "%_DEST%" -- aborting!
+  SET _MSG=- Could not create folder "%_DEST%" -- aborting^!
   MKDIR "%_DEST%" || GOTO die
 )
 
@@ -274,10 +274,10 @@ SET _DIR=Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
 SET _DEST=%_TARGET%\%_DIR%\
 CALL :DeQuote _SRC _DEST
-SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting!
+SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting^!
 
 IF NOT EXIST "%_DEST%" (
-  SET _MSG=- Could not create folder "%_DEST%" -- aborting!
+  SET _MSG=- Could not create folder "%_DEST%" -- aborting^!
   MKDIR "%_DEST%" || GOTO die
 )
 
