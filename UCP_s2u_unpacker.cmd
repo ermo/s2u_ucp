@@ -1,7 +1,7 @@
 @ECHO OFF
 CLS
 
-:: This script is Copyright (c) ermo 2011-2012 and is distributed under the
+:: This script is Copyright (c) ermo 2011-2013 and is distributed under the
 :: Creative Commons Attribution-NonCommercial-ShareAlike unported v3.0 license,
 :: which can be read in full at http://creativecommons.org/licenses/by-nc-sa/3.0/
 ::
@@ -34,13 +34,15 @@ SETLOCAL EnableDelayedExpansion
 
 SET _CWD="%~dp0"
 
+CALL :DeQuote _CWD
+
 :: This is necessary when the script is run as administrator
 :: cd /d also switches drive as appropriate
 
 IF "%CD%"=="%windir%\system32" (
   @ECHO + Looks like we were run as administrator ...
   @ECHO.
-  CD /D %_CWD%
+  CD /D "%_CWD%"
 )
 
 :: Now we should definitely be in the correct folder, 
@@ -51,7 +53,7 @@ IF "%CD%"=="%windir%\system32" (
   @ECHO - Current working folder is:
   @ECHO  "%CD%"
   @ECHO - It is supposed to be:
-  @ECHO  %_CWD%
+  @ECHO  "%_CWD%"
 
   SET _MSG=- Aborting install because this script can't find the S2U install folder. Sorry.
 
@@ -59,7 +61,7 @@ IF "%CD%"=="%windir%\system32" (
 )
 
 @ECHO + Working folder is:
-@ECHO %_CWD% -- good.
+@ECHO  "%_CWD%" -- good.
 @ECHO.
 
 :: ensure the S2U install folder was specified as the first argument
@@ -68,7 +70,7 @@ IF "%CD%"=="%windir%\system32" (
 :: To begin with, be opportunistic and assume that we are run
 :: from the S2U install folder
 
-SET _S2U_DIR=%_CWD%
+SET _S2U_DIR="%_CWD%"
 
 :: If a parameter was supplied to the script, use that instead
 
@@ -76,36 +78,38 @@ IF NOT [%1]==[] (
   SET _S2U_DIR="%1"
 )
 
-IF NOT EXIST %_S2U_DIR%\SHIFT2U.exe (
-  SET _MSG=- No SHIFT2U.exe file found in %_S2U_DIR% -- aborting...
+CALL :DeQuote _S2U_DIR
+
+IF NOT EXIST "%_S2U_DIR%\SHIFT2U.exe" (
+  SET _MSG=- No SHIFT2U.exe file found in "%_S2U_DIR%" -- aborting...
   GOTO die
 )
 
 @ECHO + Found SHIFT2U.exe in:
-@ECHO %_S2U_DIR% -- good.
+@ECHO  "%_S2U_DIR%" -- good.
 @ECHO.
 
 :: Check whether DLC w/patch 1.02 was installed (apparently people often miss this step)
 
-IF NOT EXIST %_S2U_DIR%\Pakfiles\Dir\EFFECTS.bff (
+IF NOT EXIST "%_S2U_DIR%\Pakfiles\Dir\EFFECTS.bff" (
   SET _MSG=- Patch v1.02 ^(aka Legends and Speedhunters DLC^) not installed? -- aborting...
   GOTO die
 )
  
 :: check for the unpacking tool before we start
 
-IF NOT EXIST %_CWD%quickbms.exe (
-  SET _MSG=- No quickbms.exe S2U unpack tool found in %_CWD% -- aborting...
+IF NOT EXIST "%_CWD%\quickbms.exe" (
+  SET _MSG=- No quickbms.exe S2U unpack tool found in "%_CWD%" -- aborting...
   GOTO die
 )
 
-IF NOT EXIST %_CWD%nfsshift.bms (
-  SET _MSG=- No nfsshift.bms S2U BMS script found in %_CWD% -- aborting...
+IF NOT EXIST "%_CWD%\nfsshift.bms" (
+  SET _MSG=- No nfsshift.bms S2U BMS script found in "%_CWD%" -- aborting...
   GOTO die
 )
 
 @ECHO + quickbms tool found in:
-@ECHO %_CWD% -- good.
+@ECHO  "%_CWD%" -- good.
 @ECHO.
 @ECHO During this process, around 1000 SHIFT 2: Unleashed BFF files are going
 @ECHO to be unpacked, which will take a while and take up approximately 6 GB
@@ -124,9 +128,10 @@ SET DUMMYOUT=COPY /V /Y dummy.bff
 
 SET _VER=S2U_Unpacked_version
 SET _INSTALL_DIR=MODS\%_VER%
-SET _TARGET=%_CWD%%_INSTALL_DIR%
+SET _TARGET="%_CWD%\%_INSTALL_DIR%"
 SET _OUTPUTLOG=unpack_log.txt
 
+CALL :DeQuote _TARGET
 
 :unpack
 pause
@@ -142,9 +147,9 @@ REM goto prune
 
 :: Ensure that the output folder exists
 
-IF NOT EXIST %_TARGET% (
-  SET _MSG=- Could not create folder %_TARGET% -- aborting...
-  MKDIR %_TARGET% || GOTO die
+IF NOT EXIST "%_TARGET%" (
+  SET _MSG=- Could not create folder "%_TARGET%" -- aborting...
+  MKDIR "%_TARGET%" || GOTO die
 )
 
 :: Ensure that BFF_index folders exist 
@@ -152,9 +157,9 @@ IF NOT EXIST %_TARGET% (
 
 FOR %%I IN ( Dir Drivers Tracks\Organisers Vehicles ) DO (
 
-  IF NOT EXIST %_CWD%BFF_index\Pakfiles\%%I (
-    SET _MSG=- Could not create folder %_CWD%BFF_index\Pakfiles\%%I -- aborting...
-    MKDIR %_CWD%BFF_index\Pakfiles\%%I || GOTO die
+  IF NOT EXIST "%_CWD%\BFF_index\Pakfiles\%%I" (
+    SET _MSG=- Could not create folder "%_CWD%\BFF_index\Pakfiles\%%I" -- aborting...
+    MKDIR "%_CWD%\BFF_index\Pakfiles\%%I" || GOTO die
   )
 )
 
@@ -1197,7 +1202,7 @@ Pakfiles\Vehicles\VW_Scirocco_Cockpit.bff
 @ECHO ++ Unpacking ...
 SET _MSG=- Could not unpack %%G -- aborting...
 REM Save the quickbms unpacking output to a file instead of showing it on screen
-%UNPACK% %%G %_INSTALL_DIR% >> %_OUTPUTLOG% 2>&1 || GOTO die
+%UNPACK% %%G "%_INSTALL_DIR%" >> %_OUTPUTLOG% 2>&1 || GOTO die
 
 @ECHO ++ Creating index file ...
 SET _MSG=- Could not create BFF index file BFF_index\%%G___.txt -- aborting...
@@ -1207,7 +1212,7 @@ REM and list the contents of the BFF and save to a file
 
 @ECHO ++ Dummying out ...
 SET _MSG=- Could not dummy out %%G -- aborting...
-CALL :copy_subroutine %_INSTALL_DIR%\%%G
+CALL :copy_subroutine "%_INSTALL_DIR%\%%G"
 
 SET /A _BFFCOUNT+=1
 @ECHO.
@@ -1225,7 +1230,7 @@ IF NOT EXIST %_DIR% (
   SET _MSG=- Could not create %_DIR% -- aborting...
   MKDIR %_DIR% || GOTO die
 )
-%DUMMYOUT% %_CWD%%1 || GOTO die 
+%DUMMYOUT% "%_CWD%\%1" || GOTO die 
 REM Note that 'GOTO eof' simply means 'subroutine has finished'
 GOTO eof
 
@@ -1238,7 +1243,7 @@ GOTO eof
 @ECHO.
 
 SET _MSG=- Could not prune the list of dummied out BFF files -- aborting...
-DEL /S /Q %_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff || GOTO die
+DEL /S /Q "%_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff" || GOTO die
 @ECHO.
 
 :: Disable the TXT files that makes the game crash when cars have body kits
@@ -1249,7 +1254,7 @@ DEL /S /Q %_INSTALL_DIR%\Pakfiles\vehicles\*_Livery.bff || GOTO die
 @ECHO + Moving ^*_kt.txt files to ^*_kt.txt.disabled ...
 @ECHO.
 
-FOR /F "tokens=*" %%G IN ('DIR /S /B %_INSTALL_DIR%\vehicles\*_kt.txt') DO (
+FOR /F "tokens=*" %%G IN ('DIR /S /B "%_INSTALL_DIR%\vehicles\*_kt.txt"') DO (
 @ECHO + Disabling "%%G" ...
 SET _MSG=- Could not disable "%%G" -- aborting...
 MOVE /Y "%%G" "%%G".disabled || GOTO die
@@ -1258,7 +1263,7 @@ MOVE /Y "%%G" "%%G".disabled || GOTO die
 
 @ECHO + Moving ^*_kct.txt files to ^*_kct.txt.disabled ...
 @ECHO.
-FOR /F "tokens=*" %%G IN ('DIR /S /B %_INSTALL_DIR%\vehicles\*_kct.txt') DO (
+FOR /F "tokens=*" %%G IN ('DIR /S /B "%_INSTALL_DIR%\vehicles\*_kct.txt"') DO (
 
 @ECHO + Disabling "%%G" ...
 SET _MSG=- Could not disable "%%G" -- aborting...
@@ -1267,19 +1272,19 @@ MOVE /Y "%%G" "%%G".disabled || GOTO die
 @ECHO.
 
 @ECHO + Setting up automagical JSGME TOCFiles handling...
-IF NOT EXIST %_INSTALL_DIR%\TOCFiles (
-  MKDIR %_INSTALL_DIR%\TOCFiles
+IF NOT EXIST "%_INSTALL_DIR%\TOCFiles" (
+  MKDIR "%_INSTALL_DIR%\TOCFiles"
 )
-@ECHO. > %_INSTALL_DIR%\TOCFiles\DirPaks.toc-remove
-@ECHO. > %_INSTALL_DIR%\TOCFiles\VehicleLiveries.toc-remove
+@ECHO. > "%_INSTALL_DIR%\TOCFiles\DirPaks.toc-remove"
+@ECHO. > "%_INSTALL_DIR%\TOCFiles\VehicleLiveries.toc-remove"
 
 :: Create (and hide) a "Kilroy Was Here" stamp that the UCP install script can check for
 :: to ensure that lusers who are too cool to read the fine manual don't go
 :: asking for support before they have been reminded to read the install instructions.
 
-IF NOT EXIST %_INSTALL_DIR%\_RTFM_.txt (
-  @ECHO Killroy Was Here. If you remove this file, you won't be able to make the UCP install script run. > %_INSTALL_DIR%\_RTFM_.txt
-  ATTRIB +H %_INSTALL_DIR%\_RTFM_.txt
+IF NOT EXIST "%_INSTALL_DIR%\_RTFM_.txt" (
+  @ECHO Killroy Was Here. If you remove this file, you won't be able to make the UCP install script run. > "%_INSTALL_DIR%\_RTFM_.txt"
+  ATTRIB +H "%_INSTALL_DIR%\_RTFM_.txt"
 )
 
 :finished
@@ -1299,14 +1304,37 @@ SET _MSG=+ Unpacked %_BFFCOUNT% BFF files, started at %_UNPACK_START%, finished 
 @ECHO.
 @ECHO   %_TARGET%
 @ECHO.
-@ECHO   The unpacked S2U version should now be activated with the JSGME tool, 
-@ECHO   which will obviously take a while as it needs move a lot of files around,
+@ECHO   The next step is to activate the S2U Unpacked version that you just built,
+@ECHO   using the JSGME tool.
+@ECHO.
+@ECHO   Activating the S2U Unpacked version can take up to *30 minutes*, during
+@ECHO   which JSGME may be flagged as 'Not Responding' by Windows. This is per
+@ECHO   design, as JSGME needs to move a lot of files around for backup purposes,
 @ECHO   so please be patient during the activation process.
 @ECHO.
 @ECHO   --The Authors
 @ECHO.
 
 GOTO exit
+
+
+:: DeQuote function -- very useful
+:DeQuote
+ FOR %%G IN (%*) DO (
+ SET DeQuote.Variable=%%G
+ CALL SET DeQuote.Contents=%%!DeQuote.Variable!%%
+ IF [!DeQuote.Contents:~0^,1!]==[^"] (
+ IF [!DeQuote.Contents:~-1!]==[^"] (
+ SET DeQuote.Contents=!DeQuote.Contents:~1,-1!
+ ) ELSE (GOTO :EOF no end quote)
+ ) ELSE (GOTO :EOF no beginning quote)
+ SET !DeQuote.Variable!=!DeQuote.Contents!
+ SET DeQuote.Variable=
+ SET DeQuote.Contents=
+ )
+ GOTO :EOF
+ :: Copied from http://ss64.com/nt/syntax-dequote.html
+ :::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 :die
