@@ -1,7 +1,7 @@
 @ECHO OFF
 CLS
 
-:: This script is Copyright (c) ermo 2011-2012 and is distributed under the
+:: This script is Copyright (c) ermo 2011-2013 and is distributed under the
 :: Creative Commons Attribution-NonCommercial-ShareAlike unported v3.0 license,
 :: which can be read in full at http://creativecommons.org/licenses/by-nc-sa/3.0/
 ::
@@ -22,7 +22,7 @@ CLS
 SETLOCAL EnableDelayedExpansion
 
 SET _TIME=%TIME%
-SET _VER=NoGrip_UCP_v1.1-pre1.0.99f
+SET _VER=NoGrip_UCP_v1.1-pre1.0.99g
 
 @ECHO.
 @ECHO NFS SHIFT 2: Unleashed -- Unofficial Community Patch install script
@@ -57,13 +57,18 @@ GOTO exit
 
 SET _CWD="%~dp0"
 
+:: Get rid of any weird quoting in the path
+:: -- this subroutine will be used all the time in the rest of the script
+
+CALL :DeQuote _CWD
+
 :: This is necessary when the script is run as administrator
 :: cd /d also switches drive as appropriate
 
 IF "%CD%"=="%windir%\system32" (
   @ECHO + Looks like we were run as administrator ...
   @ECHO.
-  CD /D %_CWD%
+  CD /D "%_CWD%"
 )
 
 :: Now we should definitely be in the correct folder, 
@@ -74,7 +79,7 @@ IF "%CD%"=="%windir%\system32" (
   @ECHO - Current working folder is:
   @ECHO  "%CD%"
   @ECHO - It is supposed to be:
-  @ECHO  %_CWD%
+  @ECHO  "%_CWD%"
 
   SET _MSG=- Aborting install because we won't be able to inject properly. Sorry.
 
@@ -82,7 +87,7 @@ IF "%CD%"=="%windir%\system32" (
 )
 
 @ECHO + Working folder is:
-@ECHO %_CWD% -- good.
+@ECHO  "%_CWD%" -- good.
 @ECHO.
 
 :: ensure the S2U install folder was specified as the first argument
@@ -91,7 +96,7 @@ IF "%CD%"=="%windir%\system32" (
 :: To begin with, be opportunistic and assume that we are run
 :: from the S2U install folder
 
-SET _S2U_DIR=%_CWD%
+SET _S2U_DIR="%_CWD%"
 
 :: If a parameter was supplied to the script, use that instead
 
@@ -99,46 +104,48 @@ IF NOT [%1]==[] (
   SET _S2U_DIR="%1"
 )
 
-IF NOT EXIST %_S2U_DIR%\SHIFT2U.exe (
-  SET _MSG=- No SHIFT2U.exe file found in %_S2U_DIR% !
+CALL :DeQuote _S2U_DIR
+
+IF NOT EXIST "%_S2U_DIR%\SHIFT2U.exe" (
+  SET _MSG=- No SHIFT2U.exe file found in "%_S2U_DIR%" ^!
   GOTO help
 )
 
 @ECHO + Found SHIFT2U.exe in:
-@ECHO %_S2U_DIR% -- good.
+@ECHO  "%_S2U_DIR%" -- good.
 @ECHO.
 
 :: check for the unpacking tool before we start
 
-IF NOT EXIST %_CWD%quickbms.exe (
-  SET _MSG=- No quickbms.exe S2U unpack tool found in %_CWD% -- aborting!
+IF NOT EXIST "%_CWD%\quickbms.exe" (
+  SET _MSG=- No quickbms.exe S2U unpack tool found in "%_CWD%" -- aborting^!
   GOTO die
 )
 
-IF NOT EXIST %_CWD%nfsshift.bms (
-  SET _MSG=- No nfsshift.bms S2U BMS script found in %_CWD% -- aborting!
+IF NOT EXIST "%_CWD%\nfsshift.bms" (
+  SET _MSG=- No nfsshift.bms S2U BMS script found in "%_CWD%" -- aborting^!
   GOTO die
 )
 
 @ECHO + quickbms tool found in:
-@ECHO %_CWD% -- good.
+@ECHO  "%_CWD%" -- good.
 @ECHO.
 
 :: check for the injector tool before we start
 
-IF NOT EXIST %_CWD%NFSSInjector.exe (
-  SET _MSG=- No NFSSInjector.exe tool found in %_CWD% -- aborting!
+IF NOT EXIST "%_CWD%\NFSSInjector.exe" (
+  SET _MSG=- No NFSSInjector.exe tool found in "%_CWD%" -- aborting!
   GOTO die
 )
 
 @ECHO + NFSSInjector.exe tool found in:
-@ECHO %_CWD% -- good.
+@ECHO  "%_CWD%" -- good.
 @ECHO.
 
 :: check for the existence of \MODS\S2U_Unpacked_version and point people towards the
 :: install instructions if it doesn't exist
 
-IF NOT EXIST %_CWD%MODS\S2U_Unpacked_version\_RTFM_.txt (
+IF NOT EXIST "%_CWD%MODS\S2U_Unpacked_version\_RTFM_.txt" (
   SET _MSG=- \MODS\S2U_Unpacked_version\ wasn^'t found^? Did you Read The Fine Manual^?
   GOTO die
 )
@@ -146,24 +153,39 @@ IF NOT EXIST %_CWD%MODS\S2U_Unpacked_version\_RTFM_.txt (
 :: check that people activated \MODS\S2U_Unpacked_version and point them towards the
 :: install instructions if hasn't been activated
 
-IF NOT EXIST %_CWD%_RTFM_.txt (
+IF NOT EXIST "%_CWD%_RTFM_.txt" (
   SET _MSG=- S2U_Unpacked_version wasn^'t activated^? Did you Read The Fine Manual^?
   GOTO die
 )
 
 :: Set up commands
 
+:: xcopy is not available on Windows 8 and later - robocopy is not available on Windows XP and earlier
+:: -- prefer robocopy over xcopy
+:: note that %windir%\system32\ will always lead to the correct version on both 32bit and 64bit Windows
+::
+:: Moreover, notice that the built-in copy command does not automatically create folders, which
+:: is why we need to use either xcopy or robocopy which DO create folders. Sheesh.
+::
+SET XCOPY=@ECHO XCOPY is unset! -- not copying^:
+IF EXIST %WINDIR%\System32\xcopy.exe SET XCOPY=%WINDIR%\System32\xcopy.exe /S /I /Y /V
+IF EXIST %WINDIR%\System32\robocopy.exe SET XCOPY=%WINDIR%\System32\robocopy.exe /S
+SET COPY=copy /B /V /Y
 SET INJECT=NFSSInjector.exe
 SET UNPACK=quickbms.exe -o nfsshift.bms
-SET XCOPY=xcopy /s /i /y /v /q
 
 :: Set up paths
 
 SET _ASSETS=UCP_modified_assets
-SET _INSTALL_DIR=MODS\%_VER%_JSGME_install
-SET _TARGET=%_CWD%%_INSTALL_DIR%
-SET _SRC=%_CWD%%_ASSETS%
 
+SET _INSTALL_DIR=MODS\%_VER%_JSGME_install
+CALL :DeQuote _INSTALL_DIR
+
+SET _TARGET="%_CWD%%_INSTALL_DIR%"
+CALL :DeQuote _TARGET
+
+SET _SRC="%_CWD%%_ASSETS%"
+CALL :DeQuote _SRC
 
 :prepare
 
@@ -172,15 +194,16 @@ SET _SRC=%_CWD%%_ASSETS%
 :: directly into the S2U installation folder as well.
 
 @ECHO + Preparing JSGME compatible UCP mod installation folder in:
-@ECHO %_TARGET%
+@ECHO.
+@ECHO  "%_TARGET%"
 @ECHO.
 @ECHO                                   (Press CTRL+C to quit now)
 pause
 @ECHO.
 
-IF NOT EXIST %_TARGET% (
-  SET _MSG=- Could not create folder %_TARGET% -- aborting!
-  MKDIR %_TARGET% || GOTO die
+IF NOT EXIST "%_TARGET%" (
+  SET _MSG=- Could not create folder "%_TARGET%" -- aborting!
+  MKDIR "%_TARGET%" || GOTO die
 )
 
 :: Getting a sense of how long it takes to prepare may be useful to users
@@ -190,11 +213,18 @@ SET _PREP_START=%TIME%
 :: DLC1 various track fixes (for injection)
 
 SET _DIR=DLC1\Pakfiles\Tracks
-SET _SRC=%_S2U_DIR%\%_DIR%
-SET _DEST=%_TARGET%\%_DIR%\
-SET _MSG=- Couldn't copy files from %_SRC% -- aborting!
-if exist %_SRC% (
-  @ECHO + Copying files from %_SRC% ...
+SET _SRC="%_S2U_DIR%\%_DIR%"
+SET _DEST="%_TARGET%\%_DIR%\"
+CALL :DeQuote _SRC _DEST
+SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting!
+
+IF NOT EXIST "%_DEST%" (
+  SET _MSG=- Could not create folder "%_DEST%" -- aborting!
+  MKDIR "%_DEST%" || GOTO die
+)
+
+if exist "%_SRC%" (
+  @ECHO + Copying files from "%_SRC%" ...
   @ECHO.
   FOR %%F in (
   hockenheim_era2.bff
@@ -203,7 +233,7 @@ if exist %_SRC% (
   silverstone_era2.bff
   ) DO (
   @ECHO %%F
-  %XCOPY% %_SRC%\%%F %_DEST% || GOTO die 
+  %COPY% "%_SRC%\%%F" "%_DEST%" 2>&1 > NUL || GOTO die 
   )
 )
 @ECHO.
@@ -211,11 +241,18 @@ if exist %_SRC% (
 :: DLC2 various track fixes (for injection)
 
 SET _DIR=DLC2\Pakfiles\Tracks
-SET _SRC=%_S2U_DIR%\%_DIR%
-SET _DEST=%_TARGET%\%_DIR%\
-SET _MSG=- Couldn't copy files from %_SRC% -- aborting!
-if exist %_SRC% (
-  @ECHO + Copying files from %_SRC% ...
+SET _SRC="%_S2U_DIR%\%_DIR%"
+SET _DEST="%_TARGET%\%_DIR%\"
+CALL :DeQuote _SRC _DEST
+SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting!
+
+IF NOT EXIST "%_DEST%" (
+  SET _MSG=- Could not create folder "%_DEST%" -- aborting!
+  MKDIR "%_DEST%" || GOTO die
+)
+
+if exist "%_SRC%" (
+  @ECHO + Copying files from "%_SRC%" ...
   @ECHO.
   FOR %%F in (
   asia_drag_strip.bff
@@ -226,7 +263,7 @@ if exist %_SRC% (
   usa_drag_strip2.bff
   ) DO (
   @ECHO %%F
-  %XCOPY% %_SRC%\%%F %_DEST% || GOTO die
+  %COPY% "%_SRC%\%%F" "%_DEST%" 2>&1 > NUL || GOTO die
   )
 )
 @ECHO.
@@ -236,8 +273,15 @@ if exist %_SRC% (
 SET _DIR=Pakfiles\Tracks
 SET _SRC=%_S2U_DIR%\%_DIR%
 SET _DEST=%_TARGET%\%_DIR%\
-SET _MSG=- Couldn't copy files from %_SRC% -- aborting!
-@ECHO + Copying files from %_SRC% ...
+CALL :DeQuote _SRC _DEST
+SET _MSG=- Couldn't copy files from "%_SRC%" -- aborting!
+
+IF NOT EXIST "%_DEST%" (
+  SET _MSG=- Could not create folder "%_DEST%" -- aborting!
+  MKDIR "%_DEST%" || GOTO die
+)
+
+@ECHO + Copying files from "%_SRC%" ...
 @ECHO.
 FOR %%F in (
 Tokyo_Circuit_Night.bff
@@ -326,7 +370,7 @@ Hazyview_Oval.bff
 Hockenheim_National.bff
 ) DO (
 @ECHO %%F
-%XCOPY% %_SRC%\%%F %_DEST% || GOTO die
+%COPY% "%_SRC%\%%F" "%_DEST%" 2>&1 > NUL || GOTO die
 )
 @ECHO.
 
@@ -344,17 +388,17 @@ SET _PREP_FINISH=%TIME%
 :: Ensure that we're on the correct drive and in the correct folder
 :: when injecting; better safe than sorry and all that jazz...
 
-CD /D %_CWD%
+CD /D "%_CWD%"
 
 @ECHO.
 @ECHO + Ready to inject modified assets into the packed files in:
 @ECHO.
-@ECHO   %_TARGET%\Pakfiles ...
+@ECHO   "%_TARGET%\Pakfiles" ...
 @ECHO.
 REM pause 
 @ECHO. 
 
-SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packed %_INSTALL_DIR% :
+SET _MSG=+ Going to run NFSSInjector.exe -i "%_ASSETS%\packed" "%_INSTALL_DIR%" :
 @ECHO %_MSG%
 @ECHO.
 
@@ -362,14 +406,14 @@ SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packed %_INSTALL_DIR% :
 
 SET _INJECT_START=%TIME%
 
-if exist %_ASSETS%\packed (
-  %INJECT% -i %_ASSETS%\packed %_INSTALL_DIR% || GOTO die
+if exist "%_ASSETS%\packed" (
+  %INJECT% -i "%_ASSETS%\packed" "%_INSTALL_DIR%" || GOTO die
   @ECHO.
 ) else (
   @ECHO - Current working folder is:
   @ECHO  "%CD%"
   @ECHO - It is supposed to be:
-  @ECHO  %_CWD%
+  @ECHO  "%_CWD%"
   @ECHO.
   @ECHO - Hm. This is not supposed to happen.
   @ECHO.
@@ -383,19 +427,19 @@ if exist %_ASSETS%\packed (
   GOTO die
 )
 
-if exist %_INSTALL_DIR%\DLC1 (
-  SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packedDLC1 %_INSTALL_DIR%\DLC1 :
+if exist "%_INSTALL_DIR%\DLC1" (
+  SET _MSG=+ Going to run NFSSInjector.exe -i "%_ASSETS%\packedDLC1" "%_INSTALL_DIR%\DLC1" :
   @ECHO %_MSG%
   @ECHO.
-  %INJECT% -i %_ASSETS%\packedDLC1 %_INSTALL_DIR%\DLC1 || GOTO die
+  %INJECT% -i "%_ASSETS%\packedDLC1" "%_INSTALL_DIR%\DLC1" || GOTO die
   @ECHO.
 )
 
-if exist %_INSTALL_DIR%\DLC2 (
-  SET _MSG=+ Going to run NFSSInjector.exe -i %_ASSETS%\packedDLC2 %_INSTALL_DIR%\DLC2 :
+if exist "%_INSTALL_DIR%\DLC2" (
+  SET _MSG=+ Going to run NFSSInjector.exe -i "%_ASSETS%\packedDLC2" "%_INSTALL_DIR%\DLC2" :
   @ECHO %_MSG%
   @ECHO.
-  %INJECT% -i %_ASSETS%\packedDLC2 %_INSTALL_DIR%\DLC2 || GOTO die
+  %INJECT% -i "%_ASSETS%\packedDLC2" "%_INSTALL_DIR%\DLC2" || GOTO die
   @ECHO.
 )
 
@@ -409,27 +453,63 @@ SET _INJECT_FINISH=%TIME%
 
 :: Now copy in the UCP unpacked modified assets
 
-SET _SRC=%_CWD%%_ASSETS%\unpacked
-SET _DEST=%_TARGET%
-SET "_MSG=+ Copying modified files from %_ASSETS%\unpacked to the installation folder:"
+SET _SRC="%_CWD%%_ASSETS%\unpacked"
+SET _DEST="%_TARGET%"
+CALL :DeQuote _SRC _DEST
+SET _MSG=+ Copying UCP assets from "%_ASSETS%\unpacked" to install folder:
 @ECHO %_MSG%
-@ECHO  %_TARGET%
-cd /d %_CWD%
-%XCOPY% %_SRC% %_DEST% || GOTO die 
+@ECHO.
+@ECHO  "%_TARGET%"
+cd /d "%_CWD%"
+@ECHO.
+%XCOPY% "%_SRC%" "%_DEST%" 2>&1 > xcopy.log
+SET _RV=%ERRORLEVEL%
+
+:: Right, robocopy uses a return code bitmask to indicate status, which means that the usual
+:: "|| goto die" idiom doesn't work. *sigh* ...
+
+IF "%_RV%"=="1" (
+  IF "%XCOPY%"=="%WINDIR%\System32\robocopy.exe /S" (
+    goto finished 
+  ) ELSE (
+  @ECHO.
+  @ECHO - Asset copy exited with status %_RV%
+  @ECHO -- check the log in "%_CWD%\xcopy.log"
+  goto die
+  )
+)
+
+IF "%_RV%"=="0" (
+  IF "%XCOPY%"=="%WINDIR%\System32\xcopy.exe /S /I /Y /V" (
+    goto finished
+  )
+  ELSE (
+  @ECHO.
+  @ECHO - Asset copy exited with status %_RV%
+  @ECHO -- check the log in "%_CWD%\xcopy.log"
+  @ECHO.
+  goto die
+  )
+)
 
 
 :finished
 
+:: get rid of xcopy.log -- it is only useful when stuff goes awry
+IF EXIST "%_CWD%\xcopy.log" del "%_CWD%\xcopy.log" 2>&1 > NUL
+
 @ECHO.
 @ECHO + This UCP install script run started at %_TIME% and finished at %TIME%
 @ECHO.
-@ECHO + Successfully prepared the %_VER% JSGME installation folder in:
+@ECHO + Successfully prepared the UCP JSGME installation folder in:
 @ECHO.
-@ECHO %_TARGET%
+@ECHO  "%_TARGET%"
 @ECHO.
-@ECHO   The UCP should now be activated with the JSGME tool, which will
-@ECHO   take a little while as it needs to move a lot of files around, so
-@ECHO   please be patient during the activation process.
+@ECHO   The next step is to activate the UCP version that you just built,
+@ECHO   using the JSGME tool.
+@ECHO.
+@ECHO   Activating the UCP will take a little while as it needs to move a lot
+@ECHO   of files around, so please be patient during the activation process.
 @ECHO.
 @ECHO.  -- The Authors
 @ECHO.
@@ -438,6 +518,24 @@ REM @ECHO. + Injection phase     : from %_INJECT_START% to %_INJECT_FINISH%
 REM @ECHO.
 
 GOTO exit
+
+:: DeQuote function -- it simply removes all quotes in a variable, which is very useful
+:DeQuote
+ FOR %%G IN (%*) DO (
+ SET DeQuote.Variable=%%G
+ CALL SET DeQuote.Contents=%%!DeQuote.Variable!%%
+ IF [!DeQuote.Contents:~0^,1!]==[^"] (
+ IF [!DeQuote.Contents:~-1!]==[^"] (
+ SET DeQuote.Contents=!DeQuote.Contents:~1,-1!
+ ) ELSE (GOTO :EOF no end quote)
+ ) ELSE (GOTO :EOF no beginning quote)
+ SET !DeQuote.Variable!=!DeQuote.Contents!
+ SET DeQuote.Variable=
+ SET DeQuote.Contents=
+ )
+ GOTO :EOF
+ :: Copied from http://ss64.com/nt/syntax-dequote.html
+ :::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 :die
