@@ -264,7 +264,6 @@ Pakfiles\Vehicles\AUDI_TT.bff
 Pakfiles\Vehicles\Austin_Mini_Cooper.bff
 Pakfiles\Vehicles\Bentley_Continental.bff
 Pakfiles\Vehicles\BMW_135.bff
-Pakfiles\Vehicles\BMW_135_Livery.bff
 Pakfiles\Vehicles\BMW_CSL_Gr4.bff
 Pakfiles\Vehicles\BMW_M1.bff
 Pakfiles\Vehicles\BMW_M3_E30.bff
@@ -413,7 +412,6 @@ Pakfiles\Vehicles\Alfa_Romeo_8C_KC03.bff
 Pakfiles\Vehicles\Alfa_Romeo_8C_KC04.bff
 Pakfiles\Vehicles\Alfa_Romeo_8C_KIT03.bff
 Pakfiles\Vehicles\Alfa_Romeo_8C_KIT04.bff
-Pakfiles\Vehicles\Alfa_Romeo_8C_Livery.bff
 Pakfiles\Vehicles\Alfa_Romeo_8C_Spider.bff
 Pakfiles\Vehicles\Alfa_Romeo_8C_Spider_Cockpit.bff
 Pakfiles\Vehicles\Alfa_Romeo_8C_Spider_KC03.bff
@@ -430,6 +428,7 @@ Pakfiles\Vehicles\Alfa_Romeo_Giulietta_KIT02.bff
 Pakfiles\Vehicles\Alfa_Romeo_Giulietta_KIT03.bff
 Pakfiles\Vehicles\Alfa_Romeo_Giulietta_KIT04.bff
 Pakfiles\Vehicles\Alfa_Romeo_GTA_1600_Livery.bff
+Pakfiles\Vehicles\Alfa_Romeo_GTA_1600_Cockpit.bff
 Pakfiles\Vehicles\Alpina_B6_GT3_Livery.bff
 Pakfiles\Vehicles\Alpina_B6_GT3_Cockpit.bff
 Pakfiles\Vehicles\Aston_Martin_DB9_Cockpit.bff
@@ -448,7 +447,6 @@ Pakfiles\Vehicles\Aston_Martin_DBS_Volante_KC03.bff
 Pakfiles\Vehicles\Aston_Martin_DBS_Volante_KC04.bff
 Pakfiles\Vehicles\Aston_Martin_DBS_Volante_KIT03.bff
 Pakfiles\Vehicles\Aston_Martin_DBS_Volante_KIT04.bff
-Pakfiles\Vehicles\Aston_Martin_DBS_Volante_Livery.bff
 Pakfiles\Vehicles\Aston_Martin_V8_Vantage_N400_Cockpit.bff
 Pakfiles\Vehicles\Aston_Martin_V8_Vantage_N400_Livery.bff
 Pakfiles\Vehicles\Aston_Martin_V8_Vantage_N400_KC03.bff
