@@ -8,4 +8,4 @@ The project is in maintenance mode. PRs welcome.
 
 ## Documentation
 
-The documentation lives in the present repository's GH [wiki](https://github.com/ermo/s2u_ucp/wiki].
+The documentation lives in the present repository's GH [wiki](https://github.com/ermo/s2u_ucp/wiki).
