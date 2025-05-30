@@ -4,7 +4,7 @@ Unofficial Community Patch for the game SHIFT 2: Unleashed.
 
 ## Status
 
-The project is in maintenance mode. PRs welcome.
+The project is in maintenance-only mode. PRs welcome.
 
 ## Documentation
 
