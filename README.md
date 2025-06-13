@@ -4,7 +4,7 @@ Unofficial Community Patch for the game SHIFT 2: Unleashed.
 
 ## Download
 
-Click the Tags UI element on GitHub, then click the .zip UI element for the newest tag.
+https://github.com/ermo/s2u_ucp/tags
 
 ## Status
 
