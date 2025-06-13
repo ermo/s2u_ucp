@@ -2,6 +2,10 @@
 
 Unofficial Community Patch for the game SHIFT 2: Unleashed.
 
+## Download
+
+Click the Tags UI element on GitHub, then click the .zip UI element for the newest tag.
+
 ## Status
 
 The project is in maintenance-only mode. PRs welcome.
